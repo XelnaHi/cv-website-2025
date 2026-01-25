@@ -79,12 +79,6 @@ My two current on-going projects are related to game development and an embedded
         <p className="text-lg font-sans text-muted-foreground  leading-relaxed mb-4">
 Admittedly, most of my time is currently spent in front of the computer, even when I'm noodling on the ol' guitar. When I'm not, however, I do very much enjoy spending time touching grass. I love being close to nature and animals have always been a big part of my life and one day I even hope to be able to get a dog - but that's gonna have to wait.        </p>
 
-                <p className="text-lg font-sans text-muted-foreground  leading-relaxed mb-4">
-For the time being, my one and only goal is to get a job. So, if you're reading this, and you're on the lookout for a highly motivated junior developer who loves to be of help whenever or wherever I can, then you've hopefully struck gold reading this!                </p>
-                <p className="text-lg font-sans text-muted-foreground  leading-relaxed mb-4">
-                  And I hope you reach out!
-                </p>
-
   <LogoGrid/>
       </section>
 
