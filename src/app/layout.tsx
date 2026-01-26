@@ -69,7 +69,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${sora.variable} ${firaCode.variable} ${lato.variable} antialiased`}>
-        <Navbar/>
+        {/* <Navbar/> */}
         <div className="min-h-screen flex flex-col">
          <main className="flex-1">
           {children}
