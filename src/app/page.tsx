@@ -69,7 +69,8 @@ export default function Home() {
 
       </div>
       <EmptyContentSection>
-        <div className="grid grid-cols-1 gap-20 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4
+         auto-rows-fr">
           <ProjectCard description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electr"
             img='/assets/GP1Thumbnail.png'
             imgAlt='image alt' linkTo='google.com'
@@ -82,6 +83,14 @@ export default function Home() {
             title='Once Upon A Time'
             teamSize={5}
             status={Status.Finished}
+          />
+          <ProjectCard description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry' s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electr "
+            img='/assets/GP1Thumbnail.png'
+            imgAlt='image alt'
+            linkTo='google.com'
+            title='Title'
+            teamSize={5}
+            status={Status.InProgress}
           />
           <ProjectCard description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry' s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electr "
             img='/assets/GP1Thumbnail.png'
