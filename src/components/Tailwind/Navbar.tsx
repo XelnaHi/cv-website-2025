@@ -13,6 +13,7 @@ interface NavbarProps {
   navigation: NavItem[]
 }
 
+
 export function Navbar({ navigation }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 

@@ -6,20 +6,12 @@ import { EmptyContentSection } from '@/components/Tailwind/EmptyContentSection'
 import { Status } from '@/Enums/Status'
 import { AboutSection } from '@/components/Tailwind/AboutSection'
 import { TestimonialsSection } from '@/components/Tailwind/TestimonialComponent'
-import { Navbar } from '@/components/Tailwind/Navbar'
 
-const navigation = [
-  { name: 'Product', href: '#' },
-  { name: 'Features', href: '#' },
-  { name: 'Marketplace', href: '#' },
-  { name: 'Company', href: '#' },
-]
 
 export default function Home() {
 
   return (
     <div className="bg-gray-900">
-      <Navbar navigation={navigation} />
 
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div
@@ -73,32 +65,33 @@ export default function Home() {
          auto-rows-fr">
           <ProjectCard description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electr"
             img='/assets/GP1Thumbnail.png'
-            imgAlt='image alt' linkTo='google.com'
+            imgAlt='image alt' 
             title='Somnium' teamSize={5} status={Status.InProgress}
+            slug='somnium'
           />
           <ProjectCard description="Lorem Ipsum is simply dummy text of the printing Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electrand typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electr"
             img='/assets/GP1Thumbnail.png'
             imgAlt='image alt'
-            linkTo='google.com'
             title='Once Upon A Time'
             teamSize={5}
             status={Status.Finished}
+            slug='once-upon-a-time'
           />
           <ProjectCard description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry' s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electr "
             img='/assets/GP1Thumbnail.png'
             imgAlt='image alt'
-            linkTo='google.com'
             title='Title'
             teamSize={5}
             status={Status.InProgress}
+            slug='test-title-project'
           />
           <ProjectCard description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry' s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electr "
             img='/assets/GP1Thumbnail.png'
             imgAlt='image alt'
-            linkTo='google.com'
             title='Title'
             teamSize={5}
             status={Status.InProgress}
+            slug='test-title-project-2'
           />
         </div>
       </EmptyContentSection>
