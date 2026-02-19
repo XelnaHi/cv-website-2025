@@ -27,7 +27,7 @@ export const projects: Project[] = [
     role: "Gameplay Programmer",
     slug: "somnium",
     title: "Somnium",
-    description: "Long detailed description here...",
+    description: "Short detailed description here...",
     img: "/assets/GP1Thumbnail.png",
     imgAlt: "default img alt text",
     teamSize: 5,

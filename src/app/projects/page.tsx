@@ -14,7 +14,6 @@ const navigation = [
 ]
 
 export default function ProjectsPage() {
-  // track which categories are open
   const [openCategories, setOpenCategories] = useState<Record<string, boolean>>({})
 
   const toggleCategory = (category: string) => {
@@ -24,7 +23,6 @@ export default function ProjectsPage() {
     }))
   }
 
-  // get unique categories from projects
   const categories = Array.from(new Set(projects.map(p => p.category)))
 
   return (
@@ -38,10 +36,9 @@ export default function ProjectsPage() {
 
         return (
           <div key={category} className="mb-8">
-            {/* Header / Dropdown */}
             <button
               onClick={() => toggleCategory(category)}
-              className="w-full flex justify-between items-center bg-gray-800 px-4 py-3 rounded-lg text-left hover:bg-gray-700 transition-colors"
+              className="w-full flex justify-between hover:cursor-pointer items-center bg-gray-800 px-4 py-3 rounded-lg text-left hover:bg-gray-700 transition-colors"
             >
               <span className="text-xl font-semibold text-white capitalize">{category}</span>
               {isOpen ? (
@@ -51,7 +48,6 @@ export default function ProjectsPage() {
               )}
             </button>
 
-            {/* Collapsible Grid */}
             <div
               className={`overflow-hidden transition-[max-height] duration-500 ease-out`}
               style={{

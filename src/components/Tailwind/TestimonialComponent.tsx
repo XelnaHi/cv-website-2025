@@ -7,27 +7,25 @@ type Testimonial = {
   role: string
   avatar: string
   content: string
+  link: string
 }
 
 const testimonials: Testimonial[] = [
   {
-    name: 'Alex Johnson',
-    role: 'Lead Designer at GameStudioX',
+    name: 'Nihad Subasic',
+    role: 'Examiner & Lecturer at KTH Royal Insititue of Technology',
     avatar: '/assets/testimonial1.jpg',
-    content: "Teodor is an absolute wizard at gameplay systems. He consistently delivers smooth, immersive experiences that elevate the player’s journey.",
+    content: "\"Teo has demonstrated a scientific and analytical approach, delivering a professional thesis report. /.../ The work reflects the maturity of a fully qualified engineer and he is highly recommended to any employer.\"",
+      link: "https://www.kth.se/profile/subasic/"
   },
   {
-    name: 'Maria Lopez',
-    role: 'Producer at IndieGamesCo',
+    name: 'Robin Kamo',
+    role: 'Cybersecurity Instructor, Azure MVP',
     avatar: '/assets/testimonial2.jpg',
-    content: "Working with Teodor was a joy. His attention to detail and understanding of player interaction design made our project shine.",
+    content: "\“This is a brilliantly executed analysis that demonstrates both technical expertise and a strong ability to clearly communicate complex concepts. The cyberrisk matrix is both precise and insightful, showing excellent strategic thinking.\"",
+    link: "https://www.linkedin.com/in/kakashidota/"
   },
-  {
-    name: 'James Smith',
-    role: 'AI Programmer at FunLabs',
-    avatar: '/assets/testimonial3.jpg',
-    content: "His systems design skills are top-notch. Teodor’s AI implementations made our gameplay feel alive and engaging.",
-  },
+
 ]
 
 export function TestimonialsSection() {
@@ -38,7 +36,7 @@ export function TestimonialsSection() {
           Testimonials
         </h2>
         <p className="mt-4 text-gray-400 max-w-2xl mx-auto text-lg sm:text-xl/7">
-          Hear what people I’ve worked with have to say about my work in gameplay systems and development.
+          Hear what people I’ve worked with have to say about my work in software development.
         </p>
 
         <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
