@@ -19,11 +19,11 @@ type Props = {
     }>
 }
 
-export default async function ProjectPage({ params }: Props) {
+export default async function GameProjectPage({ params }: Props) {
     const { slug } = await params;
 
     const project = projects.find(
-        (p) => p.slug === slug
+    (p) => p.slug === slug && p.category === "gamejams"
     )
 
     if (!project) return notFound()
