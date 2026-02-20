@@ -29,6 +29,10 @@ export type Project = ProjectCardType & {
   itchLink?: string;
   githubLink?: string;
   responsibilityContent: ProjectResponsibilityContent[];
+  contentTitle: string;
+    customListContent?: {
+    description: string;
+  }[]
 };
 
 export type VideoContentType = {
@@ -62,6 +66,7 @@ export const projects: Project[] = [
     engine: Engine.Unity,
     fullImage: "/assets/GP1_team3_poster.png",
     itchLink: "https://futuregames.itch.io/somnium",
+    contentTitle: "Main Responsibilities",
     responsibilityContent: [
       {
         icon: PiSwordBold,
@@ -87,12 +92,12 @@ export const projects: Project[] = [
     videoContent: [{
       title: "Combat System Breakdown",
       description: "A trailer showcasing the combat system of Somnium.",
-      videoSrc: "https://www.youtube.com/embed/OHQ_v9TGJDY"
+      videoSrc: "https://www.youtube.com/embed/Aq5WXmQQooo"
     },
     {
       title: "Accessibility System Breakdown",
       description: "A trailer showcasing the accessibility features implemented in Somnium, including colorblind modes and control remapping.",
-      videoSrc: "https://www.youtube.com/embed/OHQ_v9TGJDY"
+      videoSrc: "https://www.youtube.com/embed/Aq5WXmQQooo?si=LuWY3dan5sgxaelP"
     },
     ]
   },
@@ -111,6 +116,7 @@ export const projects: Project[] = [
     category: "games",
     engine: Engine.Unity,
     fullImage: "/assets/GP1_team3_poster.png",
+    contentTitle: "Main Responsibilities",
     responsibilityContent: [
       {
         icon: CloudArrowUpIcon,
@@ -134,6 +140,7 @@ export const projects: Project[] = [
     category: "web",
     fullImage: "/assets/web_placeholder2.png",
     githubLink: "https://github.com/TeodorFredriksson95/cv-backend",
+    contentTitle: "Key Features",
     responsibilityContent: [
       {
         icon: CloudArrowUpIcon,
@@ -144,26 +151,43 @@ export const projects: Project[] = [
   },
   {
     responsibilityText: "",
-    preamble: "",
+    preamble: "A robotics side project featuring a custom built, rechargable smart home irrigation system using Arduino, local wifi and C++.",
     role: "Gameplay Programmer",
-    slug: "slug-lorem",
-    title: "Slug Title",
+    slug: "smart-home-irrigation",
+    title: "Smart Home Irrigation System",
     description: "Another long description...",
     img: "/assets/electronics_placeholder3.png",
     imgAlt: "default alt image text",
-    teamSize: 5,
-    status: Status.Finished,
+    teamSize: 1,
+    status: Status.InProgress,
     durationWeeks: "N/A",
     category: "electronics",
-    engine: Engine.Unity,
     fullImage: "/assets/electronics_placeholder3.png",
+    githubLink: "https://github.com/TeodorFredriksson95/Home-Plant-Watering-System",
+    contentTitle: "Current Progress",
     responsibilityContent: [
       {
         icon: CloudArrowUpIcon,
-        title: "Unreal Engine 5",
-        description: "Used Unreal Engine 5 for development of the game."
+        title: "Main Controller.",
+        description: "Used to synchronize the capacitive moisture sensors, water pump and water level sensor via a local API."
+      },
+      {
+        icon: CloudArrowUpIcon,
+        title: "Micro Controller.",
+        description: "Recieves requests from the main controller and checks the current moisture level of the soil."
+      },
+      {
+        icon: CloudArrowUpIcon,
+        title: "Custom-built PCB.",
+        description: "The setup features a custom-build PCB in order to minimize required physical space of the system."
+      },
+      {
+        icon: CloudArrowUpIcon,
+        title: "Protoyped Water Container",
+        description: "A prototyped water supply line from the peristaltic pump to the soil cointainer."
       },
     ],
+
 
   },
 

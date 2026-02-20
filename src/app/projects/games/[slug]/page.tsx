@@ -1,8 +1,8 @@
 
 import { projects } from "@/app/data/projects"
 import { Status } from "@/Enums/Status"
-import { CloudArrowUpIcon, LockClosedIcon, WrenchScrewdriverIcon, ArrowLongLeftIcon } from "@heroicons/react/20/solid"
-import { ServerIcon, UserIcon, Clock } from "lucide-react"
+import { WrenchScrewdriverIcon } from "@heroicons/react/20/solid"
+import { UserIcon, Clock } from "lucide-react"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import VideoContentCard from "@/components/Tailwind/VideoContentCard"
@@ -71,13 +71,15 @@ export default async function GameProjectPage({ params }: Props) {
                                     <UserIcon aria-hidden="true" className="size-5 flex-none text-indigo-400" />
                                     <p className="text-white font-bold">Team Size: {project.teamSize}</p>
                                 </div>
-                                <div className="flex gap-2 flex items-center">
-                                    <Clock aria-hidden="true" className="size-5 flex-none text-indigo-400" />
-                                    <p className="text-white font-bold">Duration: {project.durationWeeks} weeks</p>
-                                </div>
+                                {project.status === Status.Finished && (
+                                    <div className="flex gap-2 flex items-center">
+                                        <Clock aria-hidden="true" className="size-5 flex-none text-indigo-400" />
+                                        <p className="text-white font-bold">Duration: {project.durationWeeks} weeks</p>
+                                    </div>
+                                )}
                                 <div className="flex gap-2 items-center">
                                     <WrenchScrewdriverIcon aria-hidden="true" className="size-5 flex-none text-indigo-400" />
-                                    <p className="text-white font-bold ">Progress: {project.status == Status.Finished ? "Finished" : "In Progress"}</p>
+                                    <p className="text-white font-bold ">{project.status == Status.Finished ? "Finished" : "In Progress"}</p>
                                 </div>
                             </div>
                             <div className="flex flex-row">
@@ -110,10 +112,8 @@ export default async function GameProjectPage({ params }: Props) {
                 <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
                     <div className="lg:pr-4">
                         <div className="max-w-xl text-base/7 text-gray-400 lg:max-w-lg">
-                            {/* <p>
-                                {project.responsibilityText}
-                            </p> */}
-                            <h3 className="text-3xl font-bold text-white tracking-tight text-heading md:text-2xl">Main Responsibilities</h3>
+
+                            <h3 className="text-3xl font-bold text-white tracking-tight text-heading md:text-2xl">{project.contentTitle}</h3>
                             <ul role="list" className="mt-4 space-y-8 text-gray-400">
                                 {project.responsibilityContent.map((item, index) => {
                                     const Icon = item.icon;

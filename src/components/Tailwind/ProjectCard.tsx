@@ -21,9 +21,11 @@ export function ProjectCard(project: ProjectCardType & { category?: string }) {
   "
             >
                 <img className="rounded-t-lg " src={project.img} alt={project.imgAlt} />
-                <div className="mt-4 p-2 flex flex-col flex-grow">
-                    <div className=" flex gap-6 flex-row font-bold text-gray-100 items-center">
+                <div className=" p-2 flex flex-col flex-grow">
+                    <p className="text-white mb-2 font-bold">
                         {project.title}
+                    </p>
+                    <div className=" flex gap-6 flex-row  text-gray-100 items-center">
                         <div className="flex gap-2 flexrow items-center">
                             <UserIcon aria-hidden="true" className="size-5 flex-none text-indigo-400" />
                             <p>{project.teamSize}</p>
