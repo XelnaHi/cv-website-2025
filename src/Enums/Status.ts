@@ -6,5 +6,6 @@ export enum Status {
 export enum Engine {
     Unreal,
     Unity,
-    Godot
+    Godot,
+    None
 }

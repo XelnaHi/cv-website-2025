@@ -6,6 +6,7 @@ import { iconSwitch, renderSwitch } from "@/Utilities/utilityFunctions"
 import { ArrowRightIcon, UserIcon, WrenchScrewdriverIcon } from "@heroicons/react/16/solid"
 import Link from "next/link"
 
+
 export function ProjectCard(project: ProjectCardType & { category?: string }) {
     return (
         <Link href={`/projects/${project.category}/${project.slug}`}>
@@ -19,7 +20,7 @@ export function ProjectCard(project: ProjectCardType & { category?: string }) {
     will-change-transform overflow-hidden
   "
             >
-                <img className="rounded-t-lg" src={project.img} alt={project.imgAlt} />
+                <img className="rounded-t-lg " src={project.img} alt={project.imgAlt} />
                 <div className="mt-4 p-2 flex flex-col flex-grow">
                     <div className=" flex gap-6 flex-row font-bold text-gray-100 items-center">
                         {project.title}

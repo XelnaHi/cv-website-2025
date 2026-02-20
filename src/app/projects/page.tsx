@@ -3,15 +3,8 @@
 import { useState } from 'react'
 import { ProjectCard } from '@/components/Tailwind/ProjectCard'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/solid'
-import { Navbar } from '@/components/Tailwind/Navbar'
 import { projects } from '@/app/data/projects'
 
-const navigation = [
-  { name: 'Product', href: '#' },
-  { name: 'Features', href: '#' },
-  { name: 'Marketplace', href: '#' },
-  { name: 'Company', href: '#' },
-]
 
 export default function ProjectsPage() {
   const [openCategories, setOpenCategories] = useState<Record<string, boolean>>({})
@@ -27,7 +20,7 @@ export default function ProjectsPage() {
 
   return (
     <div className="bg-gray-900 min-h-screen px-6 py-16 lg:px-16">
-      <h1 className="text-4xl font-bold text-white mb-12 text-center">All Projects</h1>
+      <h1 className="text-4xl font-bold lg:mt-16 text-white mb-12 text-center">All Projects</h1>
 
       {categories.map((category) => {
         const projectsInCategory = projects.filter(p => p.category === category)
@@ -50,10 +43,10 @@ export default function ProjectsPage() {
             <div
               className={`overflow-hidden transition-[max-height] duration-500 ease-out`}
               style={{
-                maxHeight: isOpen ? `${projectsInCategory.length * 500}px` : '0px',
+                maxHeight: isOpen ? `${projectsInCategory.length * 1000}px` : '0px',
               }}
             >
-              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 p-4">
                 {projectsInCategory.map(proj => (
                   <ProjectCard key={proj.slug} {...proj} />
                 ))}

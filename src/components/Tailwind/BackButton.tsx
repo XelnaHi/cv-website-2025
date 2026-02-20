@@ -11,7 +11,7 @@ export default function BackButton() {
       onClick={() => router.back()}
       className="flex hover:cursor-pointer items-center text-base/7 font-semibold text-indigo-400"
     >
-      <ArrowLongLeftIcon className="w-6 h-6 mr-2 h-20 w-20" />
+      <ArrowLongLeftIcon className="w-20 h-20 mr-2 transform " />
     </button>
   )
 }

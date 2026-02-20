@@ -41,7 +41,7 @@ export function AboutSection() {
               href="https://github.com/teodorfredriksson95"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block rounded-md bg-indigo-500 px-5 py-3 text-white font-semibold hover:bg-indigo-400 transition-colors"
+              className="inline-block rounded-md bg-pink-600 px-5 py-3 text-white font-semibold hover:bg-pink-500 transition-colors"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}

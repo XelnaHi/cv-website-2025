@@ -1,13 +1,11 @@
 'use client'
 
-import ContentSection from '@/components/Tailwind/ContentSection'
 import { ProjectCard } from '@/components/Tailwind/ProjectCard'
 import { EmptyContentSection } from '@/components/Tailwind/EmptyContentSection'
-import { Status } from '@/Enums/Status'
 import { AboutSection } from '@/components/Tailwind/AboutSection'
 import { TestimonialsSection } from '@/components/Tailwind/TestimonialComponent'
 import { projects } from './data/projects'
-
+import { motion } from 'framer-motion'
 
 export default function Home() {
 
@@ -29,13 +27,6 @@ export default function Home() {
         </div>
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-            <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-400 ring-1 ring-white/10 hover:ring-white/20">
-              Announcing our next round of funding.{' '}
-              <a href="#" className="font-semibold text-indigo-400">
-                <span aria-hidden="true" className="absolute inset-0" />
-                Read more <span aria-hidden="true">&rarr;</span>
-              </a>
-            </div>
           </div>
           <div className="text-center">
             <h1 className="text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl">
@@ -44,7 +35,25 @@ export default function Home() {
             <p className="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">
               A gameplay systems developer's portfolio
             </p>
-
+            <div className="flex justify-center gap-6 mt-8">
+              {[
+                { src: '/assets/icons8-unity-white.png', alt: 'Unity' },
+                { src: '/assets/icons8-unreal-engine-48.png', alt: 'Unreal Engine' },
+                { src: '/assets/c-logo-icon-28389.png', alt: 'C++' },
+                { src: '/logos/csharpIcon.png', alt: 'C#' },
+              ].map((logo, index) => (
+                <motion.img
+                  key={logo.alt}
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="h-10 w-auto  hover:opacity-10 transition-opacity duration-300"
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 0.9, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                  viewport={{ once: true }}
+                />
+              ))}
+            </div>
           </div>
         </div>
         <div
@@ -64,8 +73,7 @@ export default function Home() {
       <EmptyContentSection>
         <h3 className="text-3xl font-bold text-white tracking-tight text-heading md:text-2xl mb-5">Game Projects</h3>
 
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4
-         auto-rows-fr">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 auto-rows-fr">
           {projects
             .filter((p) => p.category === "games")
             .map((p) => (

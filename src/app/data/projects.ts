@@ -1,4 +1,10 @@
 import { Engine, Status } from "@/Enums/Status";
+import { CloudArrowUpIcon, LockClosedIcon } from "@heroicons/react/20/solid";
+import { ServerIcon } from "lucide-react";
+import { PiSwordBold } from "react-icons/pi";
+import { VscSymbolInterface } from "react-icons/vsc";
+import { MdTouchApp } from "react-icons/md";
+import { MdOutlineHearing } from "react-icons/md";
 
 export type ProjectCardType = {
   slug: string;
@@ -9,7 +15,7 @@ export type ProjectCardType = {
   teamSize: number;
   status: Status;
   linkTo?: string;
-  engine: Engine
+  engine?: Engine
 };
 
 export type Project = ProjectCardType & {
@@ -19,6 +25,10 @@ export type Project = ProjectCardType & {
   responsibilityText: string;
   category: "games" | "web" | "electronics" | "gamejams";
   videoContent?: VideoContentType[];
+  fullImage: string;
+  itchLink?: string;
+  githubLink?: string;
+  responsibilityContent: ProjectResponsibilityContent[];
 };
 
 export type VideoContentType = {
@@ -28,22 +38,52 @@ export type VideoContentType = {
 
 }
 
+export type ProjectResponsibilityContent = {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+};
+
 export const projects: Project[] = [
   {
     preamble:
-      "Somnium is a 3D First-Person dungeon crawler, and marks my entry into the game dev indsutry.",
+      "‘Somnium’ is a retro inspired first person dungeon crawler. All game systems and features, including combat, lootboxes, navigation and UI have been built with accessibility in mind.",
     responsibilityText: "During the project I worked on everything between",
     role: "Gameplay Programmer",
     slug: "somnium",
     title: "Somnium",
-    description: "Short detailed description here...",
-    img: "/assets/GP1Thumbnail.png",
+    description: "Dungeon Crawler with a focus on accessibility",
+    img: "/assets/GP1_team3_poster.png",
     imgAlt: "default img alt text",
-    teamSize: 5,
+    teamSize: 11,
     status: Status.Finished,
-    durationWeeks: 4,
+    durationWeeks: 3,
     category: "games",
     engine: Engine.Unity,
+    fullImage: "/assets/GP1_team3_poster.png",
+    itchLink: "https://futuregames.itch.io/somnium",
+    responsibilityContent: [
+      {
+        icon: PiSwordBold,
+        title: "Enemies & AI.",
+        description: "I worked on implementing prefabs fordrag-and-drop enemy spawn points, aggro systems, attacks, navigation using Unity's NavMesh, dynamic spawn timers, and more."
+      },
+      {
+        icon: VscSymbolInterface,
+        title: "User Interface.",
+        description: "Added UI for interactable world objects, HUD for controller tutorial, player health and upgrades."
+      },
+      {
+        icon: MdTouchApp,
+        title: "Interactables.",
+        description: "Anything considered static which the player might interact with - potions, upgrades, lootboxes and weapons. The interaction system is featured during one of the game's more intense beats, and is used to change the layout of the world based on a quest obejct pickup event."
+      },
+      {
+        icon: MdOutlineHearing,
+        title: "Accessibility.",
+        description: "Prototyped a breadcrumb trail system inspired by God of War Ragnarök. Ultimately we decided on a different set of features designed to guide the player towards victory, and the prototype was scratched."
+      },
+    ],
     videoContent: [{
       title: "Combat System Breakdown",
       description: "A trailer showcasing the combat system of Somnium.",
@@ -60,32 +100,47 @@ export const projects: Project[] = [
     responsibilityText: "",
     preamble: "",
     role: "Gameplay Programmer",
-    slug: "slug-lorem2",
-    title: "Slug Title2",
-    description: "Another long description...",
-    img: "/assets/GP1Thumbnail.png",
+    slug: "denet",
+    title: "Denet",
+    description: "OS Simulation Horror",
+    img: "/assets/GP1_team3_poster.png",
     imgAlt: "default alt image text",
-    teamSize: 5,
+    teamSize: 8,
     status: Status.Finished,
-    durationWeeks: "N/A",
+    durationWeeks: "4",
     category: "games",
-    engine: Engine.Unreal,
+    engine: Engine.Unity,
+    fullImage: "/assets/GP1_team3_poster.png",
+    responsibilityContent: [
+      {
+        icon: CloudArrowUpIcon,
+        title: "Unreal Engine 5",
+        description: "Used Unreal Engine 5 for development of the game."
+      },
+    ],
   },
   {
     responsibilityText: "",
-    preamble: "",
+    preamble: "An open REST API featuring microservices for authentication and API key management.",
     role: "Gameplay Programmer",
-    slug: "once-upon-a-time",
-    title: "Once Upon A Time",
-    description: "Another long description...",
-    img: "/assets/GP1Thumbnail.png",
-    imgAlt: "default img alt text",
-    teamSize: 5,
+    slug: "unidevweb",
+    title: "Unidevweb API",
+    description: "Open REST API",
+    img: "/assets/web_placeholder2.png",
+    imgAlt: "thumbnail image of unidevweb api project",
+    teamSize: 1,
     status: Status.Finished,
-    durationWeeks: "N/A",
+    durationWeeks: "8",
     category: "web",
-    engine: Engine.Unity,
-
+    fullImage: "/assets/web_placeholder2.png",
+    githubLink: "https://github.com/TeodorFredriksson95/cv-backend",
+    responsibilityContent: [
+      {
+        icon: CloudArrowUpIcon,
+        title: "Unreal Engine 5",
+        description: "Used Unreal Engine 5 for development of the game."
+      },
+    ],
   },
   {
     responsibilityText: "",
@@ -94,13 +149,21 @@ export const projects: Project[] = [
     slug: "slug-lorem",
     title: "Slug Title",
     description: "Another long description...",
-    img: "/assets/GP1Thumbnail.png",
+    img: "/assets/electronics_placeholder3.png",
     imgAlt: "default alt image text",
     teamSize: 5,
     status: Status.Finished,
     durationWeeks: "N/A",
     category: "electronics",
     engine: Engine.Unity,
+    fullImage: "/assets/electronics_placeholder3.png",
+    responsibilityContent: [
+      {
+        icon: CloudArrowUpIcon,
+        title: "Unreal Engine 5",
+        description: "Used Unreal Engine 5 for development of the game."
+      },
+    ],
 
   },
 

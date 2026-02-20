@@ -22,9 +22,9 @@ export default function VideoContentCard(video: VideoContentCardProps) {
           className="w-full flex justify-between hover:cursor-pointer items-center p-6 focus:outline-none"
           onClick={() => setOpen((prev) => !prev)}
         >
-          <h2 className="text-3xl font-bold  tracking-tight text-white sm:text-4xl">
+          <h3 className="text-xl font-bold  tracking-tight text-white sm:text-2xl">
             {title}
-          </h2>
+          </h3>
           {open ? (
             <ChevronUpIcon className="w-6 h-6 text-indigo-400" />
           ) : (

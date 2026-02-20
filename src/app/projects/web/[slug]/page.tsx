@@ -6,6 +6,7 @@ import { notFound } from "next/navigation"
 import Link from "next/link"
 import VideoContentCard from "@/components/Tailwind/VideoContentCard"
 import BackButton from "@/components/Tailwind/BackButton"
+import { iconSwitch } from "@/Utilities/utilityFunctions"
 
 export function generateStaticParams() {
     return projects.map((project) => ({
@@ -19,11 +20,11 @@ type Props = {
     }>
 }
 
-export default async function GameProjectPage({ params }: Props) {
+export default async function WebProjectPage({ params }: Props) {
     const { slug } = await params;
 
     const project = projects.find(
-    (p) => p.slug === slug && p.category === "web"
+        (p) => p.slug === slug && p.category === "web"
     )
 
     if (!project) return notFound()
@@ -62,15 +63,8 @@ export default async function GameProjectPage({ params }: Props) {
                     <div className="lg:pr-4">
                         <div className="lg:max-w-lg">
                             <BackButton />
-
-                            {/* <Link href={'/'} className="text-base/7 font-semibold text-indigo-400">
-                                <ArrowLongLeftIcon aria-hidden="true" className="size-5 flex-none text-indigo-400 w-20 h-20" />
-                            </Link> */}
                             <div className="flex-row flex gap-5">
-                                <img
-                                    alt=""
-                                    src="/assets/icons8-unreal-engine-48.png"
-                                    className="mt-auto rounded-xl bg-gray-800 shadow-xl ring-1 ring-white/10 w-12 h-12" />
+                                {iconSwitch(project.engine, "mt-auto rounded-xl bg-gray-800 shadow-xl ring-1 ring-white/10 w-12 h-12")}
                                 <h1 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">
                                     {project.title}
                                 </h1>
@@ -91,13 +85,17 @@ export default async function GameProjectPage({ params }: Props) {
                                     <p className="text-white font-bold ">{project.status == Status.Finished ? "Finished" : "In Progress"}</p>
                                 </div>
                             </div>
-                            <div className="flex flex-row gap-5">
+                            <div className="flex flex-row">
                                 <div className="mt-5">
-                                    <Link href={'google.com'} className="hover:underline text-base/7 font-semibold text-pink-400">Link to Itch</Link>
+                                    {project.itchLink && (
+                                        <Link href={project.itchLink} className="hover:underline text-base/7 font-semibold text-pink-400">Itch.io</Link>
+                                    )}
 
                                 </div>
                                 <div className="mt-5">
-                                    <Link href={'google.com'} className="hover:underline text-base/7 font-semibold text-pink-400">Link to GitHub repo</Link>
+                                    {project.githubLink && (
+                                        <Link href={project.githubLink} className="hover:underline text-base/7 font-semibold text-pink-400">GitHub</Link>
+                                    )}
 
                                 </div>
                             </div>
@@ -110,7 +108,7 @@ export default async function GameProjectPage({ params }: Props) {
                 <div className="-mt-12 -ml-12 p-12  lg:top-4 lg:col-start-2 lg:row-span-3 lg:row-start-1 lg:overflow-hidden">
                     <img
                         alt=""
-                        src="/assets/GP1_team3_poster.png"
+                        src={project.fullImage}
                         className="w-3m rounded-xl bg-gray-800 shadow-xl ring-1 ring-white/10 sm:w-160"
                     />
                 </div>
