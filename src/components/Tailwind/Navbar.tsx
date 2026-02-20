@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Download } from 'lucide-react'
 
 type NavItem = {
   name: string
@@ -21,9 +22,9 @@ export function Navbar({ navigation }: NavbarProps) {
     <header className="absolute inset-x-0 top-0 z-50">
       <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
         {/* Logo */}
-        <div className="flex lg:flex-1">
+        <div className="flex ">
           <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
+            <span className="sr-only">Teodor Fredriksson Portfolio</span>
             <img
               alt=""
               src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
@@ -45,20 +46,21 @@ export function Navbar({ navigation }: NavbarProps) {
         </div>
 
         {/* Desktop navigation */}
-        <div className="hidden lg:flex lg:gap-x-12">
+        <div className="hidden lg:flex lg:flex-1 lg:justify-center  lg:gap-x-12">
+          <div className="flex flex-row rounded-md px-5 bg-pink-600 text-white font-semibold transition-transform duration-300 ease-out
+               hover:cursor-pointer text-sm hover:shadow-xl  hover:bg-pink-700 text-white font-bold py-2 px-4 rounded-full">
+            <button className='hover:cursor-pointer'>
+              Resumé
+            </button>
+            <Download className="w-5 h-5 ml-2 " />
+          </div>
           {navigation.map((item) => (
-            <a key={item.name} href={item.href} className="text-sm/6 font-semibold text-white">
+            <a key={item.name} href={item.href} className="text-sm/6 font-semibold mt-auto mb-auto text-white">
               {item.name}
             </a>
           ))}
         </div>
 
-        {/* Desktop login */}
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm/6 font-semibold text-white">
-            Log in <span aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
       </nav>
 
       {/* Mobile menu */}

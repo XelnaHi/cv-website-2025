@@ -61,10 +61,7 @@ export const viewport = {
 
 
 const navigation = [
-  { name: 'Product', href: '#' },
-  { name: 'Features', href: '#' },
-  { name: 'Marketplace', href: '#' },
-  { name: 'Company', href: '#' },
+  { name: 'Projects', href: '/projects' },
 ]
 
 export default function RootLayout({

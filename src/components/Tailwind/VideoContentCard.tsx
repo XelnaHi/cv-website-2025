@@ -8,8 +8,10 @@ type VideoContentCardProps = {
   videoSrc: string
 }
 
-export default function VideoContentCard({ title, description, videoSrc }: VideoContentCardProps) {
+export default function VideoContentCard(video: VideoContentCardProps) {
   const [open, setOpen] = useState(false)
+
+  const { title, description, videoSrc } = video
 
   return (
     <section className="mx-auto mt-10 max-w-7xl px-6 lg:px-8">

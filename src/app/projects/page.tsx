@@ -27,7 +27,6 @@ export default function ProjectsPage() {
 
   return (
     <div className="bg-gray-900 min-h-screen px-6 py-16 lg:px-16">
-      <Navbar navigation={navigation} />
       <h1 className="text-4xl font-bold text-white mb-12 text-center">All Projects</h1>
 
       {categories.map((category) => {

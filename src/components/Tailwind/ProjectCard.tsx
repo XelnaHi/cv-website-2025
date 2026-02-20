@@ -1,21 +1,10 @@
 'use client'
 
 import { Project, ProjectCardType } from "@/app/data/projects"
-import { Status } from "@/Enums/Status"
+import { iconSwitch, renderSwitch } from "@/Utilities/utilityFunctions"
 
 import { ArrowRightIcon, UserIcon, WrenchScrewdriverIcon } from "@heroicons/react/16/solid"
 import Link from "next/link"
-
-
-
-export function renderSwitch(param: Status) {
-    switch (param) {
-        case Status.InProgress:
-            return "In Progress"
-        case Status.Finished:
-            return "Complete"
-    }
-}
 
 export function ProjectCard(project: ProjectCardType & { category?: string }) {
     return (
@@ -42,11 +31,8 @@ export function ProjectCard(project: ProjectCardType & { category?: string }) {
                             <WrenchScrewdriverIcon aria-hidden="true" className="size-5 flex-none text-indigo-400" />
                             <p>{renderSwitch(project.status)}</p>
                         </div>
-                        <div className="flex gap-2 flexrow items-center">
-                            <img
-                                alt=""
-                                src="/assets/icons8-unreal-engine-48.png"
-                                className="mt-auto rounded-xl bg-gray-800 shadow-xl  w-8 h-8" />
+                        <div className="flex gap-2 flex-row items-center">
+                            {iconSwitch(project.engine, "mt-auto rounded-xl bg-gray-800 shadow-xl  w-8 h-8")}
                         </div>
                     </div>
                     <div className="mt-2 text-sm text-gray-400">{project.description}</div>

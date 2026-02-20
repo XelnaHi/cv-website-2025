@@ -1,13 +1,5 @@
 import Link from 'next/link';
 
-type ProjectCard = {
-  img: string
-  imgAlt: string
-  title: string
-  description: string
-  linkTo: string
-}
-
 export function EmptyContentSection({ children }: any) {
   return (
     <div className="relative isolate overflow-hidden bg-gray-900 px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">

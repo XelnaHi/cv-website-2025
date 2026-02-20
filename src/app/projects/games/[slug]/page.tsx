@@ -1,3 +1,4 @@
+
 import { projects } from "@/app/data/projects"
 import { Status } from "@/Enums/Status"
 import { CloudArrowUpIcon, LockClosedIcon, WrenchScrewdriverIcon, ArrowLongLeftIcon } from "@heroicons/react/20/solid"
@@ -6,12 +7,13 @@ import { notFound } from "next/navigation"
 import Link from "next/link"
 import VideoContentCard from "@/components/Tailwind/VideoContentCard"
 import BackButton from "@/components/Tailwind/BackButton"
+import { iconSwitch } from "@/Utilities/utilityFunctions"
 
-export function generateStaticParams() {
-    return projects.map((project) => ({
-        slug: project.slug,
-    }))
-}
+// export function generateStaticParams() {
+//     return projects.map((project) => ({
+//         slug: project.slug,
+//     }))
+// }
 
 type Props = {
     params: Promise<{
@@ -23,7 +25,7 @@ export default async function GameProjectPage({ params }: Props) {
     const { slug } = await params;
 
     const project = projects.find(
-    (p) => p.slug === slug && p.category === "games"
+        (p) => p.slug === slug && p.category === "games"
     )
 
     if (!project) return notFound()
@@ -62,15 +64,8 @@ export default async function GameProjectPage({ params }: Props) {
                     <div className="lg:pr-4">
                         <div className="lg:max-w-lg">
                             <BackButton />
-
-                            {/* <Link href={'/'} className="text-base/7 font-semibold text-indigo-400">
-                                <ArrowLongLeftIcon aria-hidden="true" className="size-5 flex-none text-indigo-400 w-20 h-20" />
-                            </Link> */}
                             <div className="flex-row flex gap-5">
-                                <img
-                                    alt=""
-                                    src="/assets/icons8-unreal-engine-48.png"
-                                    className="mt-auto rounded-xl bg-gray-800 shadow-xl ring-1 ring-white/10 w-12 h-12" />
+                                {iconSwitch(project.engine, "mt-auto rounded-xl bg-gray-800 shadow-xl ring-1 ring-white/10 w-12 h-12")}
                                 <h1 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">
                                     {project.title}
                                 </h1>
@@ -153,16 +148,9 @@ export default async function GameProjectPage({ params }: Props) {
 
                 </div>
             </div>
-            <VideoContentCard
-                title="Combat System Breakdown"
-                description="This video demonstrates the enemy AI behavior, spawn systems, and combat loop implemented during development."
-                videoSrc="https://www.youtube.com/embed/OHQ_v9TGJDY"
-            />
-            <VideoContentCard
-                title="Combat System Breakdown"
-                description="This video demonstrates the enemy AI behavior, spawn systems, and combat loop implemented during development."
-                videoSrc="https://www.youtube.com/embed/OHQ_v9TGJDY"
-            />
+            {project.videoContent?.map(proj => (
+                <VideoContentCard key={proj.title} {...proj} />
+            ))}
         </div>
 
     )

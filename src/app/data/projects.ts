@@ -1,4 +1,4 @@
-import { Status } from "@/Enums/Status";
+import { Engine, Status } from "@/Enums/Status";
 
 export type ProjectCardType = {
   slug: string;
@@ -9,6 +9,7 @@ export type ProjectCardType = {
   teamSize: number;
   status: Status;
   linkTo?: string;
+  engine: Engine
 };
 
 export type Project = ProjectCardType & {
@@ -17,7 +18,15 @@ export type Project = ProjectCardType & {
   preamble: string;
   responsibilityText: string;
   category: "games" | "web" | "electronics" | "gamejams";
+  videoContent?: VideoContentType[];
 };
+
+export type VideoContentType = {
+  title: string;
+  description: string;
+  videoSrc: string;
+
+}
 
 export const projects: Project[] = [
   {
@@ -33,7 +42,19 @@ export const projects: Project[] = [
     teamSize: 5,
     status: Status.Finished,
     durationWeeks: 4,
-    category: "games"
+    category: "games",
+    engine: Engine.Unity,
+    videoContent: [{
+      title: "Combat System Breakdown",
+      description: "A trailer showcasing the combat system of Somnium.",
+      videoSrc: "https://www.youtube.com/embed/OHQ_v9TGJDY"
+    },
+    {
+      title: "Accessibility System Breakdown",
+      description: "A trailer showcasing the accessibility features implemented in Somnium, including colorblind modes and control remapping.",
+      videoSrc: "https://www.youtube.com/embed/OHQ_v9TGJDY"
+    },
+    ]
   },
   {
     responsibilityText: "",
@@ -47,8 +68,8 @@ export const projects: Project[] = [
     teamSize: 5,
     status: Status.Finished,
     durationWeeks: "N/A",
-    category: "gamejams"
-
+    category: "games",
+    engine: Engine.Unreal,
   },
   {
     responsibilityText: "",
@@ -62,7 +83,8 @@ export const projects: Project[] = [
     teamSize: 5,
     status: Status.Finished,
     durationWeeks: "N/A",
-    category: "web"
+    category: "web",
+    engine: Engine.Unity,
 
   },
   {
@@ -77,7 +99,8 @@ export const projects: Project[] = [
     teamSize: 5,
     status: Status.Finished,
     durationWeeks: "N/A",
-    category: "electronics"
+    category: "electronics",
+    engine: Engine.Unity,
 
   },
 
