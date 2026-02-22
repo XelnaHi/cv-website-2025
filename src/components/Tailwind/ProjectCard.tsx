@@ -20,8 +20,13 @@ export function ProjectCard(project: ProjectCardType & { category?: string }) {
     will-change-transform overflow-hidden
   "
             >
-                <img className="rounded-t-lg " src={project.img} alt={project.imgAlt} />
-                <div className=" p-2 flex flex-col flex-grow">
+                <div className="aspect-[3/4] w-full rounded-t-lg">
+                    <img
+                        src={project.img}
+                        alt={project.imgAlt}
+                        className="w-full h-full object-cover"
+                    />
+                </div>                <div className=" p-2 flex flex-col flex-grow">
                     <p className="text-white mb-2 font-bold">
                         {project.title}
                     </p>
