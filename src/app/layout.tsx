@@ -26,15 +26,15 @@ const lato = Lato({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cv-website-2025-i55q.vercel.app"), //
-  title: "Teodor Fredriksson | Portfolio",
-  description: "Showcasing web, mobile, and game development by Teodor Fredriksson.",
+  title: "Teodor Fredriksson | Gameplay Programmer Portfolio",
+  description: "Showcasing game development and more, by Teodor Fredriksson",
   icons: {
     icon: "/favicon.png"
 
   },
   openGraph: {
     title: "Teodor Fredriksson | Portfolio",
-    description: "Projects in web, mobile, and game development. Built with React, Next.js and Tailwind",
+    description: "Projects in games, web, and electronics development. Built with React, Next.js and Tailwind",
     url: "https://cv-website-2025-i55q.vercel.app/",
     siteName: "Teodor Fredriksson Portfolio",
     images: [

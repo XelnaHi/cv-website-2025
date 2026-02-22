@@ -16,13 +16,20 @@ const testimonials: Testimonial[] = [
     role: 'Examiner & Lecturer at KTH Royal Insititue of Technology',
     avatar: '/assets/testimonial1.jpg',
     content: "\"Teo has demonstrated a scientific and analytical approach, delivering a professional thesis report. /.../ The work reflects the maturity of a fully qualified engineer and he is highly recommended to any employer.\"",
-      link: "https://www.kth.se/profile/subasic/"
+    link: "https://www.kth.se/profile/subasic/"
   },
   {
     name: 'Robin Kamo',
     role: 'Cybersecurity Instructor, Azure MVP',
     avatar: '/assets/testimonial2.jpg',
     content: "\“This is a brilliantly executed analysis that demonstrates both technical expertise and a strong ability to clearly communicate complex concepts. The cyberrisk matrix is both precise and insightful, showing excellent strategic thinking.\"",
+    link: "https://www.linkedin.com/in/kakashidota/"
+  },
+  {
+    name: 'Alexander Seguin Andrejeff',
+    role: 'Game Designer',
+    avatar: '/assets/testimonial2.jpg',
+  content: "\“Teodor has proven himself to contiously use his technical and aesthetic skills to push projects in the right direction. I'd be happy to work with him again.\"",
     link: "https://www.linkedin.com/in/kakashidota/"
   },
 
@@ -52,7 +59,12 @@ export function TestimonialsSection() {
               <div className="flex items-center gap-4">
 
                 <div className="text-left">
-                  <p className="font-semibold text-white">{t.name}</p>
+                  <a href={t.link}
+                    target='_blank'
+                    className='hover:cursor-pointer hover:text-pink-600'
+                  >
+                    <p className="font-semibold text-pink-400 hover:text-pink-600">{t.name}</p>
+                  </a>
                   <p className="text-gray-400 text-sm">{t.role}</p>
                 </div>
               </div>

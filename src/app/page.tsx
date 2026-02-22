@@ -33,7 +33,7 @@ export default function Home() {
               Teodor Fredriksson
             </h1>
             <p className="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">
-              A gameplay programmer's portfolio
+            Gameplay programmer who thrives in close cross-discipline collaborations, focused on making every player interaction feel impactful. 
             </p>
             <div className="flex justify-center gap-6 mt-8">
               {[

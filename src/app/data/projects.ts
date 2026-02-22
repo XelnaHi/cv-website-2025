@@ -175,19 +175,131 @@ export const projects: Project[] = [
   {
     responsibilityText: "",
     preamble:
+      "A narrative-driven game bringing back memories from the early days of online gaming and virus-infected operating systems. Inspired by games such as BAROQUE and the newly re-popularized file horror genre, this game features puzzle-based mechanics in order to engage the player with an ever growing realization of the fact that something is amiss.",
+    role: "Gameplay Programmer",
+    slug: "to-be-added-1",
+    title: "To Be Added",
+    description: "To Be Added",
+    img: "/assets/GP1_team3_poster3.png",
+    imgAlt: "",
+    teamSize: 8,
+    status: Status.InProgress,
+    durationWeeks: "1",
+    category: "games",
+    engine: Engine.Unity,
+    fullImage: "/assets/GP1_team3_poster3.png",
+    links: [
+      {
+        linkName: "Itch",
+        linkHref: "https://futuregames.itch.io/somnium",
+      },
+    ],
+    contentTitle: "Main Responsibilities",
+    responsibilityContent: [
+      {
+        icon: CloudArrowUpIcon,
+        title: "Enemy & AI.",
+        description:
+          "Responsible for implementing enemy behavior, including combat and patrol paths, as well as more specialized boss mechanics centralized around a multi-tiered phase system. Enemy behavior can be tweaked in the Unity editor through variables exposed with designer efficiency in mind.",
+      },
+      {
+        icon: CloudArrowUpIcon,
+        title: "Audio.",
+        description:
+          "Implemented audio trigger prefabs which enables a designer to create audio zones that are either static or dependent on in-game events, such as combat music persisting until enough enemies have been eliminated.",
+      },
+      {
+        icon: CloudArrowUpIcon,
+        title: "Final Boss Encounter.",
+        description:
+          "The final boss of the game features a mix of systems that brings together Canvas alterations, an immunity system that depends on the state of enemies and objects linked to the boss, as well as size scaler used to mimic the visual effect of a beating heart. The entire boss encounter, including it's underlying systems, was packaged as a prefab in order to help designers get a clear view of the hierarchy of editable paramaters.",
+      },
+      {
+        icon: CloudArrowUpIcon,
+        title: "UI & HUD",
+        description:
+          'I worked on the UI related to one of Denet\'s core mechanics, the "In-Game Editor", a trigger based image-flash system used for world building, the player action bar and the password-locked file system.',
+      },
+      {
+        icon: CloudArrowUpIcon,
+        title: "Debug Tools",
+        description:
+          "In order to speed up testing, I implemented editor debug tools such as player teleportation and wireframe visuals for enemy aggro radius and range.",
+      },
+    ],
+  },
+  {
+    responsibilityText: "",
+    preamble:
+      "A narrative-driven game bringing back memories from the early days of online gaming and virus-infected operating systems. Inspired by games such as BAROQUE and the newly re-popularized file horror genre, this game features puzzle-based mechanics in order to engage the player with an ever growing realization of the fact that something is amiss.",
+    role: "Gameplay Programmer",
+    slug: "to-be-added-2",
+    title: "To Be Added",
+    description: "To Be Added",
+    img: "/assets/GP1_team3_poster3.png",
+    imgAlt: "",
+    teamSize: 8,
+    status: Status.InProgress,
+    durationWeeks: "1",
+    category: "games",
+    engine: Engine.Unity,
+    fullImage: "/assets/GP1_team3_poster3.png",
+    links: [
+      {
+        linkName: "Itch",
+        linkHref: "https://futuregames.itch.io/somnium",
+      },
+    ],
+    contentTitle: "Main Responsibilities",
+    responsibilityContent: [
+      {
+        icon: CloudArrowUpIcon,
+        title: "Enemy & AI.",
+        description:
+          "Responsible for implementing enemy behavior, including combat and patrol paths, as well as more specialized boss mechanics centralized around a multi-tiered phase system. Enemy behavior can be tweaked in the Unity editor through variables exposed with designer efficiency in mind.",
+      },
+      {
+        icon: CloudArrowUpIcon,
+        title: "Audio.",
+        description:
+          "Implemented audio trigger prefabs which enables a designer to create audio zones that are either static or dependent on in-game events, such as combat music persisting until enough enemies have been eliminated.",
+      },
+      {
+        icon: CloudArrowUpIcon,
+        title: "Final Boss Encounter.",
+        description:
+          "The final boss of the game features a mix of systems that brings together Canvas alterations, an immunity system that depends on the state of enemies and objects linked to the boss, as well as size scaler used to mimic the visual effect of a beating heart. The entire boss encounter, including it's underlying systems, was packaged as a prefab in order to help designers get a clear view of the hierarchy of editable paramaters.",
+      },
+      {
+        icon: CloudArrowUpIcon,
+        title: "UI & HUD",
+        description:
+          'I worked on the UI related to one of Denet\'s core mechanics, the "In-Game Editor", a trigger based image-flash system used for world building, the player action bar and the password-locked file system.',
+      },
+      {
+        icon: CloudArrowUpIcon,
+        title: "Debug Tools",
+        description:
+          "In order to speed up testing, I implemented editor debug tools such as player teleportation and wireframe visuals for enemy aggro radius and range.",
+      },
+    ],
+  },
+  {
+    responsibilityText: "",
+    preamble:
       "An infomercial website designed to attract attention to a public hearing held in the Swedish Parliament 2025. Post-hearing, the website also serves as a journalistic web magazine, focusing on areas regarding the jurisdictional paradox of homelessness, addiction and social exclusion.  ",
     role: "Gameplay Programmer",
     slug: "socialt-frikort",
     title: "Socialt Frikort",
     description:
       "An infomercial website designed to attract attention to a public hearing held in the Swedish Parliament",
-    img: "/assets/unidevwebThumbnail5.png",
+    img: "/assets/sociailtfrikortThumbnail.jpg",
     imgAlt: "thumbnail image of unidevweb api project",
     teamSize: 4,
     status: Status.Finished,
     durationWeeks: "8",
     category: "web",
-    fullImage: "/assets/unidevwebThumbnail5.png",
+    fullImage: "/assets/sociailtfrikortThumbnail.jpg",
     links: [
       {
         linkName: "Infomercial Site",
@@ -230,14 +342,14 @@ export const projects: Project[] = [
     slug: "journalistic-gallery-shop",
     title: "Journalistic Gallery Shop",
     description:
-      "An infomercial website designed to attract attention to a public hearing held in the Swedish Parliament",
-    img: "/assets/unidevwebThumbnail5.png",
+      "A web shop selling photos and illustrations suited for journalistic coverage",
+    img: "/assets/socialabildbyranThumbnail.jpg",
     imgAlt: "thumbnail image of unidevweb api project",
     teamSize: 4,
     status: Status.InProgress,
     durationWeeks: "24",
     category: "web",
-    fullImage: "/assets/unidevwebThumbnail5.png",
+    fullImage: "/assets/socialabildbyranThumbnail.jpg",
     links: [
       {
         linkName: "Arvsfonden (funder)",

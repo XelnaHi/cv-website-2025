@@ -84,6 +84,7 @@ export default async function GameJamProjectPage({ params }: Props) {
                                 <div className="mt-5">
                                     {project.links.map(link => (
                                         <a
+                                            key={link.linkHref}
                                             href={link.linkHref}
                                             target="_blank"
                                             rel="noopener noreferrer"
