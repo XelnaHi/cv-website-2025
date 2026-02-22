@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { ProjectCard } from '@/components/Tailwind/ProjectCard'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/solid'
 import { projects } from '@/app/data/projects'
+import BackButton from '../../components/Tailwind/BackButton'
 
 
 export default function ProjectsPage() {
@@ -21,6 +22,11 @@ export default function ProjectsPage() {
   return (
     <div className="bg-gray-900 min-h-screen px-6 py-16 lg:px-16">
       <h1 className="text-4xl font-bold lg:mt-16 text-white mb-12 text-center">All Projects</h1>
+
+      <div className='flex flex-row align-center'>
+        <BackButton />
+        <p className='text-indigo-400 font-bold mt-auto mb-auto'></p>
+      </div>
 
       {categories.map((category) => {
         const projectsInCategory = projects.filter(p => p.category === category)

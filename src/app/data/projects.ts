@@ -122,7 +122,7 @@ export const projects: Project[] = [
       "A narrative-driven game bringing back memories from the early days of online gaming and virus-infected operating systems. Inspired by games such as BAROQUE and the newly re-popularized file horror genre, this game features puzzle-based mechanics in order to engage the player with an ever growing realization of the fact that something is amiss.",
     role: "Gameplay Programmer",
     slug: "denet",
-    title: "Denet",
+    title: "Denet.exe",
     description: "OS Simulation Horror",
     img: "/assets/GP1_team3_poster3.png",
     imgAlt: "default alt image text",
