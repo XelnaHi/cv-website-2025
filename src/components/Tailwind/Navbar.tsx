@@ -67,6 +67,9 @@ export function Navbar({ navigation }: NavbarProps) {
               {item.name}
             </a>
           ))}
+          <a href='https://www.linkedin.com/in/teodor-fredriksson-919606b9/' className="text-sm/6 font-semibold mt-auto mb-auto text-white" target='_blank' rel='noopener noreferrer'>
+            Contact
+          </a>
         </div>
 
       </nav>

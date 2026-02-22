@@ -84,15 +84,15 @@ export default async function ElectronicsProjectPage({ params }: Props) {
                             </div>
                             <div className="flex flex-row">
                                 <div className="mt-5">
-                                    {project.itchLink && (
-                                        <Link href={project.itchLink} className="hover:underline text-base/7 font-semibold text-pink-400">Itch.io</Link>
-                                    )}
-
-                                </div>
-                                <div className="mt-5">
-                                    {project.githubLink && (
-                                        <Link href={project.githubLink} className="hover:underline text-base/7 font-semibold text-pink-400">GitHub</Link>
-                                    )}
+                                    {project.links.map(link => (
+                                        <a
+                                            href={link.linkHref}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="hover:underline text-base/7 font-semibold text-pink-400"
+                                        >
+                                            {link.linkName}
+                                        </a>))}
 
                                 </div>
                             </div>
