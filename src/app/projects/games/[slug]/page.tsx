@@ -63,6 +63,7 @@ export default async function GameProjectPage({ params }: Props) {
                                 <h1 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">
                                     {project.title}
                                 </h1>
+
                             </div>
                             <div className="w-full h-[2px] bg-gray-600 mt-4 mb-4" />
                             <div className="flex flex-row gap-5 ">
@@ -136,13 +137,29 @@ export default async function GameProjectPage({ params }: Props) {
                                 })}
                             </ul>
                         </div>
+                        {project.award && (
+                            <div className="mt-6">
+                                <div className=" flex flex-row align-center ">
+                                    <project.award.icon aria-hidden="true" className="size-10 flex-none text-yellow-400" />
+                                    <h3 className="text-3xl font-bold text-white tracking-tight mt-auto ml-4 text-heading md:text-2xl">Awards</h3>
+                                </div>
+                                <div className="mt-4 text-gray-400">
+                                    <ul className="list-disc list-inside">
+                                        <li><strong className="text-white">{project.award.awardTitle}</strong> - <span className="italic">{project.award.awardedBy}</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        )}
                     </div>
 
                 </div>
             </div>
-            {project.videoContent?.map(proj => (
-                <VideoContentCard key={proj.title} {...proj} />
-            ))}
+            {project.videoContent && (
+                <VideoContentCard
+                    title="Project Videos"
+                    videos={project.videoContent}
+                />
+            )}
         </div>
 
     )

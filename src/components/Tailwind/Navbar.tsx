@@ -19,10 +19,10 @@ export function Navbar({ navigation }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-<header className="fixed inset-x-0 top-0 z-99 bg-gray-900 backdrop-blur-md">
-        <nav aria-label="Global" className="sticky flex items-center justify-between p-6 lg:px-8">
+    <header className="fixed inset-x-0 top-0 z-99 bg-gray-900 backdrop-blur-md">
+      <nav aria-label="Global" className="sticky relative flex items-center p-6 lg:px-8">
         {/* Logo */}
-        <div className="flex ">
+        <div className="flex flex-1">
           <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Teodor Fredriksson Portfolio</span>
             <h3 className="text-white font-bold text-xl mt-2">
@@ -45,14 +45,14 @@ export function Navbar({ navigation }: NavbarProps) {
         </div>
 
         {/* Desktop navigation */}
-        <div className="hidden lg:flex lg:flex-1 lg:justify-center  lg:gap-x-12">
+        <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 gap-x-12 items-center">
 
           <a
             href="/assets/futuregames/CV Game Programmer Teodor Fredriksson.pdf"
             download
           >
-            <div className="flex flex-row rounded-md px-5 bg-pink-600 text-white font-semibold transition-transform duration-300 ease-out
-               hover:cursor-pointer text-sm hover:shadow-xl  hover:bg-pink-500 text-white font-bold py-2 px-4 rounded-full">
+
+            <div className="flex flex-row rounded-md border border-white/30 px-4 py-2 text-white font-semibold hover:bg-white/10 transition">
               <button className='hover:cursor-pointer'>
                 Resumé
               </button>
@@ -67,6 +67,7 @@ export function Navbar({ navigation }: NavbarProps) {
           <a href='https://www.linkedin.com/in/teodor-fredriksson-919606b9/' className="text-sm/6 font-semibold mt-auto mb-auto text-white" target='_blank' rel='noopener noreferrer'>
             LinkedIn
           </a>
+          <div className="hidden lg:flex flex-1 justify-end" />
         </div>
 
       </nav>
@@ -76,13 +77,13 @@ export function Navbar({ navigation }: NavbarProps) {
         <div className="fixed inset-0 z-50" />
         <DialogPanel className="fixed inset-y-0 right-0 z-100 w-full overflow-y-auto bg-gray-900 p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-100/10">
           <div className="flex items-center justify-between">
-          <a href="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">Teodor Fredriksson Portfolio</span>
-            <h3 className="text-white font-bold text-xl mt-2">
-              Teodor Fredriksson
-            </h3>
-            <h4 className='text-gray-400 font-bold'>Gameplay Programmer</h4>
-          </a>
+            <a href="/" className="-m-1.5 p-1.5">
+              <span className="sr-only">Teodor Fredriksson Portfolio</span>
+              <h3 className="text-white font-bold text-xl mt-2">
+                Teodor Fredriksson
+              </h3>
+              <h4 className='text-gray-400 font-bold'>Gameplay Programmer</h4>
+            </a>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
@@ -105,12 +106,12 @@ export function Navbar({ navigation }: NavbarProps) {
                     {item.name}
                   </a>
                 ))}
-                         <a
-                    href={"https://www.linkedin.com/in/teodor-fredriksson-919606b9/"}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
-                  >
-                    LinkedIn
-                  </a>
+                <a
+                  href={"https://www.linkedin.com/in/teodor-fredriksson-919606b9/"}
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
+                >
+                  LinkedIn
+                </a>
               </div>
 
             </div>

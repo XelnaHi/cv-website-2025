@@ -1,5 +1,5 @@
 import { Engine, Status } from "@/Enums/Status";
-import { CloudArrowUpIcon, LockClosedIcon } from "@heroicons/react/20/solid";
+import { CloudArrowUpIcon, LockClosedIcon, TrophyIcon } from "@heroicons/react/20/solid";
 import { ServerIcon } from "lucide-react";
 import { PiSwordBold } from "react-icons/pi";
 import { VscSymbolInterface } from "react-icons/vsc";
@@ -32,13 +32,27 @@ export type Project = ProjectCardType & {
     description: string;
   }[];
   links: Links[];
+  award?: Award;
 };
 
 export type VideoContentType = {
   title: string;
   description: string;
   videoSrc: string;
+  bullets?: string[];
 };
+
+export type VideoItem = {
+  videoSrc: string
+  title: string
+  bullets?: string[] 
+}
+
+export type VideoContentCardProps = {
+  title: string
+  videos: VideoItem[]
+}
+
 
 export type ProjectResponsibilityContent = {
   icon: React.ComponentType<{ className?: string }>;
@@ -50,6 +64,12 @@ export type Links = {
   linkName: string;
   linkHref: string;
 };
+
+export type Award = {
+  awardedBy: string;
+  awardTitle: string;
+  icon: React.ComponentType<{ className?: string }>;
+}
 
 export const projects: Project[] = [
   {
@@ -68,6 +88,11 @@ export const projects: Project[] = [
     category: "games",
     engine: Engine.Unity,
     fullImage: "/assets/GP1_team3_poster3.png",
+    award: {
+      awardedBy: "Futuregames Awards",
+      awardTitle: "Best Debut Game",
+      icon: TrophyIcon,
+    },
     links: [
       {
         linkName: "Itch",
@@ -103,18 +128,26 @@ export const projects: Project[] = [
     ],
     videoContent: [
       {
+        description: "A breakdown of the combat system, including enemy aggro mechanics, dynamic spawn timers and NavMesh integration.",
         title: "Combat System Breakdown",
-        description: "A trailer showcasing the combat system of Somnium.",
         videoSrc: "https://www.youtube.com/embed/Aq5WXmQQooo",
+        bullets: [
+          "Implemented enemy aggro mechanics",
+          "Created dynamic spawn timers",
+          "Integrated attacks with NavMesh"
+        ]
       },
       {
-        title: "Accessibility System Breakdown",
-        description:
-          "A trailer showcasing the accessibility features implemented in Somnium, including colorblind modes and control remapping.",
-        videoSrc:
-          "https://www.youtube.com/embed/Aq5WXmQQooo?si=LuWY3dan5sgxaelP",
-      },
-    ],
+        description: "A breakdown of the accessibility features implemented in the game, including a breadcrumb trail system prototype.",
+        title: "Accessibility Features",
+        videoSrc: "https://www.youtube.com/embed/Aq5WXmQQooo?si=LuWY3dan5sgxaelP",
+        bullets: [
+          "Colorblind modes",
+          "Control remapping",
+          "Breadcrumb guidance system"
+        ]
+      }
+    ]
   },
   {
     responsibilityText: "",
@@ -398,7 +431,7 @@ export const projects: Project[] = [
     durationWeeks: "8",
     category: "web",
     fullImage: "/assets/unidevwebThumbnail5.png",
-        links: [
+    links: [
       {
         linkName: "GitHub",
         linkHref: "https://github.com/TeodorFredriksson95/cv-backend",

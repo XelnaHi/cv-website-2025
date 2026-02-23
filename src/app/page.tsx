@@ -7,6 +7,7 @@ import { TestimonialsSection } from '@/components/Tailwind/TestimonialComponent'
 import { projects } from './data/projects'
 import { motion } from 'framer-motion'
 
+
 export default function Home() {
 
   return (
@@ -33,7 +34,7 @@ export default function Home() {
               Teodor Fredriksson
             </h1>
             <p className="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">
-            Gameplay programmer who thrives in close cross-discipline collaborations, focused on making every player interaction feel impactful. 
+              Gameplay programmer who thrives in close cross-discipline collaborations, focused on making every player interaction feel impactful.
             </p>
             <div className="flex justify-center gap-6 mt-8">
               {[
@@ -54,6 +55,21 @@ export default function Home() {
                 />
               ))}
             </div>
+            <div className="mt-10 flex justify-center gap-6">
+              <a
+                href="#featured-games"
+                className="rounded bg-pink-600 px-6 py-3 text-sm font-semibold text-white hover:bg-pink-500 transition"
+              >
+                Featured Game Projects
+              </a>
+
+              <a
+                href="/projects"
+                className="rounded border border-white/30 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition"
+              >
+                All Projects
+              </a>
+            </div>
           </div>
         </div>
         <div
@@ -71,7 +87,7 @@ export default function Home() {
 
       </div>
       <EmptyContentSection>
-        <h3 className="text-3xl font-bold text-white tracking-tight text-heading md:text-2xl mb-5">Game Projects</h3>
+        <h3 id='featured-games' className="scroll-mt-32 text-3xl font-bold text-white tracking-tight text-heading md:text-2xl mb-5">Game Projects</h3>
 
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 auto-rows-fr">
           {projects

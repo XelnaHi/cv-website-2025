@@ -7,7 +7,7 @@ import { ArrowRightIcon, UserIcon, WrenchScrewdriverIcon } from "@heroicons/reac
 import Link from "next/link"
 
 
-export function ProjectCard(project: ProjectCardType & { category?: string }) {
+export function ProjectCard(project: Project & { category?: string }) {
     return (
         <Link href={`/projects/${project.category}/${project.slug}`}>
             <div
@@ -42,6 +42,12 @@ export function ProjectCard(project: ProjectCardType & { category?: string }) {
                         <div className="flex gap-2 flex-row items-center">
                             {iconSwitch(project.engine, "mt-auto rounded-xl bg-gray-800 shadow-xl  w-8 h-8")}
                         </div>
+                        {project.award && (
+                            <div>
+                                <project.award.icon aria-hidden="true" className="size-5 flex-none text-yellow-400" />
+                            </div>
+
+                        )}
                     </div>
                     <div className="mt-2 text-sm text-gray-400">{project.description}</div>
                     <div className="justify-end flex h-full items-end">
