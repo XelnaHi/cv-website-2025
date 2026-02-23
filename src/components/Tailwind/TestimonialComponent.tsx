@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { ExternalLink } from 'lucide-react'
 
 type Testimonial = {
   name: string
@@ -29,8 +30,8 @@ const testimonials: Testimonial[] = [
     name: 'Alexander Seguin Andrejeff',
     role: 'Game Designer',
     avatar: '/assets/testimonial2.jpg',
-  content: "\“Teodor has proven himself to contiously use his technical and aesthetic skills to push projects in the right direction. I'd be happy to work with him again.\"",
-    link: "https://www.linkedin.com/in/kakashidota/"
+    content: "\“Teodor has proven himself to contiously use his technical and aesthetic skills to push projects in the right direction. I'd be happy to work with him again.\"",
+    link: "https://www.linkedin.com/in/itslumina/"
   },
 
 ]
@@ -61,9 +62,12 @@ export function TestimonialsSection() {
                 <div className="text-left">
                   <a href={t.link}
                     target='_blank'
-                    className='hover:cursor-pointer hover:text-pink-600'
+                    className='hover:cursor-pointer hover:text-pink-600 '
                   >
-                    <p className="font-semibold text-pink-400 hover:text-pink-600">{t.name}</p>
+                    <div className="flex items-center text-pink-400 gap-2 hover:text-pink-600">
+                      <p className="font-semibold ">{t.name}</p>
+                      <ExternalLink className="w-4 h-4" />
+                    </div>
                   </a>
                   <p className="text-gray-400 text-sm">{t.role}</p>
                 </div>
