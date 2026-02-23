@@ -186,31 +186,31 @@ export const projects: Project[] = [
     contentTitle: "Main Responsibilities",
     responsibilityContent: [
       {
-        icon: CloudArrowUpIcon,
+        icon: PiSwordBold,
         title: "Enemy & AI.",
         description:
           "Responsible for implementing enemy behavior, including combat and patrol paths, as well as more specialized boss mechanics centralized around a multi-tiered phase system. Enemy behavior can be tweaked in the Unity editor through variables exposed with designer efficiency in mind.",
       },
       {
-        icon: CloudArrowUpIcon,
+        icon: MdOutlineHearing,
         title: "Audio.",
         description:
           "Implemented audio trigger prefabs which enables a designer to create audio zones that are either static or dependent on in-game events, such as combat music persisting until enough enemies have been eliminated.",
       },
       {
-        icon: CloudArrowUpIcon,
+        icon: PiSwordBold,
         title: "Final Boss Encounter.",
         description:
           "The final boss of the game features a mix of systems that brings together Canvas alterations, an immunity system that depends on the state of enemies and objects linked to the boss, as well as size scaler used to mimic the visual effect of a beating heart. The entire boss encounter, including it's underlying systems, was packaged as a prefab in order to help designers get a clear view of the hierarchy of editable paramaters.",
       },
       {
-        icon: CloudArrowUpIcon,
+        icon: VscSymbolInterface,
         title: "UI & HUD",
         description:
           'I worked on the UI related to one of Denet\'s core mechanics, the "In-Game Editor", a trigger based image-flash system used for world building, the player action bar and the password-locked file system.',
       },
       {
-        icon: CloudArrowUpIcon,
+        icon: ServerIcon,
         title: "Debug Tools",
         description:
           "In order to speed up testing, I implemented editor debug tools such as player teleportation and wireframe visuals for enemy aggro radius and range.",

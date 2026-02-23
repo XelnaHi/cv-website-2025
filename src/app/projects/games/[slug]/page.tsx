@@ -67,34 +67,41 @@ export default async function GameProjectPage({ params }: Props) {
                             </div>
                             <div className="w-full h-[2px] bg-gray-600 mt-4 mb-4" />
                             <div className="flex flex-row gap-5 ">
-
-                                <div className="flex gap-2 flex items-center">
+                                <div className="flex gap-2 items-center">
                                     <UserIcon aria-hidden="true" className="size-5 flex-none text-indigo-400" />
-                                    <p className="text-white font-bold">Team Size: {project.teamSize}</p>
+                                    <p className="text-white font-bold">
+                                        <span className="hidden md:inline">Team Size: </span>{project.teamSize}
+                                    </p>
                                 </div>
+
                                 {project.status === Status.Finished && (
-                                    <div className="flex gap-2 flex items-center">
+                                    <div className="flex gap-2 items-center">
                                         <Clock aria-hidden="true" className="size-5 flex-none text-indigo-400" />
-                                        <p className="text-white font-bold">Duration: {project.durationWeeks} weeks</p>
+                                        <p className="text-white font-bold">
+                                            <span className="hidden md:inline">Duration: </span>{project.durationWeeks} weeks
+                                        </p>
                                     </div>
                                 )}
+
                                 <div className="flex gap-2 items-center">
                                     <WrenchScrewdriverIcon aria-hidden="true" className="size-5 flex-none text-indigo-400" />
-                                    <p className="text-white font-bold ">{project.status == Status.Finished ? "Finished" : "In Progress"}</p>
+                                    <p className="text-white font-bold">
+                                        {project.status == Status.Finished ? "Finished" : "In Progress"}
+                                    </p>
                                 </div>
                             </div>
                             <div className="">
                                 <div className="mt-5">
                                     {project.links.map(link => (
-                                            <a
-                                                key={link.linkHref}
-                                                href={link.linkHref}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="hover:underline block text-base/7 font-semibold text-pink-400"
-                                            >
-                                                {link.linkName}
-                                            </a>
+                                        <a
+                                            key={link.linkHref}
+                                            href={link.linkHref}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="hover:underline block text-base/7 font-semibold text-pink-400"
+                                        >
+                                            {link.linkName}
+                                        </a>
                                     ))}
                                 </div>
                             </div>
@@ -144,8 +151,8 @@ export default async function GameProjectPage({ params }: Props) {
                                     <h3 className="text-3xl font-bold text-white tracking-tight mt-auto ml-4 text-heading md:text-2xl">Awards</h3>
                                 </div>
                                 <div className="mt-4 text-gray-400">
-                                    <ul className="list-disc list-inside">
-                                        <li><strong className="text-white">{project.award.awardTitle}</strong> - <span className="italic">{project.award.awardedBy}</span></li>
+                                    <ul className="list-disc list-inside ">
+                                        <li className="ml-8 text-sm sm:text-base"><strong className="text-white">{project.award.awardTitle}</strong> - <span className="italic">{project.award.awardedBy}</span></li>
                                     </ul>
                                 </div>
                             </div>

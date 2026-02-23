@@ -9,7 +9,7 @@ export default function VideoContentCard({ title, videos }: VideoContentCardProp
   return (
     <section className="mx-auto mt-10 max-w-7xl px-6 lg:px-8">
       <div className="rounded-2xl bg-gray-800/60 backdrop-blur-sm ring-1 ring-white/10 shadow-xl">
-        
+
         {/* Header */}
         <button
           className="w-full flex justify-between hover:cursor-pointer items-center p-6 focus:outline-none"
@@ -27,9 +27,8 @@ export default function VideoContentCard({ title, videos }: VideoContentCardProp
 
         {/* Collapsible content */}
         <div
-          className={`overflow-hidden transition-[max-height] duration-500 ease-out px-6 ${
-            open ? 'max-h-[2000px] py-6' : 'max-h-0'
-          }`}
+          className={`overflow-hidden transition-[max-height] duration-500 ease-out px-6 ${open ? 'max-h-[2000px] py-6' : 'max-h-0'
+            }`}
         >
           <div className="flex flex-col gap-10">
             {videos.map((video, index) => (
@@ -48,9 +47,11 @@ export default function VideoContentCard({ title, videos }: VideoContentCardProp
 
                   {/* Bullet points */}
                   {video.bullets && (
-                    <ul className="list-disc list-inside text-gray-300 ml-4">
+                    <ul className="list-disc list-outside ml-5 sm:ml-6 text-gray-300 text-sm sm:text-base">
                       {video.bullets.map((bullet, i) => (
-                        <li key={i}>{bullet}</li>
+                        <li key={i} className="leading-snug">
+                          {bullet}
+                        </li>
                       ))}
                     </ul>
                   )}

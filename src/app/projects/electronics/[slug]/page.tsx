@@ -67,19 +67,27 @@ export default async function ElectronicsProjectPage({ params }: Props) {
                             <div className="w-full h-[2px] bg-gray-600 mt-4 mb-4" />
                             <div className="flex flex-row gap-5 ">
 
-                                <div className="flex gap-2 flex items-center">
+                                <div className="flex gap-2 items-center">
                                     <UserIcon aria-hidden="true" className="size-5 flex-none text-indigo-400" />
-                                    <p className="text-white font-bold">Team Size: {project.teamSize}</p>
+                                    <p className="text-white font-bold">
+                                        <span className="hidden md:inline">Team Size: </span>{project.teamSize}
+                                    </p>
                                 </div>
+
                                 {project.status === Status.Finished && (
-                                    <div className="flex gap-2 flex items-center">
+                                    <div className="flex gap-2 items-center">
                                         <Clock aria-hidden="true" className="size-5 flex-none text-indigo-400" />
-                                        <p className="text-white font-bold">Duration: {project.durationWeeks} weeks</p>
+                                        <p className="text-white font-bold">
+                                            <span className="hidden md:inline">Duration: </span>{project.durationWeeks} weeks
+                                        </p>
                                     </div>
                                 )}
+
                                 <div className="flex gap-2 items-center">
                                     <WrenchScrewdriverIcon aria-hidden="true" className="size-5 flex-none text-indigo-400" />
-                                    <p className="text-white font-bold ">{project.status == Status.Finished ? "Finished" : "In Progress"}</p>
+                                    <p className="text-white font-bold">
+                                        {project.status == Status.Finished ? "Finished" : "In Progress"}
+                                    </p>
                                 </div>
                             </div>
                             <div className="flex flex-row">
