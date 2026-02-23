@@ -6,6 +6,7 @@ import { UserIcon, Clock } from "lucide-react"
 import { notFound } from "next/navigation"
 import BackButton from "@/components/Tailwind/BackButton"
 import { iconSwitch } from "@/Utilities/utilityFunctions"
+import VideoContentCard from "@/components/Tailwind/VideoContentCard"
 
 type Props = {
     params: Promise<{
@@ -138,6 +139,12 @@ export default async function WebProjectPage({ params }: Props) {
 
                 </div>
             </div>
+            {project.videoContent && (
+                <VideoContentCard
+                    title="Project Videos"
+                    videos={project.videoContent}
+                />
+            )}
         </div>
 
     )

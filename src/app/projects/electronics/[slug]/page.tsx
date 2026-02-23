@@ -140,9 +140,12 @@ export default async function ElectronicsProjectPage({ params }: Props) {
 
                 </div>
             </div>
-            {project.videoContent?.map(proj => (
-                <VideoContentCard key={proj.title} {...proj} />
-            ))}
+            {project.videoContent && (
+                <VideoContentCard
+                    title="Project Videos"
+                    videos={project.videoContent}
+                />
+            )}
         </div>
 
     )

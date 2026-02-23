@@ -1,8 +1,8 @@
 
 import { projects } from "@/app/data/projects"
 import { Status } from "@/Enums/Status"
-import {  WrenchScrewdriverIcon } from "@heroicons/react/20/solid"
-import {  UserIcon, Clock } from "lucide-react"
+import { WrenchScrewdriverIcon } from "@heroicons/react/20/solid"
+import { UserIcon, Clock } from "lucide-react"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import VideoContentCard from "@/components/Tailwind/VideoContentCard"
@@ -111,7 +111,7 @@ export default async function GameJamProjectPage({ params }: Props) {
                 <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
                     <div className="lg:pr-4">
                         <div className="max-w-xl text-base/7 text-gray-400 lg:max-w-lg">
-   
+
                             <h3 className="text-3xl font-bold text-white tracking-tight text-heading md:text-2xl">Main Responsibilities</h3>
                             <ul role="list" className="mt-4 space-y-8 text-gray-400">
                                 {project.responsibilityContent.map((item, index) => {
@@ -138,9 +138,12 @@ export default async function GameJamProjectPage({ params }: Props) {
 
                 </div>
             </div>
-            {project.videoContent?.map(proj => (
-                <VideoContentCard key={proj.title} {...proj} />
-            ))}
+            {project.videoContent && (
+                <VideoContentCard
+                    title="Project Videos"
+                    videos={project.videoContent}
+                />
+            )}
         </div>
 
     )
