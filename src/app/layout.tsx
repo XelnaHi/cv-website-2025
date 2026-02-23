@@ -62,6 +62,7 @@ export const viewport = {
 
 const navigation = [
   { name: 'Projects', href: '/projects' },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/teodor-fredriksson-919606b9/', target: '_blank' },
 ]
 
 export default function RootLayout({

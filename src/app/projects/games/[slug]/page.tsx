@@ -83,19 +83,19 @@ export default async function GameProjectPage({ params }: Props) {
                                     <p className="text-white font-bold ">{project.status == Status.Finished ? "Finished" : "In Progress"}</p>
                                 </div>
                             </div>
-                            <div className="flex flex-row">
+                            <div className="">
                                 <div className="mt-5">
                                     {project.links.map(link => (
-                                        <a
-                                            key={link.linkHref}
-                                            href={link.linkHref}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="hover:underline text-base/7 font-semibold text-pink-400"
-                                        >
-                                            {link.linkName}
-                                        </a>))}
-
+                                            <a
+                                                key={link.linkHref}
+                                                href={link.linkHref}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="hover:underline block text-base/7 font-semibold text-pink-400"
+                                            >
+                                                {link.linkName}
+                                            </a>
+                                    ))}
                                 </div>
                             </div>
                             <p className="mt-6 text-xl/8 text-gray-300">
@@ -156,7 +156,7 @@ export default async function GameProjectPage({ params }: Props) {
             </div>
             {project.videoContent && (
                 <VideoContentCard
-                    title="Project Videos"
+                    title="Core Gameplay Mechanics"
                     videos={project.videoContent}
                 />
             )}

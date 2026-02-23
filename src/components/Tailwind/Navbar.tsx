@@ -3,11 +3,12 @@
 import { useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon, HomeIcon } from '@heroicons/react/24/outline'
-import { Download, Gamepad } from 'lucide-react'
+import { Download} from 'lucide-react'
 
 type NavItem = {
   name: string
   href: string
+  target?: string
 }
 
 interface NavbarProps {
@@ -60,13 +61,10 @@ export function Navbar({ navigation }: NavbarProps) {
             </div>
           </a>
           {navigation.map((item) => (
-            <a key={item.name} href={item.href} className="text-sm/6 font-semibold mt-auto mb-auto text-white">
+            <a key={item.name} href={item.href} target={item.target || '_self'} className="text-sm/6 font-semibold mt-auto mb-auto text-white hover:text-pink-500 transition">
               {item.name}
             </a>
           ))}
-          <a href='https://www.linkedin.com/in/teodor-fredriksson-919606b9/' className="text-sm/6 font-semibold mt-auto mb-auto text-white" target='_blank' rel='noopener noreferrer'>
-            LinkedIn
-          </a>
           <div className="hidden lg:flex flex-1 justify-end" />
         </div>
 
@@ -101,18 +99,20 @@ export function Navbar({ navigation }: NavbarProps) {
                   <a
                     key={item.name}
                     href={item.href}
+                    target={item.target || '_self'}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
                   >
                     {item.name}
                   </a>
                 ))}
-                <a
-                  href={"https://www.linkedin.com/in/teodor-fredriksson-919606b9/"}
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
-                >
-                  LinkedIn
-                </a>
               </div>
+              
+            <div className="flex flex-row rounded-md border bg-pink-600 w-50 mt-5 border-white/30 hover:cursor-pointer px-4 py-2 text-white font-semibold hover:bg-pink-500 transition">
+              <button className='hover:cursor-pointer'>
+                Resumé
+              </button>
+              <Download className="w-5 h-5 ml-2 " />
+            </div>
 
             </div>
           </div>

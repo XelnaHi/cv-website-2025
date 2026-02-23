@@ -89,7 +89,7 @@ export default function Home() {
       <EmptyContentSection>
         <h3 id='featured-games' className="scroll-mt-32 text-3xl font-bold text-white tracking-tight text-heading md:text-2xl mb-5">Game Projects</h3>
 
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 auto-rows-fr">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-fr">
           {projects
             .filter((p) => p.category === "games")
             .map((p) => (
