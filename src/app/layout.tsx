@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Sora, Fira_Code, DM_Serif_Display, IBM_Plex_Mono, Lato } from "next/font/google";
 
 import "./globals.css";
-import Navbar from "../components/navbar";
+import { Navbar } from "@/components/Tailwind/Navbar";
 import Footer from "../components/footer";
 
 const sora = Sora({
@@ -26,15 +26,15 @@ const lato = Lato({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cv-website-2025-i55q.vercel.app"), //
-  title: "Teodor Fredriksson | Portfolio",
-  description: "Showcasing web, mobile, and game development by Teodor Fredriksson.",
+  title: "Teodor Fredriksson | Gameplay Programmer Portfolio",
+  description: "Showcasing game development and more, by Teodor Fredriksson",
   icons: {
     icon: "/favicon.png"
 
   },
   openGraph: {
     title: "Teodor Fredriksson | Portfolio",
-    description: "Projects in web, mobile, and game development. Built with React, Next.js and Tailwind",
+    description: "Projects in games, web, and electronics development. Built with React, Next.js and Tailwind",
     url: "https://cv-website-2025-i55q.vercel.app/",
     siteName: "Teodor Fredriksson Portfolio",
     images: [
@@ -60,21 +60,26 @@ export const viewport = {
 
 
 
+const navigation = [
+  { name: 'Projects', href: '/projects' },
+]
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  
+
   return (
     <html lang="en">
       <body className={`${sora.variable} ${firaCode.variable} ${lato.variable} antialiased`}>
-        <Navbar/>
+        <Navbar navigation={navigation} />
+
         <div className="min-h-screen flex flex-col">
-         <main className="flex-1">
-          {children}
-          </main> 
-        <Footer />
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
         </div>
       </body>
     </html>

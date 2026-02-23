@@ -40,15 +40,6 @@ export default function Footer() {
             
           </div>
 
-          
-          <Link
-            href="tel:+46761611369"
-              className="hover:text-accent-yellow  transition-colors flex items-center gap-1"
-          >
-            
-            <Phone className="w-4 h-4" />
-            <span>+46 76 161 13 69</span>
-          </Link>
         </div>
 
       </div>

@@ -1,63 +1,89 @@
-"use client";
+'use client'
 
-import { Github, Linkedin, Mail, Phone } from "lucide-react";
-import Link from "next/link";
-import * as motion from "motion/react-client";
-import HomePageCarousel from "@/components/HomePageCarousel";
-import HomePageDesktopCarousel from "@/components/HomePageDesktopCarousel";
-import useMediaQuery from "./hooks/UseMediaQuery";
+import { ProjectCard } from '@/components/Tailwind/ProjectCard'
+import { EmptyContentSection } from '@/components/Tailwind/EmptyContentSection'
+import { AboutSection } from '@/components/Tailwind/AboutSection'
+import { TestimonialsSection } from '@/components/Tailwind/TestimonialComponent'
+import { projects } from './data/projects'
+import { motion } from 'framer-motion'
 
 export default function Home() {
-    const isDesktop = useMediaQuery("(min-width: 768px)");  
 
   return (
-    <motion.div className="flex items-center justify-center">
-      <main className="w-full flex flex-col-reverse md:flex-row items-center justify-center  md:gap-12">
-             <div className="w-full md:w-1/2 flex justify-center">
-          {isDesktop ? <HomePageDesktopCarousel /> : <HomePageCarousel />}
+    <div className="bg-gray-900">
+
+      <div className="relative isolate px-6 pt-14 lg:px-8">
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+        >
+          <div
+            style={{
+              clipPath:
+                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+            }}
+            className="relative left-[calc(50%-11rem)] aspect-1155/678 w-144.5 -translate-x-1/2 rotate-30 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-288.75"
+          />
+        </div>
+        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+          <div className="hidden sm:mb-8 sm:flex sm:justify-center">
+          </div>
+          <div className="text-center">
+            <h1 className="text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl">
+              Teodor Fredriksson
+            </h1>
+            <p className="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">
+            Gameplay programmer who thrives in close cross-discipline collaborations, focused on making every player interaction feel impactful. 
+            </p>
+            <div className="flex justify-center gap-6 mt-8">
+              {[
+                { src: '/assets/icons8-unity-white.png', alt: 'Unity' },
+                { src: '/assets/icons8-unreal-engine-48.png', alt: 'Unreal Engine' },
+                { src: '/assets/c-logo-icon-28389.png', alt: 'C++' },
+                { src: '/logos/csharpIcon.png', alt: 'C#' },
+              ].map((logo, index) => (
+                <motion.img
+                  key={logo.alt}
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="h-10 w-auto  hover:opacity-10 transition-opacity duration-300"
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 0.9, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                  viewport={{ once: true }}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+        >
+          <div
+            style={{
+              clipPath:
+                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+            }}
+            className="relative left-[calc(50%+3rem)] aspect-1155/678 w-144.5 -translate-x-1/2 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-288.75"
+          />
         </div>
 
-        <div
-          className="w-full md:w-1/2 h-full md:min-h-screen items-center md:items-start bg-secondary-green flex flex-col justify-start md:justify-center text-center md:text-left p-8 text-white 
-  shadow-[0_10px_15px_-10px_rgba(0,0,0,0.7)] md:shadow-[-10px_0_15px_-10px_rgba(0,0,0,0.7)]"
-        >
-          {" "}
-          <h1 className="text-4xl font-bold text-shadow-lg mb-4 ">Teodor Fredriksson</h1>
-          <div className="border-b-accent-orange border-b-4 w-1/10"></div>
-          <p className="text-lg  text-white max-w-md">
-            I love making things that look good, work as expected and make people happy.
-          </p>
-          
-          <div className="flex gap-4 mt-6">
-            <Link
-              href="https://github.com/TeodorFredriksson95"
-              className="hover:text-accent-yellow"
-            >
-              <Github />
-            </Link>
-            <Link
-              href="https://linkedin.com/in/teodor-fredriksson-919606b9/"
-              className="hover:text-accent-yellow"
-            >
-              <Linkedin />
-            </Link>
-            <Link
-              href="mailto:teofredev@gmail.com"
-              className="hover:text-accent-yellow"
-            >
-              <Mail />
-            </Link>
-          </div>
-                    <Link
-            href="tel:+46761611369"
-              className="hover:text-accent-yellow mt-2 transition-colors flex items-center gap-1"
-          >
-            
-            <Phone className="w-4 h-4" />
-            <span>+46 76 161 13 69</span>
-          </Link>
+      </div>
+      <EmptyContentSection>
+        <h3 className="text-3xl font-bold text-white tracking-tight text-heading md:text-2xl mb-5">Game Projects</h3>
+
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 auto-rows-fr">
+          {projects
+            .filter((p) => p.category === "games")
+            .map((p) => (
+              <ProjectCard key={p.slug} {...p} />
+            ))}
         </div>
-      </main>
-    </motion.div>
-  );
+      </EmptyContentSection>
+
+      <TestimonialsSection />
+      <AboutSection />
+    </div>
+  )
 }

@@ -12,6 +12,7 @@
     "@headlessui/react": "^2.2.4",
     "@heroicons/react": "^2.2.0",
     "@svgr/webpack": "^8.1.0",
+    "@tailwindplus/elements": "^1.0.22",
     "lucide-react": "^0.511.0",
     "motion": "^12.15.0",
     "next": "16.1.4",
