@@ -4,8 +4,6 @@ import { Status } from "@/Enums/Status"
 import { WrenchScrewdriverIcon } from "@heroicons/react/20/solid"
 import { UserIcon, Clock } from "lucide-react"
 import { notFound } from "next/navigation"
-import Link from "next/link"
-import VideoContentCard from "@/components/Tailwind/VideoContentCard"
 import BackButton from "@/components/Tailwind/BackButton"
 import { iconSwitch } from "@/Utilities/utilityFunctions"
 
@@ -140,9 +138,6 @@ export default async function WebProjectPage({ params }: Props) {
 
                 </div>
             </div>
-            {project.videoContent?.map(proj => (
-                <VideoContentCard key={proj.title} {...proj} />
-            ))}
         </div>
 
     )

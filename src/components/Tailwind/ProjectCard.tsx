@@ -24,7 +24,7 @@ export function ProjectCard(project: Project & { category?: string }) {
                     <img
                         src={project.img}
                         alt={project.imgAlt}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-fit"
                     />
                 </div>                <div className=" p-2 flex flex-col flex-grow">
                     <p className="text-white text-lg mb-2 font-bold">

@@ -157,7 +157,7 @@ export const projects: Project[] = [
     slug: "denet",
     title: "Denet.exe",
     description: "OS Simulation Horror",
-    img: "/assets/GP1_team3_poster3.png",
+    img: "/assets/WebPImages/sociailtfrikortThumbnail2.webp",
     imgAlt: "default alt image text",
     teamSize: 8,
     status: Status.Finished,
