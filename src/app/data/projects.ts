@@ -134,7 +134,7 @@ export const projects: Project[] = [
     videoContent: [
       {
         description: "",
-        guidedDescription:"One of the team's biggest focus area was how to make the gameplay mechanics feel accessible. This video features mainly the auto-aim system, a system which automatically moves the player's aim towards the enemy if within a certain a view distance. The damage indication system is also noticable, giving the player an indication of the fact that they are being hurt, and from which direction the damage is coming from.",
+        guidedDescription:"One of the team's biggest focus area was how to make the gameplay mechanics feel accessible. This video features mainly the auto-aim system, a system which automatically moves the player's aim towards the enemy if within a certain a view distance.\nThe damage indication system is also noticable, giving the player an indication of the fact that they are being hurt, and from which direction the damage is coming from.",
         title: "Accessible Combat System",
         videoSrc: "https://www.youtube.com/embed/FQ7sm4YrrMw?si=qFwoumPxDk5tXfKC",
         bullets: [
