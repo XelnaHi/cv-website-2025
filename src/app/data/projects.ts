@@ -145,7 +145,7 @@ export const projects: Project[] = [
       },
       {
         description: "",
-        guidedDescription:"As part of Somnium's ambition to deliver an as accessible game as possible, we implemented a set of accessibility features such as adjustable brightness, an adjustable pixel filter, as well as toggles for screen shake and camera bob. This video features the adjustable pixel filter, which is designed to help players with visual impairments to better distinguish between different objects in the world. As part of our development process, we reached out to people with color blindness in the hopes of getting more accurate data to guide us in our development.",
+        guidedDescription:"As part of Somnium's ambition to deliver an as accessible game as possible, we implemented a set of accessibility features such as adjustable brightness, an adjustable pixel filter, as well as toggles for screen shake and camera bob.\n\nThis video features the adjustable pixel filter, which is designed to help players with visual impairments to better distinguish between different objects in the world. As part of our development process, we reached out to people with color blindness in the hopes of getting more accurate data to guide us in our development.",
         title: "Accessibility Features",
         videoSrc: "https://www.youtube.com/embed/fYDyJG2lU_M?si=Mt_diLlwrq5kZWnV",
         bullets: [
@@ -219,7 +219,7 @@ export const projects: Project[] = [
     videoContent: [
       {
         description: "",
-        guidedDescription: "The gameplay systems in Denet.exe heavily revolve around event triggers inside the meta game which unlocks narrative progressions - which in turn, does the same for the meta game. In this video, we see how the act of colliding with an object triggers a story beat, which in turn awards the player with a new meta-game tool necessary to progress inside the meta-game.  ",
+        guidedDescription: "The gameplay systems in Denet.exe heavily revolve around event triggers inside the meta game which unlocks narrative progressions - which in turn, does the same for the meta game.\n\nIn this video, we see how the act of colliding with an object triggers a story beat, which in turn awards the player with a new meta-game tool necessary to progress inside the meta-game.  ",
         title: "Narrative-Driven World State System",
         videoSrc: "https://www.youtube.com/embed/cuv3AdKfw4I?si=ioH3DTkcz3SY6YfQ",
         bullets: [
@@ -230,7 +230,7 @@ export const projects: Project[] = [
       },
       {
         description: "",
-        guidedDescription: "Throughout the player's journey inside the meta-game, obstacles of varying nature obstruct the player's path forward. Enter the \"In-Game-Game Editor\", a core mechanic of Denet.exe which allows the player to edit the world around them in order to progress. In this video, we see how the player uses the editor to traverse a set of obstacles.",
+        guidedDescription: "Throughout the player's journey inside the meta-game, obstacles of varying nature obstruct the player's path forward.\n\nEnter the \"In-Game-Game Editor\", a core mechanic of Denet.exe which allows the player to edit the world around them in order to progress. In this video, we see how the player uses the editor to traverse a set of obstacles.",
 
         title: "Meta Game Editor",
         videoSrc: "https://www.youtube.com/embed/Vi9PcOY1vBU?si=eiGpLJnqaACfdkmx",
