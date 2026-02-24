@@ -15,7 +15,7 @@ export default function VideoContentCard({ title, videos }: VideoContentCardProp
           className="w-full flex justify-between hover:cursor-pointer items-center p-6 focus:outline-none"
           onClick={() => setOpen((prev) => !prev)}
         >
-          <h3 className="text-xl font-bold tracking-tight text-white sm:text-2xl">
+          <h3 className="text-xl font-bold tracking-tight text-white sm:text-xl">
             {title}
           </h3>
           {open ? (
