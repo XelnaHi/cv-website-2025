@@ -42,7 +42,7 @@ export default function VideoContentCard({ title, videos }: VideoContentCardProp
 
                   {/* Guided / Author's Note */}
                   {video.guidedDescription && (
-                    <p className="text-gray-400 text-sm">{video.guidedDescription}</p>
+                    <p className="text-gray-400 text-sm whitespace-pre-line">{video.guidedDescription}</p>
                   )}
 
                   {/* Bullet points */}
