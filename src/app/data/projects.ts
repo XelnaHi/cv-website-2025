@@ -1,5 +1,9 @@
 import { Engine, Status } from "@/Enums/Status";
-import { CloudArrowUpIcon, LockClosedIcon, TrophyIcon } from "@heroicons/react/20/solid";
+import {
+  CloudArrowUpIcon,
+  LockClosedIcon,
+  TrophyIcon,
+} from "@heroicons/react/20/solid";
 import { ServerIcon } from "lucide-react";
 import { PiSwordBold } from "react-icons/pi";
 import { VscSymbolInterface } from "react-icons/vsc";
@@ -44,16 +48,15 @@ export type VideoContentType = {
 };
 
 export type VideoItem = {
-  videoSrc: string
-  title: string
-  bullets?: string[]
-}
+  videoSrc: string;
+  title: string;
+  bullets?: string[];
+};
 
 export type VideoContentCardProps = {
-  title: string
-  videos: VideoContentType[]
-}
-
+  title: string;
+  videos: VideoContentType[];
+};
 
 export type ProjectResponsibilityContent = {
   icon: React.ComponentType<{ className?: string }>;
@@ -70,7 +73,16 @@ export type Award = {
   awardedBy: string;
   awardTitle: string;
   icon: React.ComponentType<{ className?: string }>;
-}
+};
+
+export type SlugProps = {
+  params: {
+    slug: string;
+  };
+  searchParams?: {
+    from?: string;
+  };
+};
 
 export const projects: Project[] = [
   {
@@ -134,28 +146,32 @@ export const projects: Project[] = [
     videoContent: [
       {
         description: "",
-        guidedDescription:"One of the team's biggest focus area was how to make the gameplay mechanics feel accessible. This video features mainly the auto-aim system, a system which automatically moves the player's aim towards the enemy if within a certain a view distance.\n\nThe damage indication system is also noticable, giving the player an indication of the fact that they are being hurt, and from which direction the damage is coming from.",
+        guidedDescription:
+          "One of the team's biggest focus area was how to make the gameplay mechanics feel accessible. This video features mainly the auto-aim system, a system which automatically moves the player's aim towards the enemy if within a certain a view distance.\n\nThe damage indication system is also noticable, giving the player an indication of the fact that they are being hurt, and from which direction the damage is coming from.",
         title: "Accessible Combat System",
-        videoSrc: "https://www.youtube.com/embed/FQ7sm4YrrMw?si=qFwoumPxDk5tXfKC",
+        videoSrc:
+          "https://www.youtube.com/embed/FQ7sm4YrrMw?si=qFwoumPxDk5tXfKC",
         bullets: [
           "Auto-aim system to help players with motor impairments",
           "Projectiles can be upgraded to home in on enemies",
-          "Damage overlay to indicate from which direction an attack is coming from"
-        ]
+          "Damage overlay to indicate from which direction an attack is coming from",
+        ],
       },
       {
         description: "",
-        guidedDescription:"As part of Somnium's ambition to deliver an as accessible game as possible, we implemented a set of accessibility features such as adjustable brightness, an adjustable pixel filter, as well as toggles for screen shake and camera bob.\n\nThis video features the adjustable pixel filter, which is designed to help players with visual impairments to better distinguish between different objects in the world. As part of our development process, we reached out to people with color blindness in the hopes of getting more accurate data to guide us in our development.",
+        guidedDescription:
+          "As part of Somnium's ambition to deliver an as accessible game as possible, we implemented a set of accessibility features such as adjustable brightness, an adjustable pixel filter, as well as toggles for screen shake and camera bob.\n\nThis video features the adjustable pixel filter, which is designed to help players with visual impairments to better distinguish between different objects in the world. As part of our development process, we reached out to people with color blindness in the hopes of getting more accurate data to guide us in our development.",
         title: "Accessibility Features",
-        videoSrc: "https://www.youtube.com/embed/fYDyJG2lU_M?si=Mt_diLlwrq5kZWnV",
+        videoSrc:
+          "https://www.youtube.com/embed/fYDyJG2lU_M?si=Mt_diLlwrq5kZWnV",
         bullets: [
           "Adjustable pixel-filter",
           "Adjustable brightness",
           "On/off screen shake toggle",
           "On/off camera-bob toggle",
-        ]
-      }
-    ]
+        ],
+      },
+    ],
   },
   {
     responsibilityText: "",
@@ -219,29 +235,33 @@ export const projects: Project[] = [
     videoContent: [
       {
         description: "",
-        guidedDescription: "The gameplay systems in Denet.exe heavily revolve around event triggers inside the meta game which unlocks narrative progressions - which in turn, does the same for the meta game.\n\nIn this video, we see how the act of colliding with an object triggers a story beat, which in turn awards the player with a new meta-game tool necessary to progress inside the meta-game.  ",
+        guidedDescription:
+          "The gameplay systems in Denet.exe heavily revolve around event triggers inside the meta game which unlocks narrative progressions - which in turn, does the same for the meta game.\n\nIn this video, we see how the act of colliding with an object triggers a story beat, which in turn awards the player with a new meta-game tool necessary to progress inside the meta-game.  ",
         title: "Narrative-Driven World State System",
-        videoSrc: "https://www.youtube.com/embed/cuv3AdKfw4I?si=ioH3DTkcz3SY6YfQ",
+        videoSrc:
+          "https://www.youtube.com/embed/cuv3AdKfw4I?si=ioH3DTkcz3SY6YfQ",
         bullets: [
           "Narrative beats influence the state of the world",
           "Narrative state is triggered by player actions",
           "Audio-queues that are dependent on the state of the world",
-        ]
+        ],
       },
       {
         description: "",
-        guidedDescription: "Throughout the player's journey inside the meta-game, obstacles of varying nature obstruct the player's path forward.\n\nEnter the \"In-Game-Game Editor\", a core mechanic of Denet.exe which allows the player to edit the world around them in order to progress. In this video, we see how the player uses the editor to traverse a set of obstacles.",
+        guidedDescription:
+          "Throughout the player's journey inside the meta-game, obstacles of varying nature obstruct the player's path forward.\n\nEnter the \"In-Game-Game Editor\", a core mechanic of Denet.exe which allows the player to edit the world around them in order to progress. In this video, we see how the player uses the editor to traverse a set of obstacles.",
 
         title: "Meta Game Editor",
-        videoSrc: "https://www.youtube.com/embed/Vi9PcOY1vBU?si=eiGpLJnqaACfdkmx",
+        videoSrc:
+          "https://www.youtube.com/embed/Vi9PcOY1vBU?si=eiGpLJnqaACfdkmx",
         bullets: [
           "Let's the player edit objects inside the game inside the game ",
           "Add collision to objects in the world so that you may find your footing",
           "Delete or add objects in the world so that you may pass",
           "Increase bounciness of objects so that you may reach a little further",
-        ]
+        ],
       },
-    ]
+    ],
   },
   {
     responsibilityText: "",
@@ -522,10 +542,13 @@ export const projects: Project[] = [
     durationWeeks: "N/A",
     category: "electronics",
     fullImage: "/assets/pcbThumbnail.jpg",
-    links: [{
-      linkName: "GitHub",
-      linkHref: "https://github.com/TeodorFredriksson95/Home-Plant-Watering-System"
-    }],
+    links: [
+      {
+        linkName: "GitHub",
+        linkHref:
+          "https://github.com/TeodorFredriksson95/Home-Plant-Watering-System",
+      },
+    ],
     contentTitle: "Current Progress",
     responsibilityContent: [
       {

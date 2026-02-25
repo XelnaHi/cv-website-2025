@@ -1,5 +1,5 @@
 
-import { projects } from "@/app/data/projects"
+import { projects, SlugProps } from "@/app/data/projects"
 import { Status } from "@/Enums/Status"
 import { WrenchScrewdriverIcon } from "@heroicons/react/20/solid"
 import { UserIcon, Clock } from "lucide-react"
@@ -9,14 +9,10 @@ import VideoContentCard from "@/components/Tailwind/VideoContentCard"
 import BackButton from "@/components/Tailwind/BackButton"
 import { iconSwitch } from "@/Utilities/utilityFunctions"
 
-type Props = {
-    params: Promise<{
-        slug: string
-    }>
-}
 
-export default async function GameProjectPage({ params }: Props) {
+export default async function GameProjectPage({ params, searchParams }: SlugProps) {
     const { slug } = await params;
+    const { from } = await searchParams ?? {};
 
     const project = projects.find(
         (p) => p.slug === slug && p.category === "games"
@@ -57,7 +53,7 @@ export default async function GameProjectPage({ params }: Props) {
                 <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
                     <div className="lg:pr-4">
                         <div className="lg:max-w-lg">
-                            <BackButton />
+                            <BackButton from={from} />
                             <div className="flex-row flex gap-5">
                                 {iconSwitch(project.engine, "mt-auto rounded-xl bg-gray-800 shadow-xl ring-1 ring-white/10 w-12 h-12")}
                                 <h1 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">

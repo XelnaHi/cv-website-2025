@@ -24,7 +24,7 @@ export default function ProjectsPage() {
       <h1 className="text-4xl font-bold lg:mt-16 text-white mb-12 text-center">All Projects</h1>
 
       <div className='flex flex-row align-center'>
-        <BackButton />
+        <BackButton/>
         <p className='text-indigo-400 font-bold mt-auto mb-auto'></p>
       </div>
 
