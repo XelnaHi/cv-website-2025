@@ -15,7 +15,7 @@ export default function VideoContentCard({ title, videos }: VideoContentCardProp
           className="w-full flex justify-between hover:cursor-pointer items-center p-6 focus:outline-none"
           onClick={() => setOpen((prev) => !prev)}
         >
-          <h3 className="text-xl font-bold tracking-tight text-white sm:text-2xl">
+          <h3 className="text-xl font-bold tracking-tight text-white sm:text-xl">
             {title}
           </h3>
           {open ? (
@@ -42,7 +42,7 @@ export default function VideoContentCard({ title, videos }: VideoContentCardProp
 
                   {/* Guided / Author's Note */}
                   {video.guidedDescription && (
-                    <p className="text-gray-400 text-sm">{video.guidedDescription}</p>
+                    <p className="text-gray-400 text-sm whitespace-pre-line">{video.guidedDescription}</p>
                   )}
 
                   {/* Bullet points */}
