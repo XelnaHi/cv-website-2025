@@ -93,7 +93,7 @@ export default function Home() {
           {projects
             .filter((p) => p.category === "games")
             .map((p) => (
-              <ProjectCard key={p.slug} {...p} />
+              <ProjectCard key={p.slug} {...p} fromPage='home' />
             ))}
         </div>
       </EmptyContentSection>

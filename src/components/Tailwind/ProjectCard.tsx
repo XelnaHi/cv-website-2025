@@ -5,11 +5,13 @@ import { iconSwitch, renderSwitch } from "@/Utilities/utilityFunctions"
 
 import { ArrowRightIcon, UserIcon, WrenchScrewdriverIcon } from "@heroicons/react/16/solid"
 import Link from "next/link"
+import { FaRegCompass } from "react-icons/fa"
 
 
-export function ProjectCard(project: Project & { category?: string }) {
+export function ProjectCard(project: Project & { category?: string, fromPage: string }) {
     return (
-        <Link href={`/projects/${project.category}/${project.slug}`}>
+
+        <Link href={`/projects/${project.category}/${project.slug}?from=${project.fromPage}`}>
             <div
                 className="
     group

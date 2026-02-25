@@ -174,10 +174,10 @@ export const projects: Project[] = [
     engine: Engine.Unity,
     fullImage: "/assets/GP1_team3_poster3.png",
     links: [
-      // {
-      //   linkName: "Itch",
-      //   linkHref: "https://futuregames.itch.io/somnium",
-      // },
+      {
+        linkName: "Itch",
+        linkHref: "https://futuregames.itch.io/denet",
+      },
       {
         linkName: "GitHub",
         linkHref: "https://github.com/TeodorFredriksson95/Game-Project-2",
