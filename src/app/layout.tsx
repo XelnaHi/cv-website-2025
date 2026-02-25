@@ -4,6 +4,8 @@ import { Sora, Fira_Code, DM_Serif_Display, IBM_Plex_Mono, Lato } from "next/fon
 import "./globals.css";
 import { Navbar } from "@/components/Tailwind/Navbar";
 import Footer from "../components/footer";
+import { HiReceiptPercent } from "react-icons/hi2";
+import { Target } from "lucide-react";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -63,6 +65,7 @@ export const viewport = {
 const navigation = [
   { name: 'Projects', href: '/projects' },
   { name: 'LinkedIn', href: 'https://www.linkedin.com/in/teodor-fredriksson-919606b9/', target: '_blank' },
+  { name: 'GitHub', href: 'https://github.com/TeodorFredriksson95', target: '_blank'},
 ]
 
 export default function RootLayout({
