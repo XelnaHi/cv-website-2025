@@ -181,14 +181,14 @@ export const projects: Project[] = [
     slug: "denet",
     title: "Denet.exe",
     description: "OS Simulation Horror",
-    img: "/assets/GP1_team3_poster3.png",
+    img: "/assets/denet_poster.png",
     imgAlt: "default alt image text",
     teamSize: 8,
     status: Status.Finished,
     durationWeeks: "4",
     category: "games",
     engine: Engine.Unity,
-    fullImage: "/assets/GP1_team3_poster3.png",
+    fullImage: "/assets/denet_poster.png",
     links: [
       {
         linkName: "Itch",
