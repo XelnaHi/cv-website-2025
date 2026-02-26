@@ -141,15 +141,32 @@ export default async function GameProjectPage({ params, searchParams }: SlugProp
                             </ul>
                         </div>
                         {project.award && (
-                            <div className="mt-6">
-                                <div className=" flex flex-row align-center ">
-                                    <project.award.icon aria-hidden="true" className="size-10 flex-none text-yellow-400" />
-                                    <h3 className="text-3xl font-bold text-white tracking-tight mt-auto ml-4 text-heading md:text-2xl">Awards</h3>
-                                </div>
-                                <div className="mt-4 text-gray-400">
-                                    <ul className="list-disc list-inside ">
-                                        <li className="ml-8 text-sm sm:text-base"><strong className="text-white">{project.award.awardTitle}</strong> - <span className="italic">{project.award.awardedBy}</span></li>
-                                    </ul>
+                            <div className="mt-12">
+                                <div className="relative rounded-2xl bg-gradient-to-br from-yellow-500/10 via-yellow-400/5 to-transparent p-6 ring-1 ring-yellow-400/30 backdrop-blur-sm">
+
+                                    <div className="flex flex-col md:flex-row items-center gap-6">
+
+                                        {/* Award Image */}
+                                        <img
+                                            src="/assets/Debut_Win25_White.png"
+                                            alt="Award Badge"
+                                            className="w-50 h-auto object-contain drop-shadow-[0_0_20px_rgba(250,204,21,0.1)]"
+                                        />
+
+                                        {/* Award Text */}
+                                        <div>
+                                            <h3 className="text-2xl font-bold text-center text-yellow-400 tracking-tight">
+                                                {project.award.awardTitle}
+                                            </h3>
+                                            <p className="text-gray-300 mt-1">
+                                                Awarded by{" "}
+                                                <span className="italic text-white">
+                                                    {project.award.awardedBy}
+                                                </span>
+                                            </p>
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
                         )}
