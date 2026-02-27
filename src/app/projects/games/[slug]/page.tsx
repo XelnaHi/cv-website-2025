@@ -8,6 +8,7 @@ import Link from "next/link"
 import VideoContentCard from "@/components/Tailwind/VideoContentCard"
 import BackButton from "@/components/Tailwind/BackButton"
 import { iconSwitch } from "@/Utilities/utilityFunctions"
+import TrailerContentCard from "@/components/Tailwind/TrailerComponent"
 
 
 export default async function GameProjectPage({ params, searchParams }: SlugProps) {
@@ -146,14 +147,12 @@ export default async function GameProjectPage({ params, searchParams }: SlugProp
 
                                     <div className="flex flex-col md:flex-row items-center gap-6">
 
-                                        {/* Award Image */}
                                         <img
                                             src="/assets/Debut_Win25_White.png"
                                             alt="Award Badge"
                                             className="w-50 h-auto object-contain drop-shadow-[0_0_20px_rgba(250,204,21,0.1)]"
                                         />
 
-                                        {/* Award Text */}
                                         <div>
                                             <h3 className="text-2xl font-bold text-center text-yellow-400 tracking-tight">
                                                 {project.award.awardTitle}
@@ -178,6 +177,13 @@ export default async function GameProjectPage({ params, searchParams }: SlugProp
                 <VideoContentCard
                     title="Core Gameplay Mechanics"
                     videos={project.videoContent}
+                />
+            )}
+
+            {project.trailer && (
+                <TrailerContentCard
+                    title={project.trailer.title}
+                    videoSrc={project.trailer.videoSrc}
                 />
             )}
         </div>

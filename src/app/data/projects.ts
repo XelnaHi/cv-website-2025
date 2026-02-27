@@ -7,6 +7,7 @@ import {
 import { ServerIcon } from "lucide-react";
 import { PiSwordBold } from "react-icons/pi";
 import { VscSymbolInterface } from "react-icons/vsc";
+import { HiOutlineVideoCamera } from "react-icons/hi";
 import { MdTouchApp } from "react-icons/md";
 import { MdOutlineHearing } from "react-icons/md";
 
@@ -37,6 +38,12 @@ export type Project = ProjectCardType & {
   }[];
   links: Links[];
   award?: Award;
+  trailer?: Trailer;
+};
+
+export type Trailer = {
+  title: string;
+  videoSrc: string;
 };
 
 export type VideoContentType = {
@@ -101,6 +108,10 @@ export const projects: Project[] = [
     category: "games",
     engine: Engine.Unity,
     fullImage: "/assets/GP1_team3_poster3.png",
+    trailer: {
+      title: "Somnium Trailer",
+      videoSrc: "https://www.youtube.com/embed/5uRpASYa4oM?si=6qgrGOBkEtFRgec5",
+    },
     award: {
       awardedBy: "Futuregames Awards",
       awardTitle: "Best Debut Game",
@@ -189,6 +200,10 @@ export const projects: Project[] = [
     category: "games",
     engine: Engine.Unity,
     fullImage: "/assets/denet_poster.png",
+    trailer: {
+      title: "Denet.exe Trailer",
+      videoSrc: "https://www.youtube.com/embed/lSvKu_rciKU?si=TbB5sS4cvh-o8IM4",
+    },
     links: [
       {
         linkName: "Itch",
@@ -230,6 +245,12 @@ export const projects: Project[] = [
         title: "Debug Tools",
         description:
           "In order to speed up testing, I implemented editor debug tools such as player teleportation and wireframe visuals for enemy aggro radius and range.",
+      },
+      {
+        icon: HiOutlineVideoCamera,
+        title: "Release Trailer",
+        description:
+          "Created the release trailer featured on Itch and Youtube.",
       },
     ],
     videoContent: [
