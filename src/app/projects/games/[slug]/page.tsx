@@ -140,52 +140,57 @@ export default async function GameProjectPage({ params, searchParams }: SlugProp
                                     );
                                 })}
                             </ul>
-                        </div>
-                        {project.award && (
-                            <div className="mt-12">
-                                <div className="relative rounded-2xl bg-gradient-to-br from-yellow-500/10 via-yellow-400/5 to-transparent p-6 ring-1 ring-yellow-400/30 backdrop-blur-sm">
+                            {project.award && (
+                                <div className="mt-12">
+                                    <div className="relative rounded-2xl bg-gradient-to-br from-yellow-500/10 via-yellow-400/5 to-transparent p-6 ring-1 ring-yellow-400/30 backdrop-blur-sm">
 
-                                    <div className="flex flex-col md:flex-row items-center gap-6">
+                                        <div className="flex flex-col md:flex-row items-center gap-6">
 
-                                        <img
-                                            src="/assets/Debut_Win25_White.png"
-                                            alt="Award Badge"
-                                            className="w-50 h-auto object-contain drop-shadow-[0_0_20px_rgba(250,204,21,0.1)]"
-                                        />
+                                            <img
+                                                src="/assets/Debut_Win25_White.png"
+                                                alt="Award Badge"
+                                                className="w-50 h-auto object-contain drop-shadow-[0_0_20px_rgba(250,204,21,0.1)]"
+                                            />
 
-                                        <div>
-                                            <h3 className="text-2xl font-bold text-center text-yellow-400 tracking-tight">
-                                                {project.award.awardTitle}
-                                            </h3>
-                                            <p className="text-gray-300 mt-1">
-                                                Awarded by{" "}
-                                                <span className="italic text-white">
-                                                    {project.award.awardedBy}
-                                                </span>
-                                            </p>
+                                            <div>
+                                                <h3 className="text-2xl font-bold text-center text-yellow-400 tracking-tight">
+                                                    {project.award.awardTitle}
+                                                </h3>
+                                                <p className="text-gray-300 mt-1">
+                                                    Awarded by{" "}
+                                                    <span className="italic text-white">
+                                                        {project.award.awardedBy}
+                                                    </span>
+                                                </p>
+                                            </div>
+
                                         </div>
-
                                     </div>
                                 </div>
-                            </div>
-                        )}
+                            )}
+                        </div>
                     </div>
 
                 </div>
             </div>
-            {project.videoContent && (
-                <VideoContentCard
-                    title="Core Gameplay Mechanics"
-                    videos={project.videoContent}
-                />
-            )}
 
-            {project.trailer && (
-                <TrailerContentCard
-                    title={project.trailer.title}
-                    videoSrc={project.trailer.videoSrc}
-                />
-            )}
+            <div className="mx-auto w-full max-w-2xl lg:max-w-7xl lg:px-8">
+                {project.videoContent && (
+                    <VideoContentCard
+                        title="Core Gameplay Mechanics"
+                        videos={project.videoContent}
+                    />
+                )}
+            </div>
+
+            <div className="mx-auto w-full max-w-2xl lg:max-w-7xl lg:px-8">
+                {project.trailer && (
+                    <TrailerContentCard
+                        title={project.trailer.title}
+                        videoSrc={project.trailer.videoSrc}
+                    />
+                )}
+            </div>
         </div>
 
     )

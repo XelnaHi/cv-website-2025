@@ -7,8 +7,8 @@ export default function VideoContentCard({ title, videos }: VideoContentCardProp
   const [open, setOpen] = useState(false)
 
   return (
-    <section className="mx-auto mt-10 max-w-7xl px-6 lg:px-8">
-      <div className="rounded-2xl bg-gray-800/60 backdrop-blur-sm ring-1 ring-white/10 shadow-xl">
+<section className="mt-10 w-full">
+        <div className="rounded-2xl bg-gray-800/60 backdrop-blur-sm ring-1 ring-white/10 shadow-xl">
 
         {/* Header */}
         <button

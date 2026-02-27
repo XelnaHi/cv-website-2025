@@ -7,7 +7,7 @@ export default function TrailerContentCard({ title, videoSrc }: Trailer) {
   const [open, setOpen] = useState(false)
 
   return (
-    <section className="mx-auto mt-10 max-w-7xl px-6 lg:px-8">
+    <section className="mt-10 w-full">
       <div className="rounded-2xl bg-gray-800/60 backdrop-blur-sm ring-1 ring-white/10 shadow-xl">
 
         <button
@@ -31,18 +31,18 @@ export default function TrailerContentCard({ title, videoSrc }: Trailer) {
           <div className="flex flex-col gap-10">
 
 
-                <div className="flex-1 aspect-video w-full overflow-hidden rounded-xl ring-1 ring-white/10">
-                  <iframe
-                    src={videoSrc}
-                    title={title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="w-full h-full"
-                  />
-                </div>
-              </div>
+            <div className="flex-1 aspect-video w-full overflow-hidden rounded-xl ring-1 ring-white/10">
+              <iframe
+                src={videoSrc}
+                title={title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            </div>
           </div>
         </div>
+      </div>
     </section>
   )
 }
