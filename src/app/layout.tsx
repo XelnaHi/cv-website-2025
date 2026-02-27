@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     siteName: "Teodor Fredriksson Portfolio",
     images: [
       {
-        url: "https://cv-website-2025-i55q.vercel.app/og-image.png",
+        url: "https://cv-website-2025-i55q.vercel.app/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Teodor Fredriksson Portfolio Cover",
