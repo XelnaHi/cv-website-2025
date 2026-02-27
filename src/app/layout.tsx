@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Teodor Fredriksson | Portfolio",
-    description: "Projects in games, web, and electronics development. Built with React, Next.js and Tailwind",
+    description: "Projects in games, web, and electronics development.",
     url: "https://cv-website-2025-i55q.vercel.app/",
     siteName: "Teodor Fredriksson Portfolio",
     images: [
