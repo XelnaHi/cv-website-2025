@@ -85,7 +85,7 @@ export default async function WebProjectPage({ params, searchParams }: SlugProps
                                     </p>
                                 </div>
                             </div>
-                            <div className="flex flex-row">
+                            <div className="">
                                 <div className="mt-5">
                                     {project.links.map(link => (
                                         <a
@@ -93,11 +93,11 @@ export default async function WebProjectPage({ params, searchParams }: SlugProps
                                             href={link.linkHref}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="hover:underline text-base/7 font-semibold text-pink-400"
+                                            className="hover:underline block text-base/7 font-semibold text-pink-400"
                                         >
                                             {link.linkName}
-                                        </a>))}
-
+                                        </a>
+                                    ))}
                                 </div>
                             </div>
                             <p className="mt-6 text-xl/8 text-gray-300">

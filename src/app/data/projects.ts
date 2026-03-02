@@ -498,11 +498,11 @@ export const projects: Project[] = [
   {
     responsibilityText: "",
     preamble:
-      "An open REST API featuring microservices for authentication and API key management.",
+      "An open REST API featuring microservices for authentication and API key management.  This project is considered deprecated, but remains for demonstrational purposes of REST API documentation.",
     role: "Gameplay Programmer",
     slug: "unidevweb",
     title: "Unidevweb API",
-    description: "An open REST API serving CV's",
+    description: "An open REST API serving CV's.",
     img: "/assets/unidevwebThumbnail5.png",
     imgAlt: "thumbnail image of unidevweb api project",
     teamSize: 1,
@@ -517,7 +517,7 @@ export const projects: Project[] = [
       },
       {
         linkName: "Website",
-        linkHref: "https://unidevweb.com",
+        linkHref: "https://cv-frontend-git-main-teodor-fredrikssons-projects.vercel.app",
       },
     ],
     contentTitle: "Key Features",
