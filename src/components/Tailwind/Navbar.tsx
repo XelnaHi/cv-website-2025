@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon, HomeIcon } from '@heroicons/react/24/outline'
-import { Download} from 'lucide-react'
+import { Download } from 'lucide-react'
 
 type NavItem = {
   name: string
@@ -49,7 +49,7 @@ export function Navbar({ navigation }: NavbarProps) {
         <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 gap-x-12 items-center">
 
           <a
-            href="/assets/futuregames/CV Game Programmer Teodor Fredriksson.pdf"
+            href="/assets/CV/CV Game Programmer Teodor Fredriksson.pdf"
             download
           >
 
@@ -106,13 +106,19 @@ export function Navbar({ navigation }: NavbarProps) {
                   </a>
                 ))}
               </div>
-              
-            <div className="flex flex-row rounded-md border bg-pink-600 w-50 mt-5 border-white/30 hover:cursor-pointer px-4 py-2 text-white font-semibold hover:bg-pink-500 transition">
-              <button className='hover:cursor-pointer'>
-                Resumé
-              </button>
-              <Download className="w-5 h-5 ml-2 " />
-            </div>
+
+              <a
+                href="/assets/CV/CV Game Programmer Teodor Fredriksson.pdf"
+                download
+              >
+                <div className="flex flex-row rounded-md border bg-pink-600 w-50 mt-5 border-white/30 hover:cursor-pointer px-4 py-2 text-white font-semibold hover:bg-pink-500 transition">
+                  <button className='hover:cursor-pointer'>
+                    Resumé
+
+                  </button>
+                  <Download className="w-5 h-5 ml-2 " />
+                </div>
+              </a>
 
             </div>
           </div>
