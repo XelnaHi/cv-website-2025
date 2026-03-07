@@ -173,6 +173,7 @@ export const projects: Project[] = [
           "Prototyped a breadcrumb trail system inspired by God of War Ragnarök. Ultimately, the team decided on a different set of features designed to guide the player towards victory, and the prototype was scratched.",
       },
     ],
+
     videoContent: [
       {
         description: "",
@@ -202,6 +203,120 @@ export const projects: Project[] = [
         ],
       },
     ],
+    technicalInsights: [
+      {
+        title: "Enemy AI & Spawn System",
+        description:
+          "Enemies in Somnium were built around a modular spawn and behaviour system that allowed designers to quickly populate dungeon rooms with combat encounters using drag-and-drop prefabs.",
+
+        images: [
+          {
+            imageSrc: "/assets/GP1/enemyTemplate.png",
+            layout: "vertical",
+            description: "Enemy Base Data Model",
+          },
+          {
+            imageSrc: "/assets/GP1/enemywalktoplayer.png",
+            layout: "vertical",
+            description: "Enemy Navigation Script",
+          },
+          {
+            imageSrc: "/assets/GP1/Spawnmanager1.png",
+            layout: "vertical",
+            description: "Spawn Manager pt.1",
+          },
+          {
+            imageSrc: "/assets/GP1/Spawnmanager2.png",
+            layout: "vertical",
+            description: "Spawn Manager pt.2",
+          },
+        ],
+
+        bullets: [
+          "Drag-and-drop enemy spawn prefabs",
+          "Aggro system based on player proximity",
+          "Navigation handled through Unity NavMesh",
+          "Dynamic spawn timers for encounter pacing",
+        ],
+
+        thoughtProcess: [
+          {
+            title: "Spawn System Design",
+            content: `
+Enemies were designed to be placed quickly throughout the dungeon by designers. 
+To support this workflow, enemy spawn points were packaged as prefabs with exposed parameters for spawn timing and enemy type.
+
+This allowed encounter layouts to be adjusted directly inside the Unity editor without modifying code, making iteration during level design faster.
+`,
+          },
+          {
+            title: "Navigation and Combat Behaviour",
+            content: `
+Enemy navigation relied on Unity's NavMesh system, which provided a reliable solution for pathfinding inside the dungeon environments.
+
+Combined with an aggro detection system based on player proximity, enemies could patrol, detect the player and move into attack range.
+`,
+          },
+        ],
+      },
+      {
+        title: "Accessibility Features",
+        description:"Somnium was developed with \"Accessibility\" as a foundation. While this featured systems like pixel filtering and toggles for camera shake, I mainly worked on the tutorialization of the game, event-based light switches for navigational guidance and prototypes of a breadcrumb trail system.",
+        images: [
+          {
+            imageSrc: "/assets/GP1/breadcrumb1.png",
+            layout: "vertical",
+            description: "Breadcrumb Trail pt.1",
+          },
+          {
+            imageSrc: "/assets/GP1/breadcrumb2.png",
+            layout: "vertical",
+            description: "Breadcrumb Trail pt.2",
+          },
+          {
+            imageSrc: "/assets/GP1/aimassist.png",
+            layout: "vertical",
+            description: "Aim Assist",
+          },
+          {
+            imageSrc: "/assets/GP1/tutorial1.png",
+            layout: "vertical",
+            description: "Tutorial Display",
+          },
+          {
+            imageSrc: "/assets/GP1/tutorial2.png",
+            layout: "vertical",
+            description: "Tutorial Trigger",
+          },
+        ],
+
+        bullets: [
+          "Breadcrumb trail prototype",
+          "Aim Assist",
+          "Tutorialized intro",
+        ],
+
+        thoughtProcess: [
+          {
+            title: "Tutorialized Intro",
+          content: "We wanted to incorporate a tutorial of player mechanics, such as steering, light and heavy attacks, and object interactions, without disrupting the initial feeling of the game.",
+          },
+          // Continuing the above paragraph section in a different block
+          {
+            title: "",
+            content: "Based on \"tutorial trigger zones\", we mapped out where the player would feasibly exist within the world at which time, and based on these zones, we spawned different UI indicators that fit together with the surrounding area in order to teach the player the ropes. The UI indicators were placed either as part of the world, for example if there was an interactable object, or as part of HUD, if the indicator was hinting towards something more abstract such as steering.",
+          },
+          {
+            title: "Aim Assist",
+            content:"Keeping physical disabilities in mind, we wanted to create a system that helps the player lock on to a target if the aim was close enough the target. The system mainly checks if an enemy is already locked on to, and if not, steers the camera towards the center of that target.",
+          },
+          {
+            title: "Breadcrumb Trail Protoype",
+            content: "Inspired by 'God of War: Ragnarök', I wanted to try and make a breadcrumb trail of my own to guide the player towards certain checkpoints. The player could always spawn a breadcrumb trail that travelled toward the most attractive point of destination. These destination locations got continuously updated via events that triggered as the player reached their current checkpoint.",
+          },
+        ],
+      },
+    ],
   },
   {
     responsibilityText: "",
@@ -220,7 +335,7 @@ export const projects: Project[] = [
     engine: Engine.Unity,
     fullImage: "/assets/denet_poster.png",
     trailer: {
-      title: "Denet.exe Trailer",
+      title: "Trailer",
       videoSrc: "https://www.youtube.com/embed/lSvKu_rciKU?si=TbB5sS4cvh-o8IM4",
     },
     links: [
@@ -312,7 +427,12 @@ export const projects: Project[] = [
           {
             imageSrc: "/assets/GP2/enemyAIBreakdown.png",
             layout: "vertical",
-            description: "Enemy AI Breakdown",
+            description: "Enemy AI States",
+          },
+          {
+            imageSrc: "/assets/GP2/enemyStates.png",
+            layout: "vertical",
+            description: "Enemy State Implementations",
           },
           {
             imageSrc: "/assets/GP2/aggroParams.png",
@@ -354,22 +474,22 @@ export const projects: Project[] = [
       {
         title: "Event-Driven Progression",
         description:
-          "The progression of the story and the world-building in Denet heavily rely on scripted events, reflecting changes both in the meta-game as well as the \"outside\" game based on player interactions in either environment. Events are the glue keeping Denet together, and they came to be a mix of wonderful, re-usable and flexible components, as well as nested debug nightmares, nudged in between very specific lines of code.",
+          'The progression of the story and the world-building in Denet heavily rely on scripted events, reflecting changes both in the meta-game as well as the "outside" game based on player interactions in either environment. Events are the glue keeping Denet together, and they came to be a mix of wonderful, re-usable and flexible components, as well as nested debug nightmares, nudged in between very specific lines of code.',
         images: [
           {
-            imageSrc: "/assets/GP2/enemyAIBreakdown.png",
+            imageSrc: "/assets/GP2/flickertrigger1.png",
             layout: "vertical",
-            description: "Enemy AI Breakdown",
+            description: "Flicker Trigger",
           },
           {
-            imageSrc: "/assets/GP2/aggroParams.png",
+            imageSrc: "/assets/GP2/EvilpillarManager.png",
             layout: "vertical",
-            description: "Exposable Enemy Params",
+            description: "Linked Enemy Manager",
           },
           {
-            imageSrc: "/assets/GP2/enemydebug.png",
+            imageSrc: "/assets/GP2/audiotrigger.png",
             layout: "vertical",
-            description: "Enemy Debug Tools",
+            description: "Audio Trigger",
           },
         ],
         bullets: [
@@ -386,21 +506,25 @@ export const projects: Project[] = [
           },
           {
             title: "Boss Phases",
-            content: "Since combat overall in Denet is more of a \"filler\" aspect, we had to think of a way to make the last boss encounter feel engaging without relying on particularly engaging combat mechanics. In order to do so, we decided to make an invulnerability system for the boss that depends on the player completing a set of actions.",
+            content:
+              'Since combat overall in Denet is more of a "filler" aspect, we had to think of a way to make the last boss encounter feel engaging without relying on particularly engaging combat mechanics. In order to do so, we decided to make an invulnerability system for the boss that depends on the player completing a set of actions.',
           },
           // Continuing the above content section, but as a different paragraph
           {
             title: "",
-            content: "The invulnerability system relies on a set of events being fired. Roughly summarized, the player must defeat 4 different groups of enemies. Each group of enemies are linked to a different destroyable object. These destroyable objects are in turn linked to the final boss' state of invulnerability. In order for the player to be able to destroy each object, they must first eliminate all linked enemies. Each enemy death, and each object destroyed, fires an event that upon invocation checks the state of all linked entities. If all linked entities are destroyed, the final boss will initiate it's animation sequence and become receptive to player damage."
+            content:
+              "The invulnerability system relies on a set of events being fired. Roughly summarized, the player must defeat 4 different groups of enemies. Each group of enemies are linked to a different destroyable object. These destroyable objects are in turn linked to the final boss' state of invulnerability. In order for the player to be able to destroy each object, they must first eliminate all linked enemies. Each enemy death, and each object destroyed, fires an event that upon invocation checks the state of all linked entities. If all linked entities are destroyed, the final boss will initiate it's animation sequence and become receptive to player damage.",
           },
           {
             title: "Audio Triggers",
-          content: "What sound should be played, when, how, for how long, etc, was an ongoing topic of discussion during development. I generally like to enable designers with drag and drop utilities, and the event triggers for sound was no different. As iteration went on, different needs and wants surfaced and the audio system ended up being split in half.",
+            content:
+              "What sound should be played, when, how, for how long, etc, was an ongoing topic of discussion during development. I generally like to enable designers with drag and drop utilities, and the event triggers for sound was no different. As iteration went on, different needs and wants surfaced and the audio system ended up being split in half.",
           },
           // Continuing the above content section, but as a different paragraph
           {
             title: "",
-          content: "Both systems share the fact that they rely on a collision box, but the use case for each systems collision box is different. One of the systems use two collision areas as a way to transition between audio clips based on the position of the player. The other audio system uses a single box trigger which represents the audio zone, while also being paired with a set of linked enemies in order to trigger a specific battle-themed audio clip based on the state of the world."
+            content:
+              "Both systems share the fact that they utilize collision boxes, but the use case for each systems collision boxes are different. One of the systems use two collision areas as a way to transition between audio clips based on the position of the player. The other audio system uses a single box trigger which represents the audio zone, while also being paired with a set of linked enemies in order to trigger a specific battle-themed audio clip based on the state of the world.",
           },
         ],
       },

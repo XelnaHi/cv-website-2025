@@ -176,13 +176,14 @@ export default async function GameProjectPage({ params, searchParams }: SlugProp
             </div>
 
             <div className="mx-auto w-full max-w-2xl lg:max-w-7xl lg:px-8">
-                {project.technicalInsights && (
-                    <TechnicalInsightCard
-                        title="Technical Breakdown"
-                        insights={project.technicalInsights}
+                {project.trailer && (
+                    <TrailerContentCard
+                        title={project.trailer.title}
+                        videoSrc={project.trailer.videoSrc}
                     />
                 )}
             </div>
+
 
             <div className="mx-auto w-full max-w-2xl lg:max-w-7xl lg:px-8">
                 {project.videoContent && (
@@ -194,13 +195,14 @@ export default async function GameProjectPage({ params, searchParams }: SlugProp
             </div>
 
             <div className="mx-auto w-full max-w-2xl lg:max-w-7xl lg:px-8">
-                {project.trailer && (
-                    <TrailerContentCard
-                        title={project.trailer.title}
-                        videoSrc={project.trailer.videoSrc}
+                {project.technicalInsights && (
+                    <TechnicalInsightCard
+                        title="Technical Breakdown"
+                        insights={project.technicalInsights}
                     />
                 )}
             </div>
+            
         </div>
 
     )

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from "react"
-import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/solid"
+import { ChevronDownIcon, ChevronUpIcon, MagnifyingGlassIcon } from "@heroicons/react/24/solid"
 import { TechnicalInsight } from "@/app/data/projects"
 
 import { Swiper, SwiperSlide } from "swiper/react"
@@ -9,13 +9,17 @@ import { Navigation } from "swiper/modules"
 import "swiper/css"
 import "swiper/css/navigation"
 
+import { createPortal } from "react-dom"
+
+
 type Props = {
     title: string
     insights: TechnicalInsight[]
 }
 
 export default function TechnicalInsightCard({ title, insights }: Props) {
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(false);
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
     return (
         <section className="mt-10 w-full">
@@ -83,12 +87,25 @@ export default function TechnicalInsightCard({ title, insights }: Props) {
                                             {item.images
                                                 .filter(img => img.layout === "vertical")
                                                 .map((img, i) => (
-                                                    <SwiperSlide key={i} className="flex justify-center">
+                                                    <SwiperSlide key={i} className="flex flex-col justify-center">
+                                                        <div className="flex mb-2 ">
+                                                            <button
+                                                                onClick={() => setSelectedImage(img.imageSrc)}
+                                                                className=" hover:cursor-pointer p-3 mt-2 ml-auto rounded-md  text-sm "
+                                                            >
+                                                                <MagnifyingGlassIcon className="w-6 h-6 text-pink-400" />
+                                                            </button>
+                                                        </div>
                                                         <img
                                                             src={img.imageSrc}
                                                             alt={img.description || item.title}
-                                                            className="max-h-[500px] m-auto object-cover rounded-xl"
+                                                            className="max-h-[600px] ml-auto object-cover rounded-lg"
                                                         />
+                                                        {img.description && (
+                                                            <p className="text-md text-gray-400 mt-2 italic text-center max-w-[90%]">
+                                                                {img.description}
+                                                            </p>
+                                                        )}
                                                     </SwiperSlide>
                                                 ))}
                                         </Swiper>
@@ -101,6 +118,19 @@ export default function TechnicalInsightCard({ title, insights }: Props) {
                     </div>
                 </div>
             </div>
+            {selectedImage &&
+                createPortal(
+                    <div
+                        className="fixed inset-0 bg-black/80 flex items-center justify-center z-[9999]"
+                        onClick={() => setSelectedImage(null)}
+                    >
+                        <img
+                            src={selectedImage}
+                            className="max-h-[85vh] max-w-[90vw] object-contain rounded-xl"
+                        />
+                    </div>,
+                    document.body
+                )}
         </section>
     )
 }

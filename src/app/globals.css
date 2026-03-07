@@ -47,8 +47,8 @@
 }
 
 .swiper-slide {
-margin-top: auto;
-margin-bottom: auto;
+margin-top: auto !important;
+margin-bottom: auto !important;
 }
 
 li {
