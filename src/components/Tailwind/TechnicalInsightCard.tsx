@@ -37,7 +37,7 @@ export default function TechnicalInsightCard({ title, insights }: Props) {
                     )}
                 </button>
 
-                <div className={`transition-[max-height] duration-500 ease-out px-6 overflow-hidden ${open ? "max-h-[3000px] py-6" : "max-h-0"}`}>
+                <div className={`transition-[max-height] duration-500 ease-out px-6 overflow-hidden ${open ? "max-h-[5000px] py-6" : "max-h-0"}`}>
                     <div className="flex flex-col gap-12 ">
 
                         {insights.map((item, index) => (
