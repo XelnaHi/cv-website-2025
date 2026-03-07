@@ -9,6 +9,7 @@ import VideoContentCard from "@/components/Tailwind/VideoContentCard"
 import BackButton from "@/components/Tailwind/BackButton"
 import { iconSwitch } from "@/Utilities/utilityFunctions"
 import TrailerContentCard from "@/components/Tailwind/TrailerComponent"
+import TechnicalInsightCard from "@/components/Tailwind/TechnicalInsightCard"
 
 
 export default async function GameProjectPage({ params, searchParams }: SlugProps) {
@@ -172,6 +173,15 @@ export default async function GameProjectPage({ params, searchParams }: SlugProp
                     </div>
 
                 </div>
+            </div>
+
+            <div className="mx-auto w-full max-w-2xl lg:max-w-7xl lg:px-8">
+                {project.technicalInsights && (
+                    <TechnicalInsightCard
+                        title="Technical Breakdown"
+                        insights={project.technicalInsights}
+                    />
+                )}
             </div>
 
             <div className="mx-auto w-full max-w-2xl lg:max-w-7xl lg:px-8">
