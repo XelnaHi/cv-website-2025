@@ -4,7 +4,6 @@ import { useState } from "react"
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/solid"
 import { TechnicalInsight } from "@/app/data/projects"
 
-// Swiper imports
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation } from "swiper/modules"
 import "swiper/css"
@@ -22,7 +21,6 @@ export default function TechnicalInsightCard({ title, insights }: Props) {
         <section className="mt-10 w-full">
             <div className="rounded-2xl bg-gray-800/60 backdrop-blur-sm ring-1 ring-white/10 shadow-xl">
 
-                {/* Header */}
                 <button
                     className="w-full flex justify-between items-center p-6 hover:cursor-pointer focus:outline-none"
                     onClick={() => setOpen(prev => !prev)}
@@ -35,14 +33,15 @@ export default function TechnicalInsightCard({ title, insights }: Props) {
                     )}
                 </button>
 
-                {/* Content */}
                 <div className={`transition-[max-height] duration-500 ease-out px-6 overflow-hidden ${open ? "max-h-[3000px] py-6" : "max-h-0"}`}>
-                    <div className="flex flex-col gap-12">
+                    <div className="flex flex-col gap-12 ">
 
                         {insights.map((item, index) => (
-                            <div key={index} className="flex flex-col lg:flex-row gap-6 items-start">
-
-                                {/* Text Section */}
+                            <div
+                                key={index}
+                                className={`flex flex-col lg:flex-row gap-6 items-start border-t ${index === 0 ? "border-gray-600/50" : "border-gray-600/50"
+                                    } pt-4`}
+                            >
                                 <div className="flex-1 flex flex-col gap-4">
                                     <h4 className="text-lg font-semibold text-white">{item.title}</h4>
 
@@ -58,17 +57,22 @@ export default function TechnicalInsightCard({ title, insights }: Props) {
                                         </ul>
                                     )}
 
-                                    {item.thoughtProcess && (
-                                        <div className="mt-4">
-                                            <h5 className="font-semibold text-indigo-400">Thought Process</h5>
-                                            <p className="text-gray-400 text-sm whitespace-pre-line">{item.thoughtProcess}</p>
+                                    {/* Thought Process Section */}
+                                    {item.thoughtProcess && item.thoughtProcess.length > 0 && (
+                                        <div className="mt-4 flex flex-col gap-4">
+                                            <h5 className="text-lg font-semibold text-pink-400">Thought Process</h5>
+                                            {item.thoughtProcess.map((section, idx) => (
+                                                <div key={idx} className="ml-2">
+                                                    <h6 className="text-indigo-300 font-medium">{section.title}</h6>
+                                                    <p className="text-gray-400 text-sm ">{section.content}</p>
+                                                </div>
+                                            ))}
                                         </div>
                                     )}
                                 </div>
 
-                                {/* Carousel Section */}
                                 {item.images?.filter(img => img.layout === "vertical").length > 0 && (
-                                    <div className="flex-1 w-full lg:w-1/2 rounded-xl overflow-hidden ">
+                                    <div className="flex-1 w-full lg:w-1/2 rounded-xl overflow-hidden mt-auto mb-auto">
                                         <Swiper
                                             modules={[Navigation]}
                                             navigation
@@ -83,7 +87,7 @@ export default function TechnicalInsightCard({ title, insights }: Props) {
                                                         <img
                                                             src={img.imageSrc}
                                                             alt={img.description || item.title}
-                                                            className="max-h-[500px] m-auto object-contain rounded-xl"
+                                                            className="max-h-[500px] m-auto object-cover rounded-xl"
                                                         />
                                                     </SwiperSlide>
                                                 ))}

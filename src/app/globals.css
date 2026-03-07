@@ -26,6 +26,8 @@
   --font-sans: var(--font-sora);
   --font-mono: var(--font-fira-code);
   --font-lato: var(--font-lato)
+  --swiper-navigation-size: 22px;
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -37,7 +39,16 @@
     --green: #10E05C;
     --text-primary-changed: #0c7689;
     --text: #f6f5eb;
+
   }
+}
+:root {
+  --swiper-navigation-size: 22px !important; 
+}
+
+.swiper-slide {
+margin-top: auto;
+margin-bottom: auto;
 }
 
 li {

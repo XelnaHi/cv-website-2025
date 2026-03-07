@@ -30,11 +30,11 @@ export default function VideoContentCard({ title, videos }: VideoContentCardProp
           className={`overflow-hidden transition-[max-height] duration-500 ease-out px-6 ${open ? 'max-h-[2000px] py-6' : 'max-h-0'
             }`}
         >
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-10 ">
             {videos.map((video, index) => (
               <div
                 key={index}
-                className="flex flex-col lg:flex-row gap-6 items-start"
+                className={`flex flex-col lg:flex-row gap-6 items-start border-t border-gray-600/60 pt-4`}
               >
                 {/* Video content */}
                 <div className="flex-1 flex flex-col gap-4">

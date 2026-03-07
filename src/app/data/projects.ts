@@ -97,13 +97,17 @@ export type TechnicalInsight = {
   description?: string;
   images: TechnicalInsightImage[];
   bullets?: string[];
-  thoughtProcess?: string;
+  thoughtProcess?: ThoughtProcessSection[];
 };
 
 export type TechnicalInsightImage = {
   imageSrc: string;
   layout: "horizontal" | "vertical";
   description?: string;
+};
+type ThoughtProcessSection = {
+  title: string;
+  content: string;
 };
 
 export const projects: Project[] = [
@@ -307,18 +311,18 @@ export const projects: Project[] = [
         images: [
           {
             imageSrc: "/assets/GP2/enemyAIBreakdown.png",
-            layout: "horizontal",
-            description: "Overall state machine layout",
-          },
-          {
-            imageSrc: "/assets/GP2/enemyAIBreakdown.png",
             layout: "vertical",
-            description: "Patrol state details",
+            description: "Enemy AI Breakdown",
           },
           {
             imageSrc: "/assets/GP2/aggroParams.png",
             layout: "vertical",
-            description: "Attack state details",
+            description: "Exposable Enemy Params",
+          },
+          {
+            imageSrc: "/assets/GP2/enemydebug.png",
+            layout: "vertical",
+            description: "Enemy Debug Tools",
           },
         ],
         bullets: [
@@ -326,11 +330,79 @@ export const projects: Project[] = [
           "Navigation handled through Unity NavMesh",
           "Debug visualization for aggro radius",
         ],
-        thoughtProcess: `
-      This system was built during an early prototype phase with a focus on rapid iteration.
-      The enemy script ended up handling multiple responsibilities so mechanics could be tested quickly.
-      Later, debugging tools and events were added as gameplay stabilized.
-    `,
+        thoughtProcess: [
+          {
+            title: "AI Behavior",
+            content: `
+        We knew from the get-go that the enemies in this game were considered more as \"filler\" objects, meant to create a feeling that the meta-game was an old MMO. Because the complexity of the enemies could be considered basic, even if they were to grow in scope down the line, a Finite State Machine felt robust enough to handle the intended AI behavior of patrol, detection, attack patterns, and so on, while being flexible enough to allow for additions in behavior.
+            `,
+          },
+          {
+            title: "Enemy Pathfinding",
+            content: `
+        When it came to navigational computation, Unity's NavMesh felt like the clear-cut choice to go for, based on all the utilities it provides you with straight out the box. Given the time constraints for the project, rolling our own A* simply wasn't feasible.
+            `,
+          },
+          {
+            title: "Debug Tools",
+            content: `
+        Who doesn't love being able to adjust wireframes that visually represent an aggro radius, attack range, or other miscellaneous effects that make up a complex being? 
+            `,
+          },
+        ],
+      },
+      {
+        title: "Event-Driven Progression",
+        description:
+          "The progression of the story and the world-building in Denet heavily rely on scripted events, reflecting changes both in the meta-game as well as the \"outside\" game based on player interactions in either environment. Events are the glue keeping Denet together, and they came to be a mix of wonderful, re-usable and flexible components, as well as nested debug nightmares, nudged in between very specific lines of code.",
+        images: [
+          {
+            imageSrc: "/assets/GP2/enemyAIBreakdown.png",
+            layout: "vertical",
+            description: "Enemy AI Breakdown",
+          },
+          {
+            imageSrc: "/assets/GP2/aggroParams.png",
+            layout: "vertical",
+            description: "Exposable Enemy Params",
+          },
+          {
+            imageSrc: "/assets/GP2/enemydebug.png",
+            layout: "vertical",
+            description: "Enemy Debug Tools",
+          },
+        ],
+        bullets: [
+          "Password-locked clue trigger event",
+          "Boss phase event",
+          "Audio zone event",
+        ],
+        thoughtProcess: [
+          {
+            title: "Password-Locked Clues",
+            content: `
+            A drag and drop friendly system which spawns a screen overlay, flickering between images. The system exposes variables that let's designers decide which images are displayed, how long each image is displayed for, and the total duration of the slideshow. The system also exposes a variable that specifies whether or not this screen-flicker should be triggered via an interaction, or by entering a collision box. The system in it's entirety is packaged as a prefab to allow for quick placement.
+            `,
+          },
+          {
+            title: "Boss Phases",
+            content: "Since combat overall in Denet is more of a \"filler\" aspect, we had to think of a way to make the last boss encounter feel engaging without relying on particularly engaging combat mechanics. In order to do so, we decided to make an invulnerability system for the boss that depends on the player completing a set of actions.",
+          },
+          // Continuing the above content section, but as a different paragraph
+          {
+            title: "",
+            content: "The invulnerability system relies on a set of events being fired. Roughly summarized, the player must defeat 4 different groups of enemies. Each group of enemies are linked to a different destroyable object. These destroyable objects are in turn linked to the final boss' state of invulnerability. In order for the player to be able to destroy each object, they must first eliminate all linked enemies. Each enemy death, and each object destroyed, fires an event that upon invocation checks the state of all linked entities. If all linked entities are destroyed, the final boss will initiate it's animation sequence and become receptive to player damage."
+          },
+          {
+            title: "Audio Triggers",
+          content: "What sound should be played, when, how, for how long, etc, was an ongoing topic of discussion during development. I generally like to enable designers with drag and drop utilities, and the event triggers for sound was no different. As iteration went on, different needs and wants surfaced and the audio system ended up being split in half.",
+          },
+          // Continuing the above content section, but as a different paragraph
+          {
+            title: "",
+          content: "Both systems share the fact that they rely on a collision box, but the use case for each systems collision box is different. One of the systems use two collision areas as a way to transition between audio clips based on the position of the player. The other audio system uses a single box trigger which represents the audio zone, while also being paired with a set of linked enemies in order to trigger a specific battle-themed audio clip based on the state of the world."
+          },
+        ],
       },
     ],
   },
