@@ -261,7 +261,7 @@ Combined with an aggro detection system based on player proximity, enemies could
       },
       {
         title: "Accessibility Features",
-        description:"Somnium was developed with \"Accessibility\" as a foundation. While this featured systems like pixel filtering and toggles for camera shake, I mainly worked on the tutorialization of the game, event-based light switches for navigational guidance and prototypes of a breadcrumb trail system.",
+        description:"Somnium was developed with \"Accessibility\" as a foundation. In this regard, I focused mostly on developing the tutorialization of the game, event-based light switches for navigational guidance and prototypes for a breadcrumb trail system.",
         images: [
           {
             imageSrc: "/assets/GP1/breadcrumb1.png",
