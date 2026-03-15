@@ -19,7 +19,11 @@ type Props = {
 
 export default function TechnicalInsightCard({ title, insights }: Props) {
     const [open, setOpen] = useState(false);
-    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+    const [lightbox, setLightbox] = useState<{
+        images: { imageSrc: string; description?: string }[]
+        startIndex: number
+    } | null>(null)
 
     return (
         <section className="mt-10 w-full">
@@ -90,17 +94,20 @@ export default function TechnicalInsightCard({ title, insights }: Props) {
                                                     <SwiperSlide key={i} className="flex flex-col justify-center">
                                                         <div className="flex mb-2 ">
                                                             <button
-                                                                onClick={() => setSelectedImage(img.imageSrc)}
-                                                                className=" hover:cursor-pointer p-3 mt-2 ml-auto rounded-md  text-sm "
+                                                                onClick={() =>
+                                                                    setLightbox({
+                                                                        images: item.images!.filter(img => img.layout === "vertical"),
+                                                                        startIndex: i
+                                                                    })
+                                                                } className=" hover:cursor-pointer p-3 mt-2 m-auto rounded-md  text-sm "
                                                             >
-                                                                <MagnifyingGlassIcon className="w-6 h-6 text-pink-400" />
+                                                                <img
+                                                                    src={img.imageSrc}
+                                                                    alt={img.description || item.title}
+                                                                    className="max-h-[600px] object-cover rounded-lg"
+                                                                />
                                                             </button>
                                                         </div>
-                                                        <img
-                                                            src={img.imageSrc}
-                                                            alt={img.description || item.title}
-                                                            className="max-h-[600px] ml-auto object-cover rounded-lg"
-                                                        />
                                                         {img.description && (
                                                             <p className="text-md text-gray-400 mt-2 italic text-center max-w-[90%]">
                                                                 {img.description}
@@ -118,16 +125,39 @@ export default function TechnicalInsightCard({ title, insights }: Props) {
                     </div>
                 </div>
             </div>
-            {selectedImage &&
+            {lightbox &&
                 createPortal(
                     <div
-                        className="fixed inset-0 bg-black/80 flex items-center justify-center z-[9999]"
-                        onClick={() => setSelectedImage(null)}
+                        className="fixed inset-0 bg-black/90 flex items-center justify-center z-[9999]"
+                        onClick={() => setLightbox(null)}
                     >
-                        <img
-                            src={selectedImage}
-                            className="max-h-[85vh] max-w-[90vw] object-contain rounded-xl"
-                        />
+                        <div
+                            className="w-full max-w-5xl px-10"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <Swiper
+                                modules={[Navigation]}
+                                navigation
+                                spaceBetween={20}
+                                slidesPerView={1}
+                                initialSlide={lightbox.startIndex}
+                            >
+                                {lightbox.images.map((img, i) => (
+                                    <SwiperSlide key={i} className="flex flex-col items-center">
+                                        <img
+                                            src={img.imageSrc}
+                                            className="max-h-[85vh] m-auto object-contain rounded-xl"
+                                        />
+
+                                        {img.description && (
+                                            <p className="text-gray-400 mt-4 italic text-center">
+                                                {img.description}
+                                            </p>
+                                        )}
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
+                        </div>
                     </div>,
                     document.body
                 )}
