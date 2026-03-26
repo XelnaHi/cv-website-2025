@@ -164,7 +164,7 @@ export const projects: Project[] = [
         icon: MdTouchApp,
         title: "Interactables.",
         description:
-          "Anything considered static which the player might interact with, such as potions, upgrades, lootboxes and weapons. The interaction system is featured during one of the game's more intense beats, and is used to change the layout of the world based on a quest object pickup event.",
+          "Any in-world object which the player might interact with, such as potions, upgrades, lootboxes and weapons. The interaction system is featured during one of the game's more intense beats, and is used to change the layout of the world based on a quest object pickup event.",
       },
       {
         icon: MdOutlineHearing,
