@@ -3,7 +3,8 @@
 import { Project, ProjectCardType } from "@/app/data/projects"
 import { iconSwitch, renderSwitch } from "@/Utilities/utilityFunctions"
 
-import { ArrowRightIcon, UserIcon, WrenchScrewdriverIcon } from "@heroicons/react/16/solid"
+import { Clock, UserIcon } from "lucide-react"
+import { ArrowRightIcon, WrenchScrewdriverIcon } from "@heroicons/react/16/solid"
 import Link from "next/link"
 import { FaRegCompass } from "react-icons/fa"
 
@@ -36,6 +37,9 @@ export function ProjectCard(project: Project & { category?: string, fromPage: st
                         <div className="flex gap-2 flexrow items-center">
                             <UserIcon aria-hidden="true" className="size-5 flex-none text-indigo-400" />
                             <p>{project.teamSize}</p>
+                        </div>                        <div className="flex gap-2 flexrow items-center">
+                            <Clock aria-hidden="true" className="size-5 flex-none text-indigo-400" />
+                            <p>{project.durationWeeks}</p>
                         </div>
                         <div className="flex gap-2 flexrow items-center">
                             <WrenchScrewdriverIcon aria-hidden="true" className="size-5 flex-none text-indigo-400" />
