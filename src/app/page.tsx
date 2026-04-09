@@ -34,7 +34,7 @@ export default function Home() {
               Teodor Fredriksson
             </h1>
             <p className="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">
-              Gameplay programmer fascinated and inspired by complex solutions built using smaller, primitve subsets of logic. Especially passionate about gameplay systems, AI behavior and procedural generation.
+              Gameplay programmer fascinated and inspired by complex solutions built using smaller, primitive subsets of logic. Especially passionate about gameplay systems, AI behavior and procedural generation.
             </p>
             <div className="flex justify-center gap-6 mt-8">
               {[
