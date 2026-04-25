@@ -65,7 +65,7 @@ export const viewport = {
 const navigation = [
   { name: 'Projects', href: '/projects' },
   { name: 'LinkedIn', href: 'https://www.linkedin.com/in/teodor-fredriksson-919606b9/', target: '_blank' },
-  { name: 'GitHub', href: 'https://github.com/TeodorFredriksson95', target: '_blank'},
+  { name: 'GitHub', href: 'https://github.com/XelnaHi', target: '_blank'},
 ]
 
 export default function RootLayout({
