@@ -31,10 +31,10 @@ export function AboutSection() {
           </h2>
           <p className="mt-4 max-w-xl text-gray-400 text-lg sm:text-xl/7">
             I’m Teodor Fredriksson, a gameplay programmer developer passionate about
-            creating moments that stick with you. I truly believe that games are the ultimate medium, and I love working together with different disciplines in order to make worlds, sounds, storytelling and systems come to life.
+            creating moments that last longer than the gameplay. I truly believe that games are the ultimate medium, and I love fueling my own creativity by working together with different disciplines in order to make worlds, sounds, storytelling and systems come to life.
           </p>
           <p className="mt-4 max-w-xl text-gray-400 text-lg sm:text-xl/7">
-          As a programmer, I bring technical knowledge and experience of development to the table. Coding disciplines put aside, my greatest strength as a professional lies in my desire to understand the vision of an emotion, and making it come to life through code.
+         As a programmer, my greatest strength lie in my stubborn desire to fully understand a topic in order to properly shape the solution. I believe mastery of fundamentals enable true creativity.
           </p>
 
           {/* CTA Buttons */}
