@@ -57,7 +57,7 @@ export default async function GameProjectPage({ params, searchParams }: SlugProp
                         <div className="lg:max-w-lg">
                             <BackButton from={from} />
                             <div className="flex-row flex gap-5">
-                                {iconSwitch(project.engine, "mt-auto rounded-xl bg-gray-800 shadow-xl ring-1 ring-white/10 w-12 h-12")}
+                                {iconSwitch(project.engine, "mt-auto  w-12 h-12")}
                                 <h1 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">
                                     {project.title}
                                 </h1>

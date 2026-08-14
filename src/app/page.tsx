@@ -6,6 +6,7 @@ import { AboutSection } from '@/components/Tailwind/AboutSection'
 import { TestimonialsSection } from '@/components/Tailwind/TestimonialComponent'
 import { projects } from './data/projects'
 import { motion } from 'framer-motion'
+import { ProjectOverviewCard } from '@/components/Tailwind/ProjectOverviewCard'
 
 
 export default function Home() {
@@ -13,7 +14,7 @@ export default function Home() {
   return (
     <div className="bg-gray-900">
 
-      <div className="relative isolate px-6 pt-14 lg:px-8">
+      {/* <div className="relative isolate px-6 pt-14 lg:px-8">
         <div
           aria-hidden="true"
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -27,6 +28,7 @@ export default function Home() {
           />
         </div>
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
           </div>
           <div className="text-center">
@@ -85,9 +87,17 @@ export default function Home() {
           />
         </div>
 
-      </div>
+      </div> */}
+
       <EmptyContentSection>
-        <h3 id='featured-games' className="scroll-mt-32 text-3xl font-bold text-white tracking-tight text-heading md:text-2xl mb-5">Game Projects</h3>
+          <div className="flex flex-col mt-18">
+            {projects
+              .filter((p) => p.category === "games")
+              .map((p) => (
+                <ProjectOverviewCard key={p.slug} project={p} fromPage="home" />
+              ))}
+          </div>
+        {/* <h3 id='featured-games' className="scroll-mt-32 text-3xl font-bold text-white tracking-tight text-heading md:text-2xl mb-5">Game Projects</h3>
 
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-fr">
           {projects
@@ -95,11 +105,11 @@ export default function Home() {
             .map((p) => (
               <ProjectCard key={p.slug} {...p} fromPage='home' />
             ))}
-        </div>
+        </div> */}
       </EmptyContentSection>
 
-      <TestimonialsSection />
       <AboutSection />
+      <TestimonialsSection />
     </div>
   )
 }

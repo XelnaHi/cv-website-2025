@@ -40,6 +40,11 @@ export type Project = ProjectCardType & {
   award?: Award;
   trailer?: Trailer;
   technicalInsights?: TechnicalInsight[];
+  overview?: {
+    contributions: string[];
+    takeaways: string[];
+  };
+  developmentDate?: string; // e.g. "Spring 2023", "Nov 2023 – Jan 2024"
 };
 
 export type Trailer = {
@@ -81,6 +86,7 @@ export type Award = {
   awardedBy: string;
   awardTitle: string;
   icon: React.ComponentType<{ className?: string }>;
+  image: string;
 };
 
 export type SlugProps = {
@@ -135,6 +141,7 @@ export const projects: Project[] = [
       awardedBy: "Futuregames Awards",
       awardTitle: "Best Debut Game",
       icon: TrophyIcon,
+      image: "/assets/Debut_Win25_White.png",
     },
     links: [
       {
@@ -261,7 +268,8 @@ Combined with an aggro detection system based on player proximity, enemies could
       },
       {
         title: "Accessibility Features",
-        description:"Somnium was developed with \"Accessibility\" as a foundation. In this regard, I focused mostly on developing the tutorialization of the game, event-based light switches for navigational guidance and prototypes for a breadcrumb trail system.",
+        description:
+          'Somnium was developed with "Accessibility" as a foundation. In this regard, I focused mostly on developing the tutorialization of the game, event-based light switches for navigational guidance and prototypes for a breadcrumb trail system.',
         images: [
           {
             imageSrc: "/assets/GP1/breadcrumb1.png",
@@ -299,24 +307,40 @@ Combined with an aggro detection system based on player proximity, enemies could
         thoughtProcess: [
           {
             title: "Tutorialized Intro",
-          content: "We wanted to incorporate a tutorial of player mechanics, such as steering, light and heavy attacks, and object interactions, without disrupting the initial feeling of the game.",
+            content:
+              "We wanted to incorporate a tutorial of player mechanics, such as steering, light and heavy attacks, and object interactions, without disrupting the initial feeling of the game.",
           },
           // Continuing the above paragraph section in a different block
           {
             title: "",
-            content: "Based on \"tutorial trigger zones\", we mapped out where the player would feasibly exist within the world at which time, and based on these zones, we spawned different UI indicators that fit together with the surrounding area in order to teach the player the ropes. The UI indicators were placed either as part of the world, for example if there was an interactable object, or as part of HUD, if the indicator was hinting towards something more abstract such as steering.",
+            content:
+              'Based on "tutorial trigger zones", we mapped out where the player would feasibly exist within the world at which time, and based on these zones, we spawned different UI indicators that fit together with the surrounding area in order to teach the player the ropes. The UI indicators were placed either as part of the world, for example if there was an interactable object, or as part of HUD, if the indicator was hinting towards something more abstract such as steering.',
           },
           {
             title: "Aim Assist",
-            content:"Keeping physical disabilities in mind, we wanted to create a system that helps the player lock on to a target if the aim was close enough the target. The system mainly checks if an enemy is already locked on to, and if not, steers the camera towards the center of that target.",
+            content:
+              "Keeping physical disabilities in mind, we wanted to create a system that helps the player lock on to a target if the aim was close enough the target. The system mainly checks if an enemy is already locked on to, and if not, steers the camera towards the center of that target.",
           },
           {
             title: "Breadcrumb Trail Protoype",
-            content: "Inspired by 'God of War: Ragnarök', I wanted to try and make a breadcrumb trail of my own to guide the player towards certain checkpoints. The player could always spawn a breadcrumb trail that travelled toward the most attractive point of destination. These destination locations got continuously updated via events that triggered as the player reached their current checkpoint.",
+            content:
+              "Inspired by 'God of War: Ragnarök', I wanted to try and make a breadcrumb trail of my own to guide the player towards certain checkpoints. The player could always spawn a breadcrumb trail that travelled toward the most attractive point of destination. These destination locations got continuously updated via events that triggered as the player reached their current checkpoint.",
           },
         ],
       },
     ],
+    overview: {
+      contributions: [
+        "Behavior through FSM, navigation and enemy abilities adjustable via Scriptable Objects",
+        "Aim assist, breadcrumb trails and tutorial HUD",
+        "Loot chests and weapon pick-ups",
+      ],
+      takeaways: [
+        "Polish takes time and is easily overlooked",
+        "Dynamic ground-to-air AI navigation can be tricky",
+      ],
+    },
+    developmentDate: "Sep 2025 - Oct 2025",
   },
   {
     responsibilityText: "",
@@ -330,7 +354,7 @@ Combined with an aggro detection system based on player proximity, enemies could
     imgAlt: "default alt image text",
     teamSize: 8,
     status: Status.Finished,
-    durationWeeks: "4",
+    durationWeeks: 4,
     category: "games",
     engine: Engine.Unity,
     fullImage: "/assets/denet_poster.png",
@@ -520,7 +544,6 @@ Combined with an aggro detection system based on player proximity, enemies could
             content:
               "What sound should be played, when, how, for how long, etc, was an ongoing topic of discussion during development. I generally like to enable designers with drag and drop utilities, and the event triggers for sound was no different. As iteration went on, different needs and wants surfaced and the audio system ended up being split in half.",
           },
-          // Continuing the above content section, but as a different paragraph
           {
             title: "",
             content:
@@ -529,6 +552,18 @@ Combined with an aggro detection system based on player proximity, enemies could
         ],
       },
     ],
+    overview: {
+      contributions: [
+        "FSM behavior including boss phases and event-driven decision making",
+        "Zone/trigger-based audio cues and integration between the in-game meta systems",
+        "Editor tools for Player teleport and wireframe visuals for enemy aggro/attack range",
+      ],
+      takeaways: [
+        "Rapid prototyping quickly becomes a maintenance mess without proper structural guidelines",
+        "Systems packaged as prefabs save a lot of development time",
+      ],
+    },
+    developmentDate: "Jan 2026 - Feb 2026",
   },
   {
     responsibilityText: "",
@@ -543,7 +578,7 @@ Combined with an aggro detection system based on player proximity, enemies could
     imgAlt: "thumbnail image of unidevweb api project",
     teamSize: 4,
     status: Status.Finished,
-    durationWeeks: "8",
+    durationWeeks: 8,
     category: "web",
     fullImage: "/assets/sociailtfrikortThumbnail.jpg",
     links: [
@@ -579,6 +614,18 @@ Combined with an aggro detection system based on player proximity, enemies could
           "Performed both onsite and written technical onboarding as part of the hand-off of the technical infrastructure and performed on-call activities in case of emergencies.",
       },
     ],
+    overview: {
+      contributions: [
+        "Custom WordPress Template built from scratch for client-specific admin workflows",
+        "Accessibility & Compliance design in adherance to WCAG 2.2 and GDPR",
+        "Project documentation and admin workflow onboarding",
+      ],
+      takeaways: [
+        "A solid proof of concept is worth it's weight in gold",
+        "It takes effort to make sure a website is free from cookie trackers",
+      ],
+    },
+    developmentDate: "2025",
   },
   {
     responsibilityText: "",
@@ -628,6 +675,18 @@ Combined with an aggro detection system based on player proximity, enemies could
           "Performed both onsite and written technical onboarding as part of the hand-off of the technical infrastructure.",
       },
     ],
+    overview: {
+      contributions: [
+        "E-commerce pipeline for product display, cart, checkout and payment",
+        "Content creation flow for photo/illustration sales",
+        "Technical documentation prepared for hand-off",
+      ],
+      takeaways: [
+        "Funding and legal terms can shift technical scope mid-project",
+        "Good documentation is a special gift should the project stall",
+      ],
+    },
+    developmentDate: "2024 - Ongoing",
   },
   {
     responsibilityText: "",
@@ -641,7 +700,7 @@ Combined with an aggro detection system based on player proximity, enemies could
     imgAlt: "thumbnail image of unidevweb api project",
     teamSize: 1,
     status: Status.Finished,
-    durationWeeks: "8",
+    durationWeeks: 8,
     category: "web",
     fullImage: "/assets/unidevwebThumbnail5.png",
     links: [
@@ -682,6 +741,17 @@ Combined with an aggro detection system based on player proximity, enemies could
           "Deployed the API through Azure API Management, configuring secure HTTPS access, request throttling (100 requests/hour), and centralized gateway routing for improved monitoring and scalability.",
       },
     ],
+    overview: {
+      contributions: [
+        "OAuth 2.0 login, JWT-based REST API consumption management",
+        "HATEOAS-style pagination",
+        "Deployed and throttled via Azure API Management using gateways and rate limiting",
+      ],
+      takeaways: [
+        "Trying to re-invent the web design wheel is a dead end unless considerable time is dedicated",
+      ],
+    },
+    developmentDate: "2023",
   },
   {
     responsibilityText: "",
@@ -732,5 +802,17 @@ Combined with an aggro detection system based on player proximity, enemies could
           "A prototyped water supply line from the peristaltic pump to the soil cointainer.",
       },
     ],
+    overview: {
+      contributions: [
+        "Synced moisture sensors, pump and water level sensor via local API and WiFi",
+        "Custom PCB built to shrink the system's physical footprint",
+        "Custom algorithm to regulate water flow",
+      ],
+      takeaways: [
+        "Soldering can be more difficult than C++",
+        "A protoype schema that does not prepare for the future is prone to increase material costs",
+      ],
+    },
+    developmentDate: "June 2025 - Sep 2025",
   },
 ];

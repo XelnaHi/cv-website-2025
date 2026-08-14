@@ -4,8 +4,8 @@ import { motion } from 'framer-motion'
 
 export function AboutSection() {
   return (
-    <section className="bg-gray-900 px-6 py-16 sm:py-24 lg:px-16">
-      <div className="mx-auto max-w-7xl flex flex-col lg:flex-row items-center lg:items-start gap-8">
+    <section className="bg-gray-900 px-6 lg:px-16">
+      <div className="mx-auto sm:w-full xl:w-[60%] flex flex-col lg:flex-row items-center lg:items-start gap-8">
         
         {/* Profile Image */}
         <motion.img

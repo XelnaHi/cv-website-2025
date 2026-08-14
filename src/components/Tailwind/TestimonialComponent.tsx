@@ -23,7 +23,7 @@ const testimonials: Testimonial[] = [
     name: 'Robin Kamo',
     role: 'Cybersecurity Instructor, Azure MVP',
     avatar: '/assets/testimonial2.jpg',
-    content: "\“This is a brilliantly executed analysis that demonstrates both technical expertise and a strong ability to clearly communicate complex concepts. The cyberrisk matrix is both precise and insightful, showing excellent strategic thinking.\"",
+    content: "\“Teo has brilliantly demonstrated both technical expertise and a strong ability to clearly communicate complex concepts. The cyberrisk matrix analysis is both precise and insightful, showing excellent strategic thinking.\"",
     link: "https://www.linkedin.com/in/kakashidota/"
   },
   {

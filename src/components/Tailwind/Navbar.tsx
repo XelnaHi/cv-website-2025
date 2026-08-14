@@ -20,8 +20,7 @@ export function Navbar({ navigation }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="fixed inset-x-0 top-0 z-99 bg-gray-900 backdrop-blur-md">
-      <nav aria-label="Global" className="sticky relative flex items-center p-6 lg:px-8">
+<header className="fixed inset-x-0 top-0 z-99 bg-gray-900/90 backdrop-blur-md border-b border-white/10 shadow-lg shadow-black/20">      <nav aria-label="Global" className="sticky relative flex items-center p-6 lg:px-8">
         {/* Logo */}
         <div className="flex flex-1">
           <a href="/" className="-m-1.5 p-1.5">

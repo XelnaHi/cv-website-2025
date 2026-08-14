@@ -32,7 +32,7 @@ export function EmptyContentSection({ children }: any) {
       </div>
       <div className=" lg:mx-auto lg:grid lg:w-full lg:max-w-full  lg:gap-x-8 lg:px-8">
         {children}
-        <div className="mt-5 flex flex-row items-center gap-5">
+        {/* <div className="mt-5 flex flex-row items-center gap-5">
           <Link href={"/projects"}>
             <button className="inline-block rounded-md bg-blue-600 px-5 py-3 text-white font-semibold hover:bg-blue-500 transition-transform duration-300 ease-out
               hover:cursor-pointer text-xl 
@@ -40,7 +40,7 @@ export function EmptyContentSection({ children }: any) {
               All Projects
             </button>
           </Link>
-        </div>
+        </div> */}
       </div>
     </div>
 
