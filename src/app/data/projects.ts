@@ -45,6 +45,7 @@ export type Project = ProjectCardType & {
     takeaways: string[];
   };
   developmentDate?: string; // e.g. "Spring 2023", "Nov 2023 – Jan 2024"
+  gifMP4?: string;
 };
 
 export type Trailer = {
@@ -341,6 +342,7 @@ Combined with an aggro detection system based on player proximity, enemies could
       ],
     },
     developmentDate: "Sep 2025 - Oct 2025",
+    gifMP4: "/assets/Videos/SomniumCutVideoLowQuality.mp4",
   },
   {
     responsibilityText: "",
@@ -564,14 +566,15 @@ Combined with an aggro detection system based on player proximity, enemies could
       ],
     },
     developmentDate: "Jan 2026 - Feb 2026",
+    gifMP4: "/assets/Videos/DenetLowQuality.mp4",
   },
   {
     responsibilityText: "",
     preamble:
       "An infomercial website designed to attract attention to a public hearing held in the Swedish Parliament 2025. Post-hearing, the website also serves as a journalistic web magazine, focusing on areas regarding the jurisdictional paradox of homelessness, addiction and social exclusion.  ",
     role: "Gameplay Programmer",
-    slug: "socialt-frikort",
-    title: "Socialt Frikort",
+    slug: "social-freecard",
+    title: "Social Freecard",
     description:
       "An infomercial website designed to attract attention to a public hearing held in the Swedish Parliament",
     img: "/assets/sociailtfrikortThumbnail.jpg",

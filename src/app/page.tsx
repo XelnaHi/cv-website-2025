@@ -7,6 +7,8 @@ import { TestimonialsSection } from '@/components/Tailwind/TestimonialComponent'
 import { projects } from './data/projects'
 import { motion } from 'framer-motion'
 import { ProjectOverviewCard } from '@/components/Tailwind/ProjectOverviewCard'
+import Link from 'next/link'
+import { AllProjectsButton } from '@/components/Tailwind/AllProjectsButton'
 
 
 export default function Home() {
@@ -90,13 +92,14 @@ export default function Home() {
       </div> */}
 
       <EmptyContentSection>
-          <div className="flex flex-col mt-18">
-            {projects
-              .filter((p) => p.category === "games")
-              .map((p) => (
-                <ProjectOverviewCard key={p.slug} project={p} fromPage="home" />
-              ))}
-          </div>
+        <div className="flex flex-col mt-18">
+          {projects
+            .filter((p) => p.category === "games")
+            .map((p) => (
+              <ProjectOverviewCard key={p.slug} project={p} fromPage="home" />
+            ))}
+        </div>
+        <AllProjectsButton fullWidth={false}/>
         {/* <h3 id='featured-games' className="scroll-mt-32 text-3xl font-bold text-white tracking-tight text-heading md:text-2xl mb-5">Game Projects</h3>
 
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-fr">

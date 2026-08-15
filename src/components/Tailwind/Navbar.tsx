@@ -23,7 +23,7 @@ export function Navbar({ navigation }: NavbarProps) {
 <header className="fixed inset-x-0 top-0 z-99 bg-gray-900/90 backdrop-blur-md border-b border-white/10 shadow-lg shadow-black/20">      <nav aria-label="Global" className="sticky relative flex items-center p-6 lg:px-8">
         {/* Logo */}
         <div className="flex flex-1">
-          <a href="/" className="-m-1.5 p-1.5">
+          <a href="/" className="-m-4.5 p-1.5">
             <span className="sr-only">Teodor Fredriksson Portfolio</span>
             <h3 className="text-white font-bold text-xl mt-2">
               Teodor Fredriksson
