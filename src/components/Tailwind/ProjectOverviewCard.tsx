@@ -78,7 +78,7 @@ export function ProjectOverviewCard({ project, fromPage, showAward = true, fullW
                             <h3 className="text-sm font-semibold uppercase tracking-wider text-indigo-300">
                                 Key Contributions
                             </h3>
-                            <ul className="mt-1.5 text-md text-gray-300 list-disc list-inside space-y-0.5">
+                            <ul className="mt-1.5 text-sm text-gray-300 list-disc list-inside space-y-0.5">
                                 {project.overview.contributions.map((c, i) => (
                                     <li key={i}>{c}</li>
                                 ))}
@@ -91,7 +91,7 @@ export function ProjectOverviewCard({ project, fromPage, showAward = true, fullW
                             <h3 className="text-sm font-semibold uppercase tracking-wider text-pink-300">
                                 Biggest Takeaways
                             </h3>
-                            <ul className="mt-1.5 text-md text-gray-300 list-disc list-inside space-y-0.5">
+                            <ul className="mt-1.5 text-sm text-gray-300 list-disc list-inside space-y-0.5">
                                 {project.overview.takeaways.map((t, i) => (
                                     <li key={i}>{t}</li>
                                 ))}
