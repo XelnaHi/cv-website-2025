@@ -126,14 +126,14 @@ export const projects: Project[] = [
     slug: "upbeat",
     title: "UpBeat",
     description: "Rhythm shooter where the music drives the gameplay",
-    img: "/assets/general/image_coming_soon.png",
+    img: "/assets/General/image_coming_soon.png",
     imgAlt: "default alt image text",
     teamSize: 5,
     status: Status.Finished,
     durationWeeks: 4,
     category: "games",
     engine: Engine.Unreal,
-    fullImage: "/assets/general/image_coming_soon.png", // TODO
+    fullImage: "/assets/General/image_coming_soon.png", // TODO
     links: [
       // TODO: add Itch / GitHub links
     ],
