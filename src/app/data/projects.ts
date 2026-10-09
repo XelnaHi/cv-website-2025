@@ -118,6 +118,424 @@ type ThoughtProcessSection = {
 };
 
 export const projects: Project[] = [
+    {
+    responsibilityText: "",
+    preamble:
+      "A rhythm-driven top-down bullet heaven inspired game where the music affects your playstyle. Weapon fire rate, camera effects and combat abilities are all synchronized to the beat of the selected track, and the player is rewarded for keeping the tempo.",
+    role: "Gameplay Programmer",
+    slug: "upbeat",
+    title: "UpBeat",
+    description: "Rhythm shooter where the music drives the gameplay",
+    img: "/assets/general/image_coming_soon.png",
+    imgAlt: "default alt image text",
+    teamSize: 5,
+    status: Status.Finished,
+    durationWeeks: 4,
+    category: "games",
+    engine: Engine.Unreal,
+    fullImage: "/assets/general/image_coming_soon.png", // TODO
+    links: [
+      // TODO: add Itch / GitHub links
+    ],
+    contentTitle: "Main Responsibilities",
+    responsibilityContent: [
+      {
+        icon: MdOutlineHearing,
+        title: "Audio & Rhythm Systems.",
+        description:
+          "Refactored all audio components into a single AudioSubsystem encapsulating sound- and beat managers, and used audio analyzers to sync gun fire rate to the rhythm of the selected track. Also handled song switching, playback offsets and looping.",
+      },
+      {
+        icon: MdTouchApp,
+        title: "ClickTimer & Slam Mechanic.",
+        description:
+          "Built the ClickTimer, a mechanic where hitting a key on the beat builds a multiplier that charges the Slam. Slam grants increased movement speed and double fire rate for its duration, while missed beats and off-beat hits reset the progress.",
+      },
+      {
+        icon: VscSymbolInterface,
+        title: "UI, HUD & Shaders.",
+        description:
+          "Wrote shaders for text outlines, electric 'frazzle' effects, curved progress bars, speedlines and hit-flash feedback. Also built the pre-game record select screen, game over screen and interaction prompts.",
+      },
+      {
+        icon: PiSwordBold,
+        title: "Combat Polish & Bug Fixing.",
+        description:
+          "Implemented Camera Slam VFX & related SFX, invulnerability handling and genre-dependent 'Perfect Hit' projectiles.",
+      },
+    ],
+
+    videoContent: [
+      {
+        description: "",
+        guidedDescription:
+          "The core idea of the game is that the music is not just a soundtrack, but a gameplay system. In this video, the gun fires in rhythm with the selected audio track, with a camera punch landing on every 4th beat to sell the pulse.\n\nUsing various OnsetNRT analyzers was really cool, but one alone simply didn't feel capable of giving the right feel. One reason we pivotted more and more to systems closely confined to BPM, BPS and time between beats, was because we felt that the amount of audio analyzers that would be required, and tweaked in order for itS to sound just right, was going to be too time consuming. It's still something I'd like to experiment more with, however.",
+        title: "Rhythm Fire Rate",
+        videoSrc: "https://www.youtube.com/embed/bcP0Upju-sA",
+        bullets: [
+          "Fire rate matched to the beat via audio analyzers",
+          "Camera punch VFX on every 4th beat",
+          "Analyzer settings adjustable per song",
+        ],
+      },
+      {
+        description: "",
+        guidedDescription:
+          "The ClickTimer rewards the player for clicking on the beat. Notes travel along a 'conveyor belt' towards the middle of the screen, and hitting within the hit window increases the multiplier while missing resets it.\n\nThe final version features custom shaders, a perfect hit/regular hit distinction, and a text multiplier that scales with the combo.",
+        title: "ClickTimer HUD",
+        videoSrc:
+          "https://www.youtube.com/embed/7NcYJr-M1Xw?si=kI0n1-5DOcyDpL5B",
+        bullets: [
+          "Multiplier increases on on-beat clicks, resets on off-beat or missed beats",
+          "Goal indicator changes color on 'perfect' vs 'regular' hits",
+          "Shader-driven text outlines and electric effects",
+        ],
+      },
+      {
+        description: "",
+        guidedDescription:
+          'With the \'Slam Activation\' system, we wanted to give the player a sense of a power surge. Speedlines, camera FoV animations, movement speed buffs and a projectile "Ultimate" effect were all to communicate the power-up, with everything rapdily decelerating. The idea wasn\'t necessarily to give the players "just a little bit of power", but rather to have them reaching the peak more often.',
+        title: "Camera Slam & Speedlines",
+        videoSrc: "https://www.youtube.com/embed/c_sE5wN5Fko",
+        bullets: [
+          "FoV animation on slam activation",
+          "Speedlines intensity and movement speed scale with click hits",
+          "Projectiles fire twice per beat during an active slam",
+        ],
+      },
+    ],
+
+    technicalInsights: [
+      {
+        title: "AudioSubsystem",
+        description:
+          "Audio logic was originally spread across several actor components, each requiring references to one another. I consolidated it into one subsystem so that anything beat-related has a single place to listen to.",
+        images: [
+          {
+            imageSrc: "/assets/GP4/AudioSubsystem Overview.png",
+            layout: "vertical",
+            description: "AudioSubsystem Overview",
+          },
+          {
+            imageSrc: "/assets/GP4/BeatTimer Overview.png",
+            layout: "vertical",
+            description: "BeatTimer Overview",
+          },
+          {
+            imageSrc: "/assets/GP4/SoundLink Overview.png",
+            layout: "vertical",
+            description: "SoundLink Overview",
+          },
+        ],
+        bullets: [
+          "SoundLink & BeatTimer encapsulated in a singleton subsystem",
+          "Beat events broadcast through the subsystem",
+          "Song switching keeps the previous playback offset",
+          "ConstantQNRT tuned to 12 bands per octave",
+        ],
+        thoughtProcess: [
+          {
+            title: "Why a Subsystem",
+            content: `
+Previously, any event related to SoundLink or BeatTimer also required a reference to one of those objects, which made the dependencies messy and easy to break. Moving everything behind a singleton AudioSubsystem meant that gameplay systems like the ClickTimer, the gun and the camera punch could all subscribe to the same source of truth.
+`,
+          },
+          {
+            title: "Analyzers & Frequencies",
+            content:
+              "Working with audio programmatically was something new to me, so I had to begin with digging into frequencies, bands and octaves in order to understand the parameters exposed by ConstantQNRT and Onset NRT.",
+          },
+          {
+            title: "Switching Songs",
+            content:
+              "Switching tracks used to restart playback from 0, which broke the rhythm flow. The new logic carries over the playback percentage, loops the track when it reaches the end and handles the case where the carried over offset would exceed 100% of the next song.",
+          },
+        ],
+      },
+      {
+        title: "ClickTimer & Slam",
+        description:
+          "The ClickTimer started as a simple mechanic and ended up as the heart of the game's moment-to-moment feedback. It was reworked from the ground up once, mostly in terms of presentation.",
+        images: [
+          {
+            imageSrc: "/assets/GP4/ClickTimer.png",
+            layout: "vertical",
+            description: "ClickTimer Interactable Indicator",
+          },
+          {
+            imageSrc: "/assets/GP4/SlamActive.png",
+            layout: "vertical",
+            description: "Slam Activation",
+          },
+        ],
+        bullets: [
+          "Click window based on normalized beat progress",
+          "Multiplier resets on off-beat clicks and missed beats",
+          "Slam buffs movement speed and fire rate",
+          "Perfect Hit projectiles vary by active genre",
+        ],
+        thoughtProcess: [
+          {
+            title: "Click Window",
+            content:
+              'A click counts as on-beat if it lands close enough to the start or end of a beat, roughly +- 0.1 of a normalized beat cycle. A click timed within roughly +- 0.05 within the normalized range is considered a \Perfect Hit".',
+          },
+          {
+            title: "Reworking the UI",
+            content:
+              "The first version used two mirrored progress bars and a hit window. For the rework, I kept all of the old logic and simply hid the elements, replacing them with a 'conveyor belt' of angle brackets. It was far from ideal, but the state of the project required every corner that could be cut, to be cut.",
+          },
+          {
+            title: "Slam State",
+            content:
+              "During a slam, speedlines intensity and movement speed increase with every click hit, up to a cap. Missing a click or a beat resets both. When the slam ends, the speedline radius and walk speed decelerate over 3 seconds rather than snapping back, which feels a lot better.",
+          },
+          {
+            title: "Perfect Hit Projectiles",
+            content:
+              "As a small experiment, a perfect hit spawns 5 homing projectiles if the genre is metal. For hardstyle, the projectiles also spawn in groups of 5, but travel straight outward from the player. The team liked it, so it went straight to prod.",
+          },
+        ],
+      },
+    ],
+
+    overview: {
+      contributions: [
+        "Beat-synced interactable HUD, fire rate and song switching",
+        "Slam mechanic and genre-based Perfect Hit projectiles",
+        "HUD, shaders and SFX for rhythm feedback, speedlines and on-damage flashes",
+      ],
+      takeaways: [
+        "Refactoring for maintainability feels like a luxury",
+        "Repurposing systems too hastily can lead to technical debt",
+      ],
+    },
+    developmentDate: "Sep 2026 - Oct 2026",
+  },
+  {
+    responsibilityText: "",
+    preamble:
+      "A narrative-driven game bringing back memories from the early days of online gaming and virus-infected operating systems. Inspired by games such as BAROQUE and the newly re-popularized file horror genre, this game features puzzle-based mechanics in order to engage the player with an ever growing realization of the fact that something is amiss.",
+    role: "Gameplay Programmer",
+    slug: "denet",
+    title: "Denet.exe",
+    description: "OS Simulation Horror",
+    img: "/assets/denet_poster.png",
+    imgAlt: "default alt image text",
+    teamSize: 8,
+    status: Status.Finished,
+    durationWeeks: 4,
+    category: "games",
+    engine: Engine.Unity,
+    fullImage: "/assets/denet_poster.png",
+    trailer: {
+      title: "Trailer",
+      videoSrc: "https://www.youtube.com/embed/lSvKu_rciKU?si=TbB5sS4cvh-o8IM4",
+    },
+    links: [
+      {
+        linkName: "Itch",
+        linkHref: "https://futuregames.itch.io/denet",
+      },
+      {
+        linkName: "GitHub",
+        linkHref: "https://github.com/TeodorFredriksson95/Game-Project-2",
+      },
+    ],
+    contentTitle: "Main Responsibilities",
+    responsibilityContent: [
+      {
+        icon: PiSwordBold,
+        title: "Enemy & AI.",
+        description:
+          "Responsible for implementing enemy behavior, including combat and patrol paths, as well as more specialized boss mechanics centralized around a multi-tiered phase system. Enemy parameters are exposed in the Unity editor to allow designers to tweak detection range, attack cooldowns and patrol behaviour.",
+      },
+      {
+        icon: MdOutlineHearing,
+        title: "Audio.",
+        description:
+          "Implemented audio trigger prefabs which enables a designer to create audio zones that are either static or dependent on in-game events, such as combat music persisting until enough enemies have been eliminated.",
+      },
+      {
+        icon: PiSwordBold,
+        title: "Final Boss Encounter.",
+        description:
+          "The final boss of the game features a mix of systems that brings together Canvas alterations, an immunity system that depends on the state of enemies and objects linked to the boss, as well as size scaler used to mimic the visual effect of a beating heart. The entire boss encounter, including it's underlying systems, was packaged as a prefab in order to help designers get a clear view of the hierarchy of editable paramaters.",
+      },
+      {
+        icon: VscSymbolInterface,
+        title: "UI & HUD",
+        description:
+          'I worked on the UI related to one of Denet\'s core mechanics, the "In-Game Editor", a trigger based image-flash system used for world building, the player action bar and the password-locked file system.',
+      },
+      {
+        icon: ServerIcon,
+        title: "Debug Tools",
+        description:
+          "To speed up testing, I implemented editor debug tools such as player teleportation and wireframe visuals for enemy aggro radius and range.",
+      },
+      {
+        icon: HiOutlineVideoCamera,
+        title: "Release Trailer",
+        description:
+          "Created the release trailer featured on Itch and Youtube.",
+      },
+    ],
+    videoContent: [
+      {
+        description: "",
+        guidedDescription:
+          "The gameplay systems in Denet.exe heavily revolve around event triggers inside the meta game which unlocks narrative progressions - which in turn, does the same for the meta game.\n\nIn this video, we see how the act of colliding with an object triggers a story beat, which in turn awards the player with a new meta-game tool necessary to progress inside the meta-game.  ",
+        title: "Narrative-Driven World State System",
+        videoSrc:
+          "https://www.youtube.com/embed/cuv3AdKfw4I?si=ioH3DTkcz3SY6YfQ",
+        bullets: [
+          "Narrative beats influence the state of the world",
+          "Narrative state is triggered by player actions",
+          "Audio-queues that are dependent on the state of the world",
+        ],
+      },
+
+      {
+        description: "",
+        guidedDescription:
+          "Throughout the player's journey inside the meta-game, obstacles of varying nature obstruct the player's path forward.\n\nEnter the \"In-Game-Game Editor\", a core mechanic of Denet.exe which allows the player to edit the world around them in order to progress. In this video, we see how the player uses the editor to traverse a set of obstacles.",
+
+        title: "Meta Game Editor",
+        videoSrc:
+          "https://www.youtube.com/embed/Vi9PcOY1vBU?si=eiGpLJnqaACfdkmx",
+        bullets: [
+          "Let's the player edit objects inside the game inside the game ",
+          "Add collision to objects in the world so that you may find your footing",
+          "Delete or add objects in the world so that you may pass",
+          "Increase bounciness of objects so that you may reach a little further",
+        ],
+      },
+    ],
+    technicalInsights: [
+      {
+        title: "Enemy AI State System",
+        description:
+          "Enemy behaviour is driven by a simple state machine controlling patrol, chase and attack behaviour.",
+        images: [
+          {
+            imageSrc: "/assets/GP2/enemyAIBreakdown.png",
+            layout: "vertical",
+            description: "Enemy AI States",
+          },
+          {
+            imageSrc: "/assets/GP2/enemyStates.png",
+            layout: "vertical",
+            description: "Enemy State Implementations",
+          },
+          {
+            imageSrc: "/assets/GP2/aggroParams.png",
+            layout: "vertical",
+            description: "Exposable Enemy Params",
+          },
+          {
+            imageSrc: "/assets/GP2/enemydebug.png",
+            layout: "vertical",
+            description: "Enemy Debug Tools",
+          },
+        ],
+        bullets: [
+          "State transitions triggered by player detection and distance checks",
+          "Navigation handled through Unity NavMesh",
+          "Debug visualization for aggro radius",
+        ],
+        thoughtProcess: [
+          {
+            title: "AI Behavior",
+            content: `
+        We knew from the get-go that the enemies in this game were considered more as \"filler\" objects, meant to create a feeling that the meta-game was an old MMO. Because the complexity of the enemies could be considered basic, even if they were to grow in scope down the line, a Finite State Machine felt robust enough to handle the intended AI behavior of patrol, detection, attack patterns, and so on, while being flexible enough to allow for additions in behavior.
+            `,
+          },
+          {
+            title: "Enemy Pathfinding",
+            content: `
+        When it came to navigational computation, Unity's NavMesh felt like the clear-cut choice to go for, based on all the utilities it provides you with straight out the box. Given the time constraints for the project, rolling our own A* simply wasn't feasible.
+            `,
+          },
+          {
+            title: "Debug Tools",
+            content: `
+        Who doesn't love being able to adjust wireframes that visually represent an aggro radius, attack range, or other miscellaneous effects that make up a complex being? 
+            `,
+          },
+        ],
+      },
+      {
+        title: "Event-Driven Progression",
+        description:
+          'The progression of the story and the world-building in Denet heavily rely on scripted events, reflecting changes both in the meta-game as well as the "outside" game based on player interactions in either environment. Events are the glue keeping Denet together, and they came to be a mix of wonderful, re-usable and flexible components, as well as nested debug nightmares, nudged in between very specific lines of code.',
+        images: [
+          {
+            imageSrc: "/assets/GP2/flickertrigger1.png",
+            layout: "vertical",
+            description: "Flicker Trigger",
+          },
+          {
+            imageSrc: "/assets/GP2/EvilpillarManager.png",
+            layout: "vertical",
+            description: "Linked Enemy Manager",
+          },
+          {
+            imageSrc: "/assets/GP2/audiotrigger.png",
+            layout: "vertical",
+            description: "Audio Trigger",
+          },
+        ],
+        bullets: [
+          "Password-locked clue trigger event",
+          "Boss phase event",
+          "Audio zone event",
+        ],
+        thoughtProcess: [
+          {
+            title: "Password-Locked Clues",
+            content: `
+            A drag and drop friendly system which spawns a screen overlay, flickering between images. The system exposes variables that let's designers decide which images are displayed, how long each image is displayed for, and the total duration of the slideshow. The system also exposes a variable that specifies whether or not this screen-flicker should be triggered via an interaction, or by entering a collision box. The system in it's entirety is packaged as a prefab to allow for quick placement.
+            `,
+          },
+          {
+            title: "Boss Phases",
+            content:
+              'Since combat overall in Denet is more of a "filler" aspect, we had to think of a way to make the last boss encounter feel engaging without relying on particularly engaging combat mechanics. In order to do so, we decided to make an invulnerability system for the boss that depends on the player completing a set of actions.',
+          },
+          // Continuing the above content section, but as a different paragraph
+          {
+            title: "",
+            content:
+              "The invulnerability system relies on a set of events being fired. Roughly summarized, the player must defeat 4 different groups of enemies. Each group of enemies are linked to a different destroyable object. These destroyable objects are in turn linked to the final boss' state of invulnerability. In order for the player to be able to destroy each object, they must first eliminate all linked enemies. Each enemy death, and each object destroyed, fires an event that upon invocation checks the state of all linked entities. If all linked entities are destroyed, the final boss will initiate it's animation sequence and become receptive to player damage.",
+          },
+          {
+            title: "Audio Triggers",
+            content:
+              "What sound should be played, when, how, for how long, etc, was an ongoing topic of discussion during development. I generally like to enable designers with drag and drop utilities, and the event triggers for sound was no different. As iteration went on, different needs and wants surfaced and the audio system ended up being split in half.",
+          },
+          {
+            title: "",
+            content:
+              "Both systems share the fact that they utilize collision boxes, but the use case for each systems collision boxes are different. One of the systems use two collision areas as a way to transition between audio clips based on the position of the player. The other audio system uses a single box trigger which represents the audio zone, while also being paired with a set of linked enemies in order to trigger a specific battle-themed audio clip based on the state of the world.",
+          },
+        ],
+      },
+    ],
+    overview: {
+      contributions: [
+        "FSM behavior including boss phases and event-driven decision making",
+        "Zone/trigger-based audio cues and integration between the in-game meta systems",
+        "Editor tools for Player teleport and wireframe visuals for enemy aggro/attack range",
+      ],
+      takeaways: [
+        "Rapid prototyping quickly becomes a maintenance mess without proper structural guidelines",
+        "Systems packaged as prefabs save a lot of development time",
+      ],
+    },
+    developmentDate: "Jan 2026 - Feb 2026",
+    gifMP4: "/assets/Videos/DenetLowQuality.mp4",
+  },
   {
     preamble:
       "‘Somnium’ is a retro inspired first person dungeon crawler. All game systems and features, including combat, lootboxes, navigation and UI have been built with accessibility in mind.",
@@ -344,230 +762,7 @@ Combined with an aggro detection system based on player proximity, enemies could
     developmentDate: "Sep 2025 - Oct 2025",
     gifMP4: "/assets/Videos/SomniumCutVideoLowQuality.mp4",
   },
-  {
-    responsibilityText: "",
-    preamble:
-      "A narrative-driven game bringing back memories from the early days of online gaming and virus-infected operating systems. Inspired by games such as BAROQUE and the newly re-popularized file horror genre, this game features puzzle-based mechanics in order to engage the player with an ever growing realization of the fact that something is amiss.",
-    role: "Gameplay Programmer",
-    slug: "denet",
-    title: "Denet.exe",
-    description: "OS Simulation Horror",
-    img: "/assets/denet_poster.png",
-    imgAlt: "default alt image text",
-    teamSize: 8,
-    status: Status.Finished,
-    durationWeeks: 4,
-    category: "games",
-    engine: Engine.Unity,
-    fullImage: "/assets/denet_poster.png",
-    trailer: {
-      title: "Trailer",
-      videoSrc: "https://www.youtube.com/embed/lSvKu_rciKU?si=TbB5sS4cvh-o8IM4",
-    },
-    links: [
-      {
-        linkName: "Itch",
-        linkHref: "https://futuregames.itch.io/denet",
-      },
-      {
-        linkName: "GitHub",
-        linkHref: "https://github.com/TeodorFredriksson95/Game-Project-2",
-      },
-    ],
-    contentTitle: "Main Responsibilities",
-    responsibilityContent: [
-      {
-        icon: PiSwordBold,
-        title: "Enemy & AI.",
-        description:
-          "Responsible for implementing enemy behavior, including combat and patrol paths, as well as more specialized boss mechanics centralized around a multi-tiered phase system. Enemy parameters are exposed in the Unity editor to allow designers to tweak detection range, attack cooldowns and patrol behaviour.",
-      },
-      {
-        icon: MdOutlineHearing,
-        title: "Audio.",
-        description:
-          "Implemented audio trigger prefabs which enables a designer to create audio zones that are either static or dependent on in-game events, such as combat music persisting until enough enemies have been eliminated.",
-      },
-      {
-        icon: PiSwordBold,
-        title: "Final Boss Encounter.",
-        description:
-          "The final boss of the game features a mix of systems that brings together Canvas alterations, an immunity system that depends on the state of enemies and objects linked to the boss, as well as size scaler used to mimic the visual effect of a beating heart. The entire boss encounter, including it's underlying systems, was packaged as a prefab in order to help designers get a clear view of the hierarchy of editable paramaters.",
-      },
-      {
-        icon: VscSymbolInterface,
-        title: "UI & HUD",
-        description:
-          'I worked on the UI related to one of Denet\'s core mechanics, the "In-Game Editor", a trigger based image-flash system used for world building, the player action bar and the password-locked file system.',
-      },
-      {
-        icon: ServerIcon,
-        title: "Debug Tools",
-        description:
-          "To speed up testing, I implemented editor debug tools such as player teleportation and wireframe visuals for enemy aggro radius and range.",
-      },
-      {
-        icon: HiOutlineVideoCamera,
-        title: "Release Trailer",
-        description:
-          "Created the release trailer featured on Itch and Youtube.",
-      },
-    ],
-    videoContent: [
-      {
-        description: "",
-        guidedDescription:
-          "The gameplay systems in Denet.exe heavily revolve around event triggers inside the meta game which unlocks narrative progressions - which in turn, does the same for the meta game.\n\nIn this video, we see how the act of colliding with an object triggers a story beat, which in turn awards the player with a new meta-game tool necessary to progress inside the meta-game.  ",
-        title: "Narrative-Driven World State System",
-        videoSrc:
-          "https://www.youtube.com/embed/cuv3AdKfw4I?si=ioH3DTkcz3SY6YfQ",
-        bullets: [
-          "Narrative beats influence the state of the world",
-          "Narrative state is triggered by player actions",
-          "Audio-queues that are dependent on the state of the world",
-        ],
-      },
 
-      {
-        description: "",
-        guidedDescription:
-          "Throughout the player's journey inside the meta-game, obstacles of varying nature obstruct the player's path forward.\n\nEnter the \"In-Game-Game Editor\", a core mechanic of Denet.exe which allows the player to edit the world around them in order to progress. In this video, we see how the player uses the editor to traverse a set of obstacles.",
-
-        title: "Meta Game Editor",
-        videoSrc:
-          "https://www.youtube.com/embed/Vi9PcOY1vBU?si=eiGpLJnqaACfdkmx",
-        bullets: [
-          "Let's the player edit objects inside the game inside the game ",
-          "Add collision to objects in the world so that you may find your footing",
-          "Delete or add objects in the world so that you may pass",
-          "Increase bounciness of objects so that you may reach a little further",
-        ],
-      },
-    ],
-    technicalInsights: [
-      {
-        title: "Enemy AI State System",
-        description:
-          "Enemy behaviour is driven by a simple state machine controlling patrol, chase and attack behaviour.",
-        images: [
-          {
-            imageSrc: "/assets/GP2/enemyAIBreakdown.png",
-            layout: "vertical",
-            description: "Enemy AI States",
-          },
-          {
-            imageSrc: "/assets/GP2/enemyStates.png",
-            layout: "vertical",
-            description: "Enemy State Implementations",
-          },
-          {
-            imageSrc: "/assets/GP2/aggroParams.png",
-            layout: "vertical",
-            description: "Exposable Enemy Params",
-          },
-          {
-            imageSrc: "/assets/GP2/enemydebug.png",
-            layout: "vertical",
-            description: "Enemy Debug Tools",
-          },
-        ],
-        bullets: [
-          "State transitions triggered by player detection and distance checks",
-          "Navigation handled through Unity NavMesh",
-          "Debug visualization for aggro radius",
-        ],
-        thoughtProcess: [
-          {
-            title: "AI Behavior",
-            content: `
-        We knew from the get-go that the enemies in this game were considered more as \"filler\" objects, meant to create a feeling that the meta-game was an old MMO. Because the complexity of the enemies could be considered basic, even if they were to grow in scope down the line, a Finite State Machine felt robust enough to handle the intended AI behavior of patrol, detection, attack patterns, and so on, while being flexible enough to allow for additions in behavior.
-            `,
-          },
-          {
-            title: "Enemy Pathfinding",
-            content: `
-        When it came to navigational computation, Unity's NavMesh felt like the clear-cut choice to go for, based on all the utilities it provides you with straight out the box. Given the time constraints for the project, rolling our own A* simply wasn't feasible.
-            `,
-          },
-          {
-            title: "Debug Tools",
-            content: `
-        Who doesn't love being able to adjust wireframes that visually represent an aggro radius, attack range, or other miscellaneous effects that make up a complex being? 
-            `,
-          },
-        ],
-      },
-      {
-        title: "Event-Driven Progression",
-        description:
-          'The progression of the story and the world-building in Denet heavily rely on scripted events, reflecting changes both in the meta-game as well as the "outside" game based on player interactions in either environment. Events are the glue keeping Denet together, and they came to be a mix of wonderful, re-usable and flexible components, as well as nested debug nightmares, nudged in between very specific lines of code.',
-        images: [
-          {
-            imageSrc: "/assets/GP2/flickertrigger1.png",
-            layout: "vertical",
-            description: "Flicker Trigger",
-          },
-          {
-            imageSrc: "/assets/GP2/EvilpillarManager.png",
-            layout: "vertical",
-            description: "Linked Enemy Manager",
-          },
-          {
-            imageSrc: "/assets/GP2/audiotrigger.png",
-            layout: "vertical",
-            description: "Audio Trigger",
-          },
-        ],
-        bullets: [
-          "Password-locked clue trigger event",
-          "Boss phase event",
-          "Audio zone event",
-        ],
-        thoughtProcess: [
-          {
-            title: "Password-Locked Clues",
-            content: `
-            A drag and drop friendly system which spawns a screen overlay, flickering between images. The system exposes variables that let's designers decide which images are displayed, how long each image is displayed for, and the total duration of the slideshow. The system also exposes a variable that specifies whether or not this screen-flicker should be triggered via an interaction, or by entering a collision box. The system in it's entirety is packaged as a prefab to allow for quick placement.
-            `,
-          },
-          {
-            title: "Boss Phases",
-            content:
-              'Since combat overall in Denet is more of a "filler" aspect, we had to think of a way to make the last boss encounter feel engaging without relying on particularly engaging combat mechanics. In order to do so, we decided to make an invulnerability system for the boss that depends on the player completing a set of actions.',
-          },
-          // Continuing the above content section, but as a different paragraph
-          {
-            title: "",
-            content:
-              "The invulnerability system relies on a set of events being fired. Roughly summarized, the player must defeat 4 different groups of enemies. Each group of enemies are linked to a different destroyable object. These destroyable objects are in turn linked to the final boss' state of invulnerability. In order for the player to be able to destroy each object, they must first eliminate all linked enemies. Each enemy death, and each object destroyed, fires an event that upon invocation checks the state of all linked entities. If all linked entities are destroyed, the final boss will initiate it's animation sequence and become receptive to player damage.",
-          },
-          {
-            title: "Audio Triggers",
-            content:
-              "What sound should be played, when, how, for how long, etc, was an ongoing topic of discussion during development. I generally like to enable designers with drag and drop utilities, and the event triggers for sound was no different. As iteration went on, different needs and wants surfaced and the audio system ended up being split in half.",
-          },
-          {
-            title: "",
-            content:
-              "Both systems share the fact that they utilize collision boxes, but the use case for each systems collision boxes are different. One of the systems use two collision areas as a way to transition between audio clips based on the position of the player. The other audio system uses a single box trigger which represents the audio zone, while also being paired with a set of linked enemies in order to trigger a specific battle-themed audio clip based on the state of the world.",
-          },
-        ],
-      },
-    ],
-    overview: {
-      contributions: [
-        "FSM behavior including boss phases and event-driven decision making",
-        "Zone/trigger-based audio cues and integration between the in-game meta systems",
-        "Editor tools for Player teleport and wireframe visuals for enemy aggro/attack range",
-      ],
-      takeaways: [
-        "Rapid prototyping quickly becomes a maintenance mess without proper structural guidelines",
-        "Systems packaged as prefabs save a lot of development time",
-      ],
-    },
-    developmentDate: "Jan 2026 - Feb 2026",
-    gifMP4: "/assets/Videos/DenetLowQuality.mp4",
-  },
   {
     responsibilityText: "",
     preamble:
@@ -818,4 +1013,5 @@ Combined with an aggro detection system based on player proximity, enemies could
     },
     developmentDate: "June 2025 - Sep 2025",
   },
+
 ];

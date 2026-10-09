@@ -47,7 +47,7 @@ export function ProjectOverviewCard({ project, fromPage, showAward = true, fullW
                             <h1 className="text-2xl font-bold text-white leading-tight">
                                 {project.title}
                             </h1>
-                            {project.engine &&
+                            {project.engine != undefined &&
                                 iconSwitch(project.engine, "shrink-0 w-8 h-8")}
                         </div>
 
