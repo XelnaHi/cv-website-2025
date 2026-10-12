@@ -118,7 +118,282 @@ type ThoughtProcessSection = {
 };
 
 export const projects: Project[] = [
-    {
+  {
+    responsibilityText: "",
+    preamble:
+      "An online co-op multiplayer FPS revolving around a \"Sustainability\" theme, inspired by games such as Destiny, Risk of Rain and Overwatch. The game takes place in an abandoned, overgrown and semi-futuristic environment. The 'sustainability'-take manifests itself through the acquisition of powerful but double-edged buffs, set dressing, and theme-related puzzles during encounter events.",
+    role: "Gameplay Programmer",
+    slug: "fate",
+    title: "Fate", // working title
+    description: "Co-op multiplayer FPS about unsustainable progression",
+    img: "/assets/GP3/Fate_Poster.jpg", // TODO
+    imgAlt: "default alt image text",
+    teamSize: 10,
+    status: Status.Finished,
+    durationWeeks: 7, // TODO: set real duration
+    category: "games",
+    engine: Engine.Unreal,
+    fullImage: "/assets/GP3/Fate_Poster.jpg", // TODO
+    links: [
+      // TODO: add Itch / GitHub links
+    ],
+    trailer: {
+      title: "Trailer",
+      videoSrc: "https://www.youtube.com/embed/6usyWcOuuSE?si=t4RIZ-TOGsVevtYQ",
+    },
+    contentTitle: "Main Responsibilities",
+    responsibilityContent: [
+      {
+        icon: PiSwordBold,
+        title: "Enemy AI.",
+        description:
+          "Implemented enemy decision-making using State Trees, along with navigational differences between enemy types through NavAreas, NavFilters, SmartNavLinkProxies and varying agent specs such as radius and step height. Also handled aggro management and unreachable-target handling.",
+      },
+      {
+        icon: ServerIcon,
+        title: "Procedural Level Generation.",
+        description:
+          "Prototyped a seed-based procedural level generator that spawned rooms based on type, quantity and progression rules. The system was scrapped midway throught the project due to an unforeseen replication problem related to level instancing.",
+      },
+      {
+        icon: MdTouchApp,
+        title: "Room Subsystem & Level Streaming.",
+        description:
+          "Built the server-authoritative RoomSubsystem that tracks encounter objectives, enemy spawner activations, entry/exit points and missing-player teleportation, combined with Level Streaming Volumes to keep at most three levels loaded at a time.",
+      },
+      {
+        icon: VscSymbolInterface,
+        title: "Workflow & Pipeline.",
+        description:
+          "Established a level design workflow pipeline that allowed multiple people to work on levels simultaneously, and shifted room-management systems to be room-specific and shape-agnostic.",
+      },
+      {
+        icon: MdOutlineHearing,
+        title: "Team Support.",
+        description:
+          "Hooked up audio cues, damage application and animations using GAS, connected the two puzzle systems to the room subsystem, guided the boss implementation's State Tree structure, assisted designers with enemy design directions and did set dressing where time management required it.",
+      },
+    ],
+
+    videoContent: [
+      {
+        description: "",
+        guidedDescription:
+          "One of the earliest stages of the procedural level generation, featuring a hexagonal room layout. The general idea was to be able to provide an optional seed for reproducible levels, spawn specific room types based on criteria, and cap both the amount of type-specific rooms and the total amount of rooms.\n\nThis first version did not take the desire for a linear map into account, something the later square-room version fixed.",
+        title: "Procedural Level Generation",
+        videoSrc: "https://www.youtube.com/embed/KYoQaI3pNQE",
+        bullets: [
+          "Optional seed for reproducible levels",
+          "Room types spawned based on criteria and intervals",
+          "Limits for type-specific rooms and total rooms",
+        ],
+      },
+      {
+        description: "",
+        guidedDescription:
+          "The first enemy prototype, the 'Psycho', charges towards its target, randomly dodges incoming bullets while charging and leaps at the player when close enough.\n\nThe behavior might not sound overly complex, but it hides a lot of invisible work such as perception, aggro determination and out-of-bounds scenarios. With the game aiming for swarms of 50+ enemies, behavior like this quickly became overwhelming, and the prototype was scrapped in favor of simpler enemies.",
+        title: "Enemy Prototype: Psycho",
+        videoSrc: "https://www.youtube.com/embed/1tr-T9OX3h8",
+        bullets: [
+          "Charge, dodge and leap behavior",
+          "Random bullet dodging limited by dash charges",
+          "Scrapped in favor of swarm-friendly enemies",
+        ],
+      },
+      {
+        description: "",
+        guidedDescription:
+          "The final enemy archetypes: a ranged enemy that shoots, walks and idles in cycles, and a more aggressive melee enemy. In this video, we see how both handle vertical navigation, and how the ranged enemy uses teleportation to cover large height differences.\n\nThe teleport was a deliberate choice. Players tend to accept teleportation as an exception to the laws of physics, whereas a melee enemy jumping several meters would require much more animation work to sell.",
+        title: "Enemy Navigation & Teleportation",
+        videoSrc: "https://www.youtube.com/embed/xISRtkIx2ms",
+        bullets: [
+          "Melee enemy with limited vertical navigation",
+          "Ranged enemy with long-distance teleportation",
+          "Navigation differences through NavAreas, NavFilters and SmartNavLinkProxies",
+        ],
+      },
+    ],
+
+    technicalInsights: [
+      {
+        title: "Enemy State Trees",
+        description:
+          "Enemy behavior was built using State Trees, an increasingly popular Unreal Engine feature combining the explicit intention of a state machine with the utility-based decision-making of Behavior Trees.",
+        images: [
+          {
+            imageSrc: "/assets/gp3/enemies/Ranged_Final.png",
+            layout: "vertical",
+            description: "Final Ranged enemy state",
+          },
+          {
+            imageSrc: "/assets/gp3/enemies/Ranged_V2.png",
+            layout: "vertical",
+            description: "Ranged Enemy, Second Iteration",
+          },
+          {
+            imageSrc: "/assets/gp3/enemies/Ranged_V1.png",
+            layout: "vertical",
+            description: "Ranged Enemy, First Iteration",
+          },
+          {
+            imageSrc: "/assets/gp3/enemies/EvaluateTarget_Expanded.png",
+            layout: "vertical",
+            description: "EvaluateTarget state expanded",
+          },
+          {
+            imageSrc: "/assets/gp3/enemies/OnSpawn_Expanded.png",
+            layout: "vertical",
+            description: "OnSpawn state expanded",
+          },
+        ],
+        bullets: [
+          "Linked Assets for reusable behavior sections",
+          "Color-coded states by behavior intention",
+          "Integrated with room management, player caching and audio",
+        ],
+        thoughtProcess: [
+          {
+            title: "Working with a New Feature",
+            content:
+              "As we started the project on UE version 5.7, State Trees had seemingly started to gain more popularity, with many well received updates especially around 5.4. Because of that, we thought it would be interesting to explore its capabilities. Of course it was a bit daunting, but it was also very refreshing to explore a tool that maybe hadn't had time yet to fully become a staple tool. Looking back, I'm very happy we decided to use State Trees as I've very much enjoyed their capabilities in terms of organizing large behavior sets and debugging.",
+          },
+          {
+            title: "Scaling Down",
+            content:
+              "During development of the initial prototypes for the 'Psycho' and 'Carapace' enemies, it became clearer that their initially intended behavior was a bit overwhelming when featuring a large amount of enemies at the same time, which was a core design pillar - that the enemies should be swarming the players. The decision was made to drastically downscale the enemies' behavior complexity, which in my opinion was a fortunate decision.",
+          },
+          {
+            title: "Unseen Behavior",
+            content:
+              "Something I had personally underestimated was both the amount of impact the unseen details could have on certain core gameplay scenarios, and how much effort they would take to get good. I think enemies becoming utterly unable to decide who to consider their main target whilst being midway through a jump, resulting in regular near-crashes, and a looping state sequence with a sneaky enter condition, were the two bugs that consumed more brain cells than all the other bugs combined.",
+          },
+          {
+            title: "Navigation Differences",
+            content:
+              "To make enemy types move differently, I used NavAreas, NavFilters, SmartNavLinkProxies and differences in agent specs such as radius and step height. The melee enemy got limited vertical abilities, while the ranged enemy could teleport.",
+          },
+          {
+            title: "Geometry & Capabilities",
+            content:
+              "I would like to claim that our game had relatively complex level geometry. Lots of height variations, different sizes of nooks and crannies, slopes and steps. As one enemy type was considered smaller and with limited aerial capabilities, the combination of geometry, desired behavior and differing capabilities presented interesting and somewhat unexpected problems. One of them was the simple but very time consuming issue of manually placing all the proper NavLinks. I decided to try the experimental Navigation Link Generation feature. The feature was a lifesaver, but also felt like it was lacking stability and exposure of certain NavLink parameters you would feasibly like to have. Ever since, I've been keen to one day dig a little deeper and see if one can't make some improvements to the feature.",
+          },
+          {
+            title: "There's a lot of Blueprints?",
+            content:
+              "Something that felt a little odd to me was how rarely I left the blueprint part of development when working with State Trees. To me, the better the states became in their execution, the less the nodes became, and the readability often improved. And at the same time I started to feel less and less the need to refactor the blueprints to native C++. Given the amount of time I spent in the actual state tree editor just authoring the structure of the states, it felt less cumbersome to keep creation of assets and logic within the editor, rather than keeping a mixed workflow. But I thought it was a bit confounding. I couldn't really tell if it felt like designer or programmer territory. Maybe a bit of both. Regardless, it's a work process I very much enjoy.",
+          },
+        ],
+      },
+      {
+        title: "From Procedural Generation to Level Streaming",
+        description:
+          "The level generation went through several shapes and requirements before ultimately being scrapped due to a replication problem discovered the day before Alpha.",
+        images: [
+          {
+            imageSrc: "/assets/gp3/levelflow-design.png",
+            layout: "horizontal",
+            description: "Level Flow Design Document",
+          },
+        ],
+        bullets: [
+          "The base geometry evolved from Hexagons, to Squares, and finally to complete asymetry",
+          "Randomized level generartion became linear level flow with encounter, hallway, healing and boss rooms",
+          "Sublevel replication broke multiplayer",
+          "Pivot to manual level streaming",
+        ],
+        thoughtProcess: [
+          {
+            title: "Curated Generation",
+            content:
+              "The square-room version was designed around a document by our level designer, Trausti Gunnarsson. The first room after the start room was always an encounter, followed by either a hallway or an encounter until each had spawned twice, then a healing room and finally a boss room. Prototypes moved from blueprints to native code, but by then procedural generation was no longer part of the system.",
+          },
+          {
+            title: "Replication Problems",
+            content:
+              "The day before Alpha, we realized that actors within our procedurally generated sublevels weren't replicating as expected. Each client was loading its own server-determined sublevel, which somehow decoupled server-owned actors and systems, as if every client existed next to each other in their own sibling levels, all under the same parent root. I had during an unrelated bug hunt in the early days of the project read ominous tales on the forums describing this type of scenario, but by the time it would have been beneficial for me to remember, I had forgot to be afraid of it. We never gained a firm understanding of the underlying problem, and with the time we had left, we had to our by far biggest pivot, which was to scrap the procedural level generation completely.",
+          },
+          {
+            title: "The Pivot",
+            content:
+              "We scrapped weeks of programming and level design work and moved to level streaming volumes. We still wanted room-specific management to avoid loading everything at once, so the hallway rooms were re-purposed as streaming volumes, guaranteeing at most three loaded rooms at the same time. This was a personal disappointment, since I had spent weeks laying the foundation for the procedural system, but it was the right decision for the team and the project.",
+          },
+          {
+            title: "Level Workflow",
+            content:
+              "With the predetermined room sizes gone, new problems surfaced. I also found myself feeling more and more like a level design manager, which was never the intention, and thus wrote a level design workflow document to try and create a shared level of consistency for multiple people working on levels at the same time, while also using it as a way to decouple myself from level management decisions. That was always our level designer's job, which he did absolutely splendidly.",
+          },
+        ],
+      },
+      {
+        title: "RoomSubsystem",
+        description:
+          "A server-authoritative singleton handling encounter-type rooms, tying together level streaming, enemy spawning and puzzles.",
+        images: [
+          {
+            imageSrc: "/assets/gp3/roommanager/Room_Overview.png",
+            layout: "vertical",
+            description: "Room Manager Overview",
+          },
+          {
+            imageSrc: "/assets/gp3/roommanager/Room_PlayersAbsent.png",
+            layout: "vertical",
+            description: "Room Manager Player Absent",
+          },
+          {
+            imageSrc: "/assets/gp3/roommanager/Room_Teleport.png",
+            layout: "vertical",
+            description: "Room Manager Teleport",
+          },
+          {
+            imageSrc: "/assets/gp3/roommanager/EncounterObjective.png",
+            layout: "vertical",
+            description: "Room ManagerEncounter Objective",
+          },
+          {
+            imageSrc: "/assets/gp3/roommanager/ObjectiveStatus.png",
+            layout: "vertical",
+            description: "Room Manager Objective Status",
+          },
+        ],
+        bullets: [
+          "Encounter-based level progression",
+          "Player teleportation on encounter start",
+          "Player wins on encounter-puzzle completion",
+        ],
+        thoughtProcess: [
+          {
+            title: "Encounter Flow",
+            content:
+              "When an encounter objective is marked as started, the subsystem activates the enemy cave spawners, closes the room's entry points and teleports any players not currently inside the room, to the encounter. On puzzle completion, the room manager deactivates the enemy spawners and opens the exits to the next hallway room. It's also the glue between puzzle status polling and level management.",
+          },
+          {
+            title: "Encounter Flow",
+            content:
+              "When an encounter objective is marked as started, the subsystem activates the enemy cave spawners, closes the room's entry points and teleports any players not currently inside the room, to the encounter. On encounter-puzzle completion, the room manager deactivates the enemy spawners and opens the exits to the next hallway room. It's also the glue between puzzle status polling and internal level management.",
+          },
+          {
+            title: "Integration",
+            content:
+              "After the pivot, both the two puzzle systems and specifically the last boss were extended to fit together with the room subsystem, tracking puzzle statuses alongside encounter goals.",
+          },
+        ],
+      },
+    ],
+
+    overview: {
+      contributions: [
+        "Procedural level generation",
+        "State Tree enemy AI with type-specific navigation and aggro management",
+        "Server-authoritative RoomSubsystem for encounters, spawners and player teleportation",
+      ],
+      takeaways: [
+        "Test important multiplayer features thoroughly before building on top of it",
+        "State Trees are amazing",
+      ],
+    },
+    developmentDate: "Apr 2026 - Jun 2026",
+  },
+  {
     responsibilityText: "",
     preamble:
       "A rhythm-driven top-down bullet heaven inspired game where the music affects your playstyle. Weapon fire rate, camera effects and combat abilities are all synchronized to the beat of the selected track, and the player is rewarded for keeping the tempo.",
@@ -126,7 +401,7 @@ export const projects: Project[] = [
     slug: "upbeat",
     title: "UpBeat",
     description: "Rhythm shooter where the music drives the gameplay",
-    img: "/assets/General/image_coming_soon.png",
+    img: "/assets/General/image_coming_soon.png", // TODO
     imgAlt: "default alt image text",
     teamSize: 5,
     status: Status.Finished,
@@ -137,6 +412,10 @@ export const projects: Project[] = [
     links: [
       // TODO: add Itch / GitHub links
     ],
+    trailer: {
+      title: "Trailer",
+      videoSrc: "https://www.youtube.com/embed/v6_8EmfeR2s?si=x9tGuCC9vA-2Du-y",
+    },
     contentTitle: "Main Responsibilities",
     responsibilityContent: [
       {
@@ -159,7 +438,7 @@ export const projects: Project[] = [
       },
       {
         icon: PiSwordBold,
-        title: "Combat Polish & Bug Fixing.",
+        title: "Combat Polish.",
         description:
           "Implemented Camera Slam VFX & related SFX, invulnerability handling and genre-dependent 'Perfect Hit' projectiles.",
       },
@@ -1013,5 +1292,4 @@ Combined with an aggro detection system based on player proximity, enemies could
     },
     developmentDate: "June 2025 - Sep 2025",
   },
-
 ];
