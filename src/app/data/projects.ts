@@ -191,6 +191,19 @@ export const projects: Project[] = [
       {
         description: "",
         guidedDescription:
+          "With the pivot from procedurally generated levels we decided to instead do fewer levels but with more creativity and purpose for each room. Since each level would be relatively complex given the new design-schema, we deemed it necessary to use Level Streaming. Greater emphasis was now put on the robustness of the room subsystem, as it would be the glue for keeping all systems, encounters, players and triggers available and ready while not dragging down performance too much.",
+        title: "Pivot: Level Streaming Volumes",
+        videoSrc:
+          "https://www.youtube.com/embed/ZKMjjDdc__c?si=HlVDGQFs8SmHcM19",
+        bullets: [
+          "Pivot away from procedural generation",
+          "Linear level flow with greater per-level creativity",
+          "Greater emphasis on Room Subsystem to act as a common integration area",
+        ],
+      },
+      {
+        description: "",
+        guidedDescription:
           "The first enemy prototype, the 'Psycho', charges towards its target, randomly dodges incoming bullets while charging and leaps at the player when close enough.\n\nThe behavior might not sound overly complex, but it hides a lot of invisible work such as perception, aggro determination and out-of-bounds scenarios. With the game aiming for swarms of 50+ enemies, behavior like this quickly became overwhelming, and the prototype was scrapped in favor of simpler enemies.",
         title: "Enemy Prototype: Psycho",
         videoSrc: "https://www.youtube.com/embed/1tr-T9OX3h8",
@@ -203,13 +216,37 @@ export const projects: Project[] = [
       {
         description: "",
         guidedDescription:
-          "The final enemy archetypes: a ranged enemy that shoots, walks and idles in cycles, and a more aggressive melee enemy. In this video, we see how both handle vertical navigation, and how the ranged enemy uses teleportation to cover large height differences.\n\nThe teleport was a deliberate choice. Players tend to accept teleportation as an exception to the laws of physics, whereas a melee enemy jumping several meters would require much more animation work to sell.",
-        title: "Enemy Navigation & Teleportation",
-        videoSrc: "https://www.youtube.com/embed/xISRtkIx2ms",
+          "More updated versions of the 'Psycho' enemy featured no leap attack and no charge, but a random chance to be able to dodge a bullet once if the enemy was moving towards the player but not yet within attack range. It also featured a random chance to leap backwards after having performed an attack. The idea was to prevent the sensation of feeling overrun and overwhelmed by swarms of enemies by creating consistent but non-predictable gaps in the enemy attack patterns.",
+        title: "Psycho Updated",
+        videoSrc: "https://www.youtube.com/embed/xISRtkIx2ms", // TODO: Change to an actual video of updated psycho. This is just a placeholder.
         bullets: [
           "Melee enemy with limited vertical navigation",
-          "Ranged enemy with long-distance teleportation",
-          "Navigation differences through NavAreas, NavFilters and SmartNavLinkProxies",
+          "No charge, no leap, but maybe a dodge",
+          "Built-in anti-claustrophobia behavior mechanics",
+        ],
+      },
+      {
+        description: "",
+        guidedDescription:
+          "Our ranged enemy type, also dubbed \"Shooter\" (not without a story of it's own) underwent similar design simplifications for the sake of less overwhelming abilities when part of a swarm of enemies. Our 'Shooter' featured a dynamic but generally predictable movement pattern, alternating between shooting and re-thinking it's current position in case there's potential cover nearby. It also features a teleportation mechanic, which greatly differentiates it's traversal capabilities compared to 'Psycho'. ",
+        title: "Ranged Shooter Prototype",
+        videoSrc: "https://www.youtube.com/embed/xISRtkIx2ms", // TODO: Change to an actual video of the ranged shooter. This is just a placeholder.
+        bullets: [
+          "Ranged enemy with greater traversal capabilities, but a bad aim",
+          "Dynamic but generally predictable movement pattern",
+          "Greater sense of self preservation manifested using EQS for potential cover detection",
+        ],
+      },
+      {
+        description: "",
+        guidedDescription:
+          "I had the fortune to work together with our enemy designer on what I would consider The pièce de résistance in terms of our enemy implementation, which was the boss enemy. While our enemy designer did a lot of the original implementation, I assisted through guidance and workshops, and helped bring the final implementation together with refinements of pre-existing systems and abilities.",
+        title: "Boss",
+        videoSrc:
+          "https://www.youtube.com/embed/Sj3G0NCosnc?si=rOg1Hcvea6nweMFn",
+        bullets: [
+          "Assisted with development of final boss",
+          'Held workshops on State Tree "How To\'s" ',
         ],
       },
     ],
@@ -392,6 +429,7 @@ export const projects: Project[] = [
       ],
     },
     developmentDate: "Apr 2026 - Jun 2026",
+        gifMP4: "/assets/Videos/Fate GIF.mp4",
   },
   {
     responsibilityText: "",
@@ -590,6 +628,7 @@ Previously, any event related to SoundLink or BeatTimer also required a referenc
       ],
     },
     developmentDate: "Sep 2026 - Oct 2026",
+    gifMP4: "/assets/Videos/UpBeat GIF.mp4",
   },
   {
     responsibilityText: "",
