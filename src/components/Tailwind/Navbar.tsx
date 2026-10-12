@@ -48,7 +48,7 @@ export function Navbar({ navigation }: NavbarProps) {
         <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 gap-x-12 items-center">
 
           <a
-            href="/assets/CV/CV Game Programmer Teodor Fredriksson.pdf"
+            href="/assets/CV/TeodorFredriksson_CV.pdf"
             download
           >
 
@@ -107,7 +107,7 @@ export function Navbar({ navigation }: NavbarProps) {
               </div>
 
               <a
-                href="/assets/CV/CV Game Programmer Teodor Fredriksson.pdf"
+                href="/assets/CV/TeodorFredriksson_CV.pdf"
                 download
               >
                 <div className="flex flex-row rounded-md border bg-pink-600 w-50 mt-5 border-white/30 hover:cursor-pointer px-4 py-2 text-white font-semibold hover:bg-pink-500 transition">
