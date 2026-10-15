@@ -206,7 +206,7 @@ export const projects: Project[] = [
         guidedDescription:
           "The first enemy prototype, the 'Psycho', charges towards its target, randomly dodges incoming bullets while charging and leaps at the player when close enough.\n\nThe behavior might not sound overly complex, but it hides a lot of invisible work such as perception, aggro determination and out-of-bounds scenarios. With the game aiming for swarms of 50+ enemies, behavior like this quickly became overwhelming, and the prototype was scrapped in favor of simpler enemies.",
         title: "Enemy Prototype: Psycho",
-        videoSrc: "https://www.youtube.com/embed/1tr-T9OX3h8",
+        videoSrc: "https://www.youtube.com/embed/6OerBkdDTcc?si=PoU4BmIF6Dz_dpHH",
         bullets: [
           "Charge, dodge and leap behavior",
           "Random bullet dodging limited by dash charges",
@@ -218,7 +218,7 @@ export const projects: Project[] = [
         guidedDescription:
           "More updated versions of the 'Psycho' enemy featured no leap attack and no charge, but a random chance to be able to dodge a bullet once if the enemy was moving towards the player but not yet within attack range. It also featured a random chance to leap backwards after having performed an attack. The idea was to prevent the sensation of feeling overrun and overwhelmed by swarms of enemies by creating consistent but non-predictable gaps in the enemy attack patterns.",
         title: "Psycho Updated",
-        videoSrc: "https://www.youtube.com/embed/6OerBkdDTcc?si=PoU4BmIF6Dz_dpHH",
+        videoSrc: "https://www.youtube.com/embed/NisYk5N8jpE?si=dNM_k_6sHwAef5g7",
         bullets: [
           "Melee enemy with limited vertical navigation",
           "No charge, no leap, but maybe a dodge",
