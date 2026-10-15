@@ -367,27 +367,27 @@ export const projects: Project[] = [
           "A server-authoritative singleton handling encounter-type rooms, tying together level streaming, enemy spawning and puzzles.",
         images: [
           {
-            imageSrc: "/assets/gp3/roommanager/Room_Overview.png",
+            imageSrc: "/assets/GP3/roommanager/Room_Overview.png",
             layout: "vertical",
             description: "Room Manager Overview",
           },
           {
-            imageSrc: "/assets/gp3/roommanager/Room_PlayersAbsent.png",
+            imageSrc: "/assets/GP3/roommanager/Room_PlayersAbsent.png",
             layout: "vertical",
             description: "Room Manager Player Absent",
           },
           {
-            imageSrc: "/assets/gp3/roommanager/Room_Teleport.png",
+            imageSrc: "/assets/GP3/roommanager/Room_Teleport.png",
             layout: "vertical",
             description: "Room Manager Teleport",
           },
           {
-            imageSrc: "/assets/gp3/roommanager/EncounterObjective.png",
+            imageSrc: "/assets/GP3/roommanager/EncounterObjective.png",
             layout: "vertical",
             description: "Room ManagerEncounter Objective",
           },
           {
-            imageSrc: "/assets/gp3/roommanager/ObjectiveStatus.png",
+            imageSrc: "/assets/GP3/roommanager/ObjectiveStatus.png",
             layout: "vertical",
             description: "Room Manager Objective Status",
           },
