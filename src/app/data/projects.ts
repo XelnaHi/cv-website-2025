@@ -258,27 +258,27 @@ export const projects: Project[] = [
           "Enemy behavior was built using State Trees, an increasingly popular Unreal Engine feature combining the explicit intention of a state machine with the utility-based decision-making of Behavior Trees.",
         images: [
           {
-            imageSrc: "/assets/gp3/enemies/Ranged_Final.png",
+            imageSrc: "/assets/GP3/enemies/Ranged_Final.png",
             layout: "vertical",
             description: "Final Ranged enemy state",
           },
           {
-            imageSrc: "/assets/gp3/enemies/Ranged_V2.png",
+            imageSrc: "/assets/GP3/enemies/Ranged_V2.png",
             layout: "vertical",
             description: "Ranged Enemy, Second Iteration",
           },
           {
-            imageSrc: "/assets/gp3/enemies/Ranged_V1.png",
+            imageSrc: "/assets/GP3/enemies/Ranged_V1.png",
             layout: "vertical",
             description: "Ranged Enemy, First Iteration",
           },
           {
-            imageSrc: "/assets/gp3/enemies/EvaluateTarget_Expanded.png",
+            imageSrc: "/assets/GP3/enemies/EvaluateTarget_Expanded.png",
             layout: "vertical",
             description: "EvaluateTarget state expanded",
           },
           {
-            imageSrc: "/assets/gp3/enemies/OnSpawn_Expanded.png",
+            imageSrc: "/assets/GP3/enemies/OnSpawn_Expanded.png",
             layout: "vertical",
             description: "OnSpawn state expanded",
           },
