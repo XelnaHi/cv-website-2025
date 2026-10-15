@@ -218,7 +218,7 @@ export const projects: Project[] = [
         guidedDescription:
           "More updated versions of the 'Psycho' enemy featured no leap attack and no charge, but a random chance to be able to dodge a bullet once if the enemy was moving towards the player but not yet within attack range. It also featured a random chance to leap backwards after having performed an attack. The idea was to prevent the sensation of feeling overrun and overwhelmed by swarms of enemies by creating consistent but non-predictable gaps in the enemy attack patterns.",
         title: "Psycho Updated",
-        videoSrc: "https://www.youtube.com/embed/NisYk5N8jpE?si=GUz4hpsPGOd-P76h",
+        videoSrc: "https://www.youtube.com/embed/6OerBkdDTcc?si=PoU4BmIF6Dz_dpHH",
         bullets: [
           "Melee enemy with limited vertical navigation",
           "No charge, no leap, but maybe a dodge",
