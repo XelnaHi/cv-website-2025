@@ -218,7 +218,7 @@ export const projects: Project[] = [
         guidedDescription:
           "More updated versions of the 'Psycho' enemy featured no leap attack and no charge, but a random chance to be able to dodge a bullet once if the enemy was moving towards the player but not yet within attack range. It also featured a random chance to leap backwards after having performed an attack. The idea was to prevent the sensation of feeling overrun and overwhelmed by swarms of enemies by creating consistent but non-predictable gaps in the enemy attack patterns.",
         title: "Psycho Updated",
-        videoSrc: "https://www.youtube.com/embed/xISRtkIx2ms", // TODO: Change to an actual video of updated psycho. This is just a placeholder.
+        videoSrc: "https://www.youtube.com/embed/NisYk5N8jpE?si=GUz4hpsPGOd-P76h",
         bullets: [
           "Melee enemy with limited vertical navigation",
           "No charge, no leap, but maybe a dodge",
@@ -229,10 +229,10 @@ export const projects: Project[] = [
         description: "",
         guidedDescription:
           "Our ranged enemy type, also dubbed \"Shooter\" (not without a story of it's own) underwent similar design simplifications for the sake of less overwhelming abilities when part of a swarm of enemies. Our 'Shooter' featured a dynamic but generally predictable movement pattern, alternating between shooting and re-thinking it's current position in case there's potential cover nearby. It also features a teleportation mechanic, which greatly differentiates it's traversal capabilities compared to 'Psycho'. ",
-        title: "Ranged Shooter Prototype",
-        videoSrc: "https://www.youtube.com/embed/xISRtkIx2ms", // TODO: Change to an actual video of the ranged shooter. This is just a placeholder.
+        title: "Updated Ranged Shooter",
+        videoSrc: "https://www.youtube.com/embed/CnYhwwmg0gA?si=kFNaGdFKPuCiXXpb",
         bullets: [
-          "Ranged enemy with greater traversal capabilities, but a bad aim",
+          "Ranged enemy with greater vertical traversal capabilities, but a bad aim",
           "Dynamic but generally predictable movement pattern",
           "Greater sense of self preservation manifested using EQS for potential cover detection",
         ],
