@@ -486,7 +486,7 @@ export const projects: Project[] = [
       {
         description: "",
         guidedDescription:
-          "The core idea of the game is that the music is not just a soundtrack, but a gameplay system. In this video, the gun fires in rhythm with the selected audio track, with a camera punch landing on every 4th beat to sell the pulse.\n\nUsing various OnsetNRT analyzers was really cool, but one alone simply didn't feel capable of giving the right feel. One reason we pivotted more and more to systems closely confined to BPM, BPS and time between beats, was because we felt that the amount of audio analyzers that would be required, and tweaked in order for itS to sound just right, was going to be too time consuming. It's still something I'd like to experiment more with, however.",
+          "The core idea of the game is that the music is not just a soundtrack, but a gameplay system. In this video, the gun fires in rhythm with the selected audio track, with a camera punch landing on every 4th beat to sell the pulse.\n\nUsing various OnsetNRT analyzers was really cool, but one alone simply didn't feel capable of giving the right feel. One reason we pivotted more and more to systems closely confined to BPM, BPS and time between beats, was because we felt that the amount of audio analyzers that would be required, and tweaked, in order for it to sound just right, was going to be too time consuming. It's still something I'd like to experiment more with, however.",
         title: "Rhythm Fire Rate",
         videoSrc: "https://www.youtube.com/embed/bcP0Upju-sA",
         bullets: [
