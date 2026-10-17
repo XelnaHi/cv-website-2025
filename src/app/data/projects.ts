@@ -130,7 +130,7 @@ export const projects: Project[] = [
     imgAlt: "default alt image text",
     teamSize: 10,
     status: Status.Finished,
-    durationWeeks: 7, // TODO: set real duration
+    durationWeeks: 7,
     category: "games",
     engine: Engine.Unreal,
     fullImage: "/assets/GP3/Fate_Poster.jpg", // TODO
@@ -439,14 +439,14 @@ export const projects: Project[] = [
     slug: "upbeat",
     title: "UpBeat",
     description: "Rhythm shooter where the music drives the gameplay",
-    img: "/assets/General/image_coming_soon.png", // TODO
+    img: "/assets/GP4/UpBeat_A3_Poster.png",
     imgAlt: "default alt image text",
     teamSize: 5,
     status: Status.Finished,
     durationWeeks: 4,
     category: "games",
     engine: Engine.Unreal,
-    fullImage: "/assets/General/image_coming_soon.png", // TODO
+    fullImage: "/assets/GP4/UpBeat_A3_Poster.png",
     links: [
       // TODO: add Itch / GitHub links
     ],
