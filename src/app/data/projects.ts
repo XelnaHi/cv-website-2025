@@ -206,7 +206,7 @@ export const projects: Project[] = [
         guidedDescription:
           "The first enemy prototype, the 'Psycho', charges towards its target, randomly dodges incoming bullets while charging and leaps at the player when close enough.\n\nThe behavior might not sound overly complex, but it hides a lot of invisible work such as perception, aggro determination and out-of-bounds scenarios. With the game aiming for swarms of 50+ enemies, behavior like this quickly became overwhelming, and the prototype was scrapped in favor of simpler enemies.",
         title: "Enemy Prototype: Psycho",
-        videoSrc: "https://www.youtube.com/embed/1tr-T9OX3h8",
+        videoSrc: "https://www.youtube.com/embed/6OerBkdDTcc?si=PoU4BmIF6Dz_dpHH",
         bullets: [
           "Charge, dodge and leap behavior",
           "Random bullet dodging limited by dash charges",
@@ -218,7 +218,7 @@ export const projects: Project[] = [
         guidedDescription:
           "More updated versions of the 'Psycho' enemy featured no leap attack and no charge, but a random chance to be able to dodge a bullet once if the enemy was moving towards the player but not yet within attack range. It also featured a random chance to leap backwards after having performed an attack. The idea was to prevent the sensation of feeling overrun and overwhelmed by swarms of enemies by creating consistent but non-predictable gaps in the enemy attack patterns.",
         title: "Psycho Updated",
-        videoSrc: "https://www.youtube.com/embed/xISRtkIx2ms", // TODO: Change to an actual video of updated psycho. This is just a placeholder.
+        videoSrc: "https://www.youtube.com/embed/NisYk5N8jpE?si=dNM_k_6sHwAef5g7",
         bullets: [
           "Melee enemy with limited vertical navigation",
           "No charge, no leap, but maybe a dodge",
@@ -229,10 +229,10 @@ export const projects: Project[] = [
         description: "",
         guidedDescription:
           "Our ranged enemy type, also dubbed \"Shooter\" (not without a story of it's own) underwent similar design simplifications for the sake of less overwhelming abilities when part of a swarm of enemies. Our 'Shooter' featured a dynamic but generally predictable movement pattern, alternating between shooting and re-thinking it's current position in case there's potential cover nearby. It also features a teleportation mechanic, which greatly differentiates it's traversal capabilities compared to 'Psycho'. ",
-        title: "Ranged Shooter Prototype",
-        videoSrc: "https://www.youtube.com/embed/xISRtkIx2ms", // TODO: Change to an actual video of the ranged shooter. This is just a placeholder.
+        title: "Updated Ranged Shooter",
+        videoSrc: "https://www.youtube.com/embed/CnYhwwmg0gA?si=kFNaGdFKPuCiXXpb",
         bullets: [
-          "Ranged enemy with greater traversal capabilities, but a bad aim",
+          "Ranged enemy with greater vertical traversal capabilities, but a bad aim",
           "Dynamic but generally predictable movement pattern",
           "Greater sense of self preservation manifested using EQS for potential cover detection",
         ],
@@ -258,27 +258,27 @@ export const projects: Project[] = [
           "Enemy behavior was built using State Trees, an increasingly popular Unreal Engine feature combining the explicit intention of a state machine with the utility-based decision-making of Behavior Trees.",
         images: [
           {
-            imageSrc: "/assets/gp3/enemies/Ranged_Final.png",
+            imageSrc: "/assets/GP3/enemies/Ranged_Final.png",
             layout: "vertical",
             description: "Final Ranged enemy state",
           },
           {
-            imageSrc: "/assets/gp3/enemies/Ranged_V2.png",
+            imageSrc: "/assets/GP3/enemies/Ranged_V2.png",
             layout: "vertical",
             description: "Ranged Enemy, Second Iteration",
           },
           {
-            imageSrc: "/assets/gp3/enemies/Ranged_V1.png",
+            imageSrc: "/assets/GP3/enemies/Ranged_V1.png",
             layout: "vertical",
             description: "Ranged Enemy, First Iteration",
           },
           {
-            imageSrc: "/assets/gp3/enemies/EvaluateTarget_Expanded.png",
+            imageSrc: "/assets/GP3/enemies/EvaluateTarget_Expanded.png",
             layout: "vertical",
             description: "EvaluateTarget state expanded",
           },
           {
-            imageSrc: "/assets/gp3/enemies/OnSpawn_Expanded.png",
+            imageSrc: "/assets/GP3/enemies/OnSpawn_Expanded.png",
             layout: "vertical",
             description: "OnSpawn state expanded",
           },
@@ -367,27 +367,27 @@ export const projects: Project[] = [
           "A server-authoritative singleton handling encounter-type rooms, tying together level streaming, enemy spawning and puzzles.",
         images: [
           {
-            imageSrc: "/assets/gp3/roommanager/Room_Overview.png",
+            imageSrc: "/assets/GP3/roommanager/Room_Overview.png",
             layout: "vertical",
             description: "Room Manager Overview",
           },
           {
-            imageSrc: "/assets/gp3/roommanager/Room_PlayersAbsent.png",
+            imageSrc: "/assets/GP3/roommanager/Room_PlayersAbsent.png",
             layout: "vertical",
             description: "Room Manager Player Absent",
           },
           {
-            imageSrc: "/assets/gp3/roommanager/Room_Teleport.png",
+            imageSrc: "/assets/GP3/roommanager/Room_Teleport.png",
             layout: "vertical",
             description: "Room Manager Teleport",
           },
           {
-            imageSrc: "/assets/gp3/roommanager/EncounterObjective.png",
+            imageSrc: "/assets/GP3/roommanager/EncounterObjective.png",
             layout: "vertical",
             description: "Room ManagerEncounter Objective",
           },
           {
-            imageSrc: "/assets/gp3/roommanager/ObjectiveStatus.png",
+            imageSrc: "/assets/GP3/roommanager/ObjectiveStatus.png",
             layout: "vertical",
             description: "Room Manager Objective Status",
           },
