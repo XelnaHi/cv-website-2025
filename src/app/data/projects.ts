@@ -420,7 +420,7 @@ export const projects: Project[] = [
     overview: {
       contributions: [
         "Procedural level generation",
-        "State Tree AI with, custom navigation",
+        "State Tree AI with custom navigation",
       ],
       takeaways: [
         "Thoroughly test multiplayer pipelines",
