@@ -18,7 +18,7 @@ export function ProjectOverviewCard({ project, fromPage, showAward = true, fullW
     return (
         <Link
             href={`/projects/${project.category}/${project.slug}?from=${fromPage}`}
-            className={`group block m-auto mb-5 ${fullWidth ? 'w-full' : 'sm:w-full xl:w-[60%]'}`}
+            className={`group block mb-5 ${fullWidth ? 'w-full' : 'sm:w-full xl:w-[60%] md:m-auto md:mb-5'}`}
         >
             <div className="relative flex flex-col sm:flex-row mx-auto rounded-xl ring-1 ring-white/10 bg-gray-800 hover:bg-[#242e3d] hover:ring-pink-500/40 transition-colors duration-300">
                 {project.award && showAward && (

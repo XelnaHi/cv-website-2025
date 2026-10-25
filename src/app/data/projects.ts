@@ -420,12 +420,11 @@ export const projects: Project[] = [
     overview: {
       contributions: [
         "Procedural level generation",
-        "State Tree enemy AI with type-specific navigation and aggro management",
-        "Server-authoritative RoomSubsystem for encounters, spawners and player teleportation",
+        "State Tree AI with, custom navigation",
       ],
       takeaways: [
-        "Test important multiplayer features thoroughly before building on top of it",
-        "State Trees are amazing",
+        "Thoroughly test multiplayer pipelines",
+        "State Trees and the Rewind Debugger are amazing",
       ],
     },
     developmentDate: "Apr 2026 - Jun 2026",
@@ -618,9 +617,9 @@ Previously, any event related to SoundLink or BeatTimer also required a referenc
 
     overview: {
       contributions: [
-        "Beat-synced interactable HUD, fire rate and song switching",
-        "Slam mechanic and genre-based Perfect Hit projectiles",
-        "HUD, shaders and SFX for rhythm feedback, speedlines and on-damage flashes",
+        "Audio-synced gameplay mechanics",
+        "Gameplay Shaders",
+        "HUD",
       ],
       takeaways: [
         "Refactoring for maintainability feels like a luxury",
@@ -842,13 +841,13 @@ Previously, any event related to SoundLink or BeatTimer also required a referenc
     ],
     overview: {
       contributions: [
-        "FSM behavior including boss phases and event-driven decision making",
-        "Zone/trigger-based audio cues and integration between the in-game meta systems",
-        "Editor tools for Player teleport and wireframe visuals for enemy aggro/attack range",
+        "AI using Finite State Machines",
+        "Integration of meta-game systems",
+        "Debug tools for player and enemies",
       ],
       takeaways: [
-        "Rapid prototyping quickly becomes a maintenance mess without proper structural guidelines",
-        "Systems packaged as prefabs save a lot of development time",
+        "Prototyping without cleanup becomes a mess",
+        "Systems as Prefabs save a lot of development time",
       ],
     },
     developmentDate: "Jan 2026 - Feb 2026",
@@ -1068,7 +1067,8 @@ Combined with an aggro detection system based on player proximity, enemies could
     ],
     overview: {
       contributions: [
-        "Behavior through FSM, navigation and enemy abilities adjustable via Scriptable Objects",
+        "AI using Finite State Machines",
+        "Scriptable Objects-based Abilities",
         "Aim assist, breadcrumb trails and tutorial HUD",
         "Loot chests and weapon pick-ups",
       ],
